@@ -1,0 +1,2 @@
+Debug: (2.599999999997E-5) - (usage: 9697760) - (peak: 9728224)
+ERROR DETECTED: Class 'ADODB2_' not found at E:\WEB\CMS\simple\lib\adodb_lite\adodb.inc.php:164
