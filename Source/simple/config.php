@@ -9,7 +9,7 @@ $config['db_password'] = 'root';
 $config['db_name'] = 'cms';
 $config['db_prefix'] = 'cms_';
 $config['db_port'] = 0;
-$config['root_url'] = 'http://localhost:8888/cms/simple';
+$config['root_url'] = 'http://localhost:8888/CMSDepdagri/Source/simple';
 $config['timezone'] = 'UTC';
 $config['default_encoding'] = 'utf-8';
 ?>
