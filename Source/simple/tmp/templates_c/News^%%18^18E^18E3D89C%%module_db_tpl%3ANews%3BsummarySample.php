@@ -1,17 +1,17 @@
-<?php /* Smarty version 2.6.26, created on 2011-11-09 13:52:54
+<?php /* Smarty version 2.6.26, created on 2011-11-13 17:12:23
          compiled from module_db_tpl:News%3BsummarySample */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'module_db_tpl:News;summarySample', 6, false),array('function', 'eval', 'module_db_tpl:News;summarySample', 62, false),array('modifier', 'cms_date_format', 'module_db_tpl:News;summarySample', 42, false),array('modifier', 'cms_escape', 'module_db_tpl:News;summarySample', 47, false),)), $this); ?>
-<?php $this->_cache_serials['E:\WEB\CMSDepdagri\Source\simple\tmp\templates_c\News^%%18^18E^18E3D89C%%module_db_tpl%3ANews%3BsummarySample.inc'] = '905e6d377661818a7e59f2af31fb39c8'; ?><!-- Start News Display Template -->
+<?php $this->_cache_serials['E:\WEB\CMSDepdagri\Source\simple\tmp\templates_c\News^%%18^18E^18E3D89C%%module_db_tpl%3ANews%3BsummarySample.inc'] = '4d143a4ce43f2f33fc71a3d8448cc9d4'; ?><!-- Start News Display Template -->
 <ul class="list1">
 <?php $_from = $this->_tpl_vars['cats']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['node']):
 ?>
 <?php if ($this->_tpl_vars['node']['depth'] > $this->_tpl_vars['node']['prevdepth']): ?>
-<?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#0}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','0');echo smarty_cms_function_repeat(array('string' => "<ul>",'times' => $this->_tpl_vars['node']['depth']-$this->_tpl_vars['node']['prevdepth']), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#0}'; endif;?>
+<?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#0}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','0');echo smarty_cms_function_repeat(array('string' => "<ul>",'times' => $this->_tpl_vars['node']['depth']-$this->_tpl_vars['node']['prevdepth']), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#0}'; endif;?>
 
 <?php elseif ($this->_tpl_vars['node']['depth'] < $this->_tpl_vars['node']['prevdepth']): ?>
-<?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#1}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','1');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']['prevdepth']-$this->_tpl_vars['node']['depth']), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#1}'; endif;?>
+<?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#1}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','1');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']['prevdepth']-$this->_tpl_vars['node']['depth']), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#1}'; endif;?>
 
 </li>
 <?php elseif ($this->_tpl_vars['node']['index'] > 0): ?></li>
@@ -23,7 +23,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'm
 </a><?php else: ?><span><?php echo $this->_tpl_vars['node']['news_category_name']; ?>
  </span><?php endif; ?>
 <?php endforeach; endif; unset($_from); ?>
-<?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#2}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','2');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']['depth']-1), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#2}'; endif;?>
+<?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#2}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','2');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']['depth']-1), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#2}'; endif;?>
 </li>
 </ul>
 
@@ -87,7 +87,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'm
 
 <?php if ($this->_tpl_vars['entry']->summary): ?>
 	<div class="NewsSummarySummary">
-		<?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#3}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','3');echo smarty_function_eval(array('var' => $this->_tpl_vars['entry']->summary), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#3}'; endif;?>
+		<?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#3}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','3');echo smarty_function_eval(array('var' => $this->_tpl_vars['entry']->summary), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#3}'; endif;?>
 
 	</div>
 
@@ -99,14 +99,14 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'm
 <?php else: ?>
 
 	<div class="NewsSummaryContent">
-		<?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#4}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','4');echo smarty_function_eval(array('var' => $this->_tpl_vars['entry']->content), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#4}'; endif;?>
+		<?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#4}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','4');echo smarty_function_eval(array('var' => $this->_tpl_vars['entry']->content), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#4}'; endif;?>
 
 	</div>
 <?php endif; ?>
 
 <?php if (isset ( $this->_tpl_vars['entry']->extra )): ?>
     <div class="NewsSummaryExtra">
-        <?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#5}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','5');echo smarty_function_eval(array('var' => $this->_tpl_vars['entry']->extra), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#5}'; endif;?>
+        <?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#5}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','5');echo smarty_function_eval(array('var' => $this->_tpl_vars['entry']->extra), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#5}'; endif;?>
 
 	    </div>
 <?php endif; ?>
@@ -121,7 +121,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'm
 "/>
         <?php else: ?>
           <?php echo $this->_tpl_vars['field']->name; ?>
-:&nbsp;<?php if ($this->caching && !$this->_cache_including): echo '{nocache:905e6d377661818a7e59f2af31fb39c8#6}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('905e6d377661818a7e59f2af31fb39c8','6');echo smarty_function_eval(array('var' => $this->_tpl_vars['field']->value), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:905e6d377661818a7e59f2af31fb39c8#6}'; endif;?>
+:&nbsp;<?php if ($this->caching && !$this->_cache_including): echo '{nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#6}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('4d143a4ce43f2f33fc71a3d8448cc9d4','6');echo smarty_function_eval(array('var' => $this->_tpl_vars['field']->value), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:4d143a4ce43f2f33fc71a3d8448cc9d4#6}'; endif;?>
 
         <?php endif; ?>
      </div>

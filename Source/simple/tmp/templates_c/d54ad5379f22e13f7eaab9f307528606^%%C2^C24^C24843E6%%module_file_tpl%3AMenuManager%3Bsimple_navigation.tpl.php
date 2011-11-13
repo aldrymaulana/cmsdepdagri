@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.26, created on 2011-11-09 13:52:55
+<?php /* Smarty version 2.6.26, created on 2011-11-13 17:12:24
          compiled from module_file_tpl:MenuManager%3Bsimple_navigation.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'module_file_tpl:MenuManager;simple_navigation.tpl', 17, false),array('modifier', 'cat', 'module_file_tpl:MenuManager;simple_navigation.tpl', 30, false),)), $this); ?>
-<?php $this->_cache_serials['E:\WEB\CMSDepdagri\Source\simple\tmp\templates_c\d54ad5379f22e13f7eaab9f307528606^%%C2^C24^C24843E6%%module_file_tpl%3AMenuManager%3Bsimple_navigation.tpl.inc'] = '7816bb6bb7acacc6b42cf66ab5fc6e7f'; ?> 
+<?php $this->_cache_serials['E:\WEB\CMSDepdagri\Source\simple\tmp\templates_c\d54ad5379f22e13f7eaab9f307528606^%%C2^C24^C24843E6%%module_file_tpl%3AMenuManager%3Bsimple_navigation.tpl.inc'] = 'a60525bcba8311f3692beb9f249bd071'; ?> 
 
 <?php $this->assign('number_of_levels', 10000); ?>
 <?php if (isset ( $this->_tpl_vars['menuparams']['number_of_levels'] )): ?>
@@ -15,10 +15,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'm
     foreach ($_from as $this->_tpl_vars['node']):
 ?>
 <?php if ($this->_tpl_vars['node']->depth > $this->_tpl_vars['node']->prevdepth): ?>
-<?php if ($this->caching && !$this->_cache_including): echo '{nocache:7816bb6bb7acacc6b42cf66ab5fc6e7f#0}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('7816bb6bb7acacc6b42cf66ab5fc6e7f','0');echo smarty_cms_function_repeat(array('string' => "<ul>",'times' => $this->_tpl_vars['node']->depth-$this->_tpl_vars['node']->prevdepth), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:7816bb6bb7acacc6b42cf66ab5fc6e7f#0}'; endif;?>
+<?php if ($this->caching && !$this->_cache_including): echo '{nocache:a60525bcba8311f3692beb9f249bd071#0}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('a60525bcba8311f3692beb9f249bd071','0');echo smarty_cms_function_repeat(array('string' => "<ul>",'times' => $this->_tpl_vars['node']->depth-$this->_tpl_vars['node']->prevdepth), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:a60525bcba8311f3692beb9f249bd071#0}'; endif;?>
 
 <?php elseif ($this->_tpl_vars['node']->depth < $this->_tpl_vars['node']->prevdepth): ?>
-<?php if ($this->caching && !$this->_cache_including): echo '{nocache:7816bb6bb7acacc6b42cf66ab5fc6e7f#1}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('7816bb6bb7acacc6b42cf66ab5fc6e7f','1');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']->prevdepth-$this->_tpl_vars['node']->depth), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:7816bb6bb7acacc6b42cf66ab5fc6e7f#1}'; endif;?>
+<?php if ($this->caching && !$this->_cache_including): echo '{nocache:a60525bcba8311f3692beb9f249bd071#1}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('a60525bcba8311f3692beb9f249bd071','1');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']->prevdepth-$this->_tpl_vars['node']->depth), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:a60525bcba8311f3692beb9f249bd071#1}'; endif;?>
 
 </li>
 <?php elseif ($this->_tpl_vars['node']->index > 0): ?></li>
@@ -62,7 +62,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'repeat', 'm
 <?php endif; ?>
 
 <?php endforeach; endif; unset($_from); ?>
-<?php if ($this->caching && !$this->_cache_including): echo '{nocache:7816bb6bb7acacc6b42cf66ab5fc6e7f#2}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('7816bb6bb7acacc6b42cf66ab5fc6e7f','2');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']->depth-1), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:7816bb6bb7acacc6b42cf66ab5fc6e7f#2}'; endif;?>
+<?php if ($this->caching && !$this->_cache_including): echo '{nocache:a60525bcba8311f3692beb9f249bd071#2}'; endif;$_cache_attrs =& $this->_smarty_cache_attrs('a60525bcba8311f3692beb9f249bd071','2');echo smarty_cms_function_repeat(array('string' => "</li></ul>",'times' => $this->_tpl_vars['node']->depth-1), $this);if ($this->caching && !$this->_cache_including): echo '{/nocache:a60525bcba8311f3692beb9f249bd071#2}'; endif;?>
 </li>
 </ul>
 <?php endif; ?>
