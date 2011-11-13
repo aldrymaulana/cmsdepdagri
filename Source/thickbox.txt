@@ -1,0 +1,5 @@
+{literal}
+<link href="uploads/popup/css/thickbox.css" rel="stylesheet" type="text/css" display="screen" />
+<script type="text/javascript" src="uploads/popup/js/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="uploads/popup/js/thickbox.js"></script>
+{/literal}
