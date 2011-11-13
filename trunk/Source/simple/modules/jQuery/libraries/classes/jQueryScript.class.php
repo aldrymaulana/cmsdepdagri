@@ -6,7 +6,7 @@
 	 * Under GPL Licence
 	 */
 	
-	class jQueryScript extends CmsObject
+	class jQueryScript //extends CmsObject
 	{
 		protected $id;
 		protected $position;

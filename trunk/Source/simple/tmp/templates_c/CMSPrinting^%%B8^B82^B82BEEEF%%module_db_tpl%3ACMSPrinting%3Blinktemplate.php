@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2011-11-09 13:52:55
+<?php /* Smarty version 2.6.26, created on 2011-11-13 17:12:24
          compiled from module_db_tpl:CMSPrinting%3Blinktemplate */ ?>
 <?php if (isset ( $this->_tpl_vars['imgsrc'] )): ?>
 <?php ob_start(); ?>

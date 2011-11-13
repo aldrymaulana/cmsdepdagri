@@ -6,7 +6,7 @@
 	 * Under GPL Licence
 	 */
 	
-	class jQueryBase extends CmsObject
+	class jQueryBase //extends CmsObject
 	{
 		
 		public static function getJavascriptTag($url=null,$content=null)

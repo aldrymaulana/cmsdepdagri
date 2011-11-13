@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2011-11-13 07:45:06
+<?php /* Smarty version 2.6.26, created on 2011-11-13 17:15:25
          compiled from module_file_tpl:MicroTiny%3Bfilepicker.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

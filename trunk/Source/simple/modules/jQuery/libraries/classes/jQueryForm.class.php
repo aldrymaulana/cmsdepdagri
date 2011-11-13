@@ -10,7 +10,7 @@
 	
 	*/
 
-class jQueryForm	extends	CmsObject
+class jQueryForm	//extends	CmsObject
 {
 	protected $module_name;
 	protected $id; // The form ID
@@ -277,7 +277,7 @@ class jQueryForm	extends	CmsObject
 	}
 }
 
-class jQueryWidget	extends CmsObject
+class jQueryWidget	//extends CmsObject
 {
 	protected $id; // The form ID
 	protected $module_name;

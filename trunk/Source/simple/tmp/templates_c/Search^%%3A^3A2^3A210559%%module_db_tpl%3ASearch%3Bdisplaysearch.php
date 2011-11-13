@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2011-11-09 13:52:54
+<?php /* Smarty version 2.6.26, created on 2011-11-13 17:12:23
          compiled from module_db_tpl:Search%3Bdisplaysearch */ ?>
 
 <?php echo $this->_tpl_vars['startform']; ?>

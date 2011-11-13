@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2011-11-13 07:56:07
+<?php /* Smarty version 2.6.26, created on 2011-11-13 17:21:11
          compiled from module_file_tpl:MicroTiny%3Bmicrotinyconfig.tpl */ ?>
 <?php echo ' tinyMCE.init({ '; ?>
 
