@@ -1,0 +1,5 @@
+# grant access to certain files only: 
+<Files ~ "\.(ico|css|js|gif|jpe?g|png|json|jsp)$">
+order allow,deny 
+allow from all
+</Files>

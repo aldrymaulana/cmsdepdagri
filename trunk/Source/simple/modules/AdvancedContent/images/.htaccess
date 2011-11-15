@@ -1,0 +1,4 @@
+<Files ~ "\.(gif|jpe?g|png)$">
+  order allow,deny
+  allow from all
+</Files>
