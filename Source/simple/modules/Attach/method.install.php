@@ -2,7 +2,7 @@
 if(!isset($gCms)) exit;
 
 // Typical Database Initialization
-$db = &$this->cms->db;
+$db =& $this->GetDb();
 $dict = NewDataDictionary($db);
 		
 // mysql-specific, but ignored by other database

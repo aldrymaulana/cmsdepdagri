@@ -62,7 +62,7 @@ class Attach extends CMSModule
 	  ---------------------------------------------------------*/
 	function GetVersion()
 	{
-		return "0.7.2";
+		return "0.7.2.1";
 	}
 
 
