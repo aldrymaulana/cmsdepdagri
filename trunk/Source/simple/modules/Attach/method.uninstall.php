@@ -15,11 +15,12 @@ $db->DropSequence(cms_db_prefix()."module_attach_restypes_seq");
 	
 $this->DeleteTemplate("",$this->GetName());
 
+$this->RemovePreference();
+
 // permissions
-	$this->RemovePermission("attach_use");
-	$this->RemovePermission("attach_admin");
+$this->RemovePermission("attach_use");
+$this->RemovePermission("attach_admin");
 
 // put mention into the admin log
-	$this->Audit( 0, $this->Lang("friendlyname"), $this->Lang("uninstalled"));
+$this->Audit( 0, $this->Lang("friendlyname"), $this->Lang("uninstalled"));
 
-?>
