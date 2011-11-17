@@ -45,7 +45,13 @@
 
 {if ($node->type != 'sectionheader' and $node->type != 'separator') or $node->parent == true or $node->current == true }
  {if $node->target}target="{$node->target}" {/if}
-href="{$node->url}"><span>{$node->menutext}</span></a>
+
+ {if $node->menutext == 'Home'}
+	href="{$node->url}"><span><img src="uploads/images/homeicon.png"</span></a>
+{else}
+	href="{$node->url}"><span>{$node->menutext}</span></a>
+{/if}
+
 {/if}
 {/foreach}
 {repeat string='</li></ul>' times=$node->depth-1}
