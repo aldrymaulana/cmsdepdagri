@@ -99,20 +99,33 @@ else
   {
     $smarty->assign('prompt_username', $this->Lang('prompt_username'));
   }
+/*
 $smarty->assign('input_username', 
 		$this->CreateInputText( $id, 'feu_input_username',
 					$username,
 					$this->GetPreference('usernamefldlength'),
 					$this->GetPreference('max_usernamelength')));
+*/
+
+$smarty->assign('input_username', 
+		$this->CreateInputText( $id, 'feu_input_username',
+					$username));
 
 $smarty->assign('input_label', $id );
 $smarty->assign('id_password',$id.'feu_input_password');
 $smarty->assign('prompt_password', $this->Lang('prompt_password'));
+
+/*
 $smarty->assign('input_password',
 		      $this->CreateInputPassword($id, 'feu_input_password',
 						 $password, 
 						 $this->GetPreference('passwordfldlength'), 
 						 $this->GetPreference('max_passwordlength')));
+*/
+
+$smarty->assign('input_password',
+		      $this->CreateInputPassword($id, 'feu_input_password',
+						 $password));
 
 $smarty->assign('prompt_rememberme',$this->Lang('prompt_rememberme'));
 $smarty->assign('id_rememberme',$id.'feu_rememberme');
