@@ -553,9 +553,13 @@ $smarty->assign('formstart',$this->CGCreateFormStart($id,'default',$returnid,$pa
 $smarty->assign('formend',$this->CreateFormEnd());
 $smarty->assign('rating_options',$rating_options);
 $wysiwyg = $this->GetPreference('allow_comment_wysiwyg',0);
+
+//$smarty->assign('input_comment',
+//		$this->CreateTextArea($wysiwyg ? true : false,
+//				      $id,$comment->data,'comment'));
+
 $smarty->assign('input_comment',
-		$this->CreateTextArea($wysiwyg ? true : false,
-				      $id,$comment->data,'comment'));
+		$this->CreateTextArea($$wysiwyg ? true : false, $id, $comment->data, 'comment', '', '', '', '', '40', '15','','',''));
 
 $modname = $this->GetPreference('captcha_module','-1');
 if( $modname != -1 )
