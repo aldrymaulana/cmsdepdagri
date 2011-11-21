@@ -22,7 +22,7 @@
 				secureuri:false,
 				fileElementId:'fileToUpload',
 				dataType: 'json',
-				data:{name:'logan', id:'id'},
+				data:{name:'dookie', id:'id'},
 				success: function (data, status)
 				{
 					if(typeof(data.error) != 'undefined')

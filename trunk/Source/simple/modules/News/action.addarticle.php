@@ -330,8 +330,8 @@ $smarty->assign('startform', $this->CreateFormStart($id, 'addarticle', $returnid
 	$smarty->assign('endform', $this->CreateFormEnd());
 	$smarty->assign('titletext', $this->Lang('title'));
 	$smarty->assign('inputtitle', $this->CreateInputText($id, 'title', $title, 30, 255));
-	$smarty->assign('inputcontent', $this->CreateTextArea(true, $id, $content, 'content'));
-$smarty->assign('inputsummary', $this->CreateTextArea($this->GetPreference('allow_summary_wysiwyg',1), $id, $summary, 'summary', '', '', '', '', '80', '3'));
+	$smarty->assign('inputcontent', $this->CreateTextArea(true, $id, $content, 'content','','','','','40','3'));
+$smarty->assign('inputsummary', $this->CreateTextArea($this->GetPreference('allow_summary_wysiwyg',1), $id, $summary, 'summary', '', '', '', '', '40', '3'));
 
 $smarty->assign('extratext',$this->Lang('extra'));
 $smarty->assign('inputextra',$this->CreateInputText($id,'extra',$extra,30,255));
