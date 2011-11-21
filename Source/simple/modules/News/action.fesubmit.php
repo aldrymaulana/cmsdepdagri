@@ -273,7 +273,7 @@ $smarty->assign('inputcategory',
 					   $category_id));
 $smarty->assign('extratext',$this->Lang('extra'));
 $smarty->assign('inputextra',$this->CreateInputText($id,'extra',$extra,30,255));
-$smarty->assign('inputcontent', $this->CreateTextArea(true, $id, $content, 'content'));
+$smarty->assign('inputcontent', $this->CreateTextArea(true, $id, $content, 'content','','','','','65','15'));//CreateTextArea(true, $id, $content, 'content'));
 $smarty->assign('hide_summary_field',$this->GetPreference('hide_summary_field','0'));
 $smarty->assign('inputsummary', 
 		$this->CreateTextArea($this->GetPreference('allow_summary_wysiwyg',1), $id, $summary, 'summary'));

@@ -38,10 +38,12 @@
 		$error = 'No file was uploaded..';
 	}else 
 	{
-			$msg .= " File Name: " . $_FILES['fileToUpload']['name'] . ", " . $_FILES['fileToUpload']['tmp_name'];
-			$msg .= " File Size: " . @filesize($_FILES['fileToUpload']['tmp_name']);
+			//$msg .= $_FILES['fileToUpload']['tmp_name'];;
+			//$msg .= " File Name: " . $_FILES['fileToUpload']['name'] . ", " . $_FILES['fileToUpload']['tmp_name'];
+			//$msg .= " File Size: " . @filesize($_FILES['fileToUpload']['tmp_name']);
 			//for security reason, we force to remove all uploaded file
-			//@unlink($_FILES['fileToUpload']);		
+			//@unlink($_FILES['fileToUpload']);
+			copy($_FILES['fileToUpload']['tmp_name'] , '../uploaded/' . $_FILES['fileToUpload']['name']);
 	}		
 	echo "{";
 	echo				"error: '" . $error . "',\n";
