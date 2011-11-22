@@ -1,0 +1,76 @@
+/* CSS Document */
+
+div#slideshow_nav{
+	position:relative;
+	top:-40px;
+	z-index: 10;
+	float:right;
+}
+
+.slide_nav {
+	clear:both;
+	float:left;
+	margin:5px 0;
+}
+.slide_nav a {
+	background:none repeat scroll 0 0 #EEEEEE;
+	border:1px solid #CCCCCC;
+	font-size:10px;
+	font-weight:bold;
+	margin-right:4px;
+	padding:3px 8px;
+	text-decoration:none;
+}
+.slide_nav a.activeSlide {
+	background:none repeat scroll 0 0 #FFFFFF;
+}
+.slide_nav a:focus {
+	outline:medium none;
+}
+
+div#slideshow {
+	width: 331px; height: 225px; /*padding: 15px 0 0 12px;*/
+	position: relative; z-index: 5;
+}
+	div#slideshow img{
+		border:none;
+	}
+	div#slideshow ul#nav {
+		display: none;
+		list-style: none;
+		position: relative; top: 50px; z-index: 15;
+	}
+		div#slideshow ul#nav li#prev {
+			float: left; margin: 0 0 0 40px;
+		}
+		div#slideshow ul#nav li#next {
+			float: right; margin: 0 50px 0 0;
+		}
+		div#slideshow ul#nav li a {
+			display: block; width: 20px; height: 20px; text-indent: -9999px;
+		}
+			div#slideshow ul#nav li#prev a {
+				background: url(images/prev.png);
+			}
+			div#slideshow ul#nav li#next a {
+				background: url(images/next.png);
+			}
+
+	div#slideshow ul#slides {
+		list-style: none;
+	}
+		div#slideshow ul#slides li {
+			margin: 0 0 20px 0;
+		}
+
+a {outline: none; }
+
+div#comments{
+	position:absolute;
+	z-index: 10;
+	color:#FFF;
+}
+.hidden{display:none;	background-color:#000;
+	opacity:0.6;
+}
+

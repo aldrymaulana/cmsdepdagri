@@ -1,0 +1,78 @@
+
+					div#slideshow_nav_1{
+						position:absolute;
+						z-index: 10;
+						bottom:0;
+						right:0;
+						padding:5px;
+					}
+					.slide_nav_1 {
+						clear:both;
+						margin:5px 0;
+					}
+					.slide_nav_1 a {
+						background:none repeat scroll 0 0 #EEEEEE;
+						border:1px solid #CCCCCC;
+						color:#333333!important;
+						font-size:10px;
+						font-weight:bold;
+						margin:2px;
+						padding:5px 8px;
+						line-height:20px;
+						text-decoration:none;
+					}
+					.slide_nav_1 a.activeSlide {
+						background:none repeat scroll 0 0 #FFFFFF;
+					}
+					.slide_nav_1 a:focus {
+						outline:medium none;
+					}
+					
+					div#slideshow_1 {
+						width:575px; height: 320px; /*padding: 15px 0 0 12px;*/
+						position: relative; z-index: 5;
+						background:#000000;
+					}
+						div#slideshow_1 img{
+							border:none!important;
+							padding:0;
+							margin:0;
+						}
+						div#slideshow_1 ul#prevnextnav_1 {
+							padding: 0;
+							display: none;
+							list-style: none;
+							position: relative; top: 155px; z-index: 15;
+							outline:medium none;
+							margin:0;
+						}
+							div#slideshow_1 ul#prevnextnav_1 li#prev_1 {
+								position:absolute; left:29px; margin: 0;padding: 0;
+							}
+							div#slideshow_1 ul#prevnextnav_1 li#next_1 {
+								position:absolute; left:517px; margin: 0 20px 0 0;padding: 0;
+							}
+							div#slideshow_1 ul#prevnextnav_1 li a {
+								display: block; width: 30px; height: 30px; text-indent: -9999px;
+							}
+								div#slideshow_1 ul#prevnextnav_1 li#prev_1 a {
+									
+									background: url(http://localhost:8888/cmsdepdagri/Source/simple/modules/Showtime/templates/jquery/images/prev_30.png);
+									
+								}
+								div#slideshow_1 ul#prevnextnav_1 li#next_1 a {
+									
+									background: url(http://localhost:8888/cmsdepdagri/Source/simple/modules/Showtime/templates/jquery/images/next_30.png);
+									
+								}
+					
+						div#slideshow_1 ul#slides_1{
+							list-style: none;padding: 0; margin:0; z-index:5;
+							width:575px; height: 320px;
+						}
+							div#slideshow_1 ul#slides_1 li {
+								width:575px; height: 320px;
+								margin: 0 0 20px 0;
+							}
+					
+					a {outline: none; }
