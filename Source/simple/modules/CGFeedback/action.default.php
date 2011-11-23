@@ -559,7 +559,7 @@ $wysiwyg = $this->GetPreference('allow_comment_wysiwyg',0);
 //				      $id,$comment->data,'comment'));
 
 $smarty->assign('input_comment',
-		$this->CreateTextArea($$wysiwyg ? true : false, $id, $comment->data, 'comment', '', '', '', '', '40', '15','','',''));
+		$this->CreateTextArea($$wysiwyg ? true : false, $id, $comment->data, 'comment', '', '', '', '', '40', '10','','',''));
 
 $modname = $this->GetPreference('captcha_module','-1');
 if( $modname != -1 )
