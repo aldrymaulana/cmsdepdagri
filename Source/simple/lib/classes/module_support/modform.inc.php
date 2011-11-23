@@ -259,7 +259,8 @@ function cms_module_CreateInputSubmit(&$modinstance, $id, $name, $value='', $add
   $gCms = cmsms();
 	$config = $gCms->GetConfig();
 
-	$text = '<input class="cms_submit" name="'.$id.$name.'" id="'.$id.$name.'" value="'.$value.'" type=';
+	//$text = '<input class="cms_submit" name="'.$id.$name.'" id="'.$id.$name.'" value="'.$value.'" type=';
+	$text = '<input class="search-button" name="'.$id.$name.'" id="'.$id.$name.'" value="'.$value.'" type=';
 
 	if ($image != '')
 	{
