@@ -71,7 +71,7 @@ if( isset($params['key1']) )
   }
 if( isset($params['key2']) )
   {
-    $comment->key2 = trim($params['key2']);
+    $comment->key2 =  trim($params['key2']);
   }
 if( isset($params['key3']) )
   {
