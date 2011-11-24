@@ -1,14 +1,9 @@
-# SQL Manager 2010 Lite for MySQL 4.6.0.5
+# SQL Manager 2005 Lite for MySQL 3.7.0.1
 # ---------------------------------------
 # Host     : localhost
 # Port     : 3306
 # Database : cms
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -739,7 +734,7 @@ CREATE TABLE `cms_module_cgfeedback_comments` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `cms_module_cgfeedback_fielddefs` table : 
@@ -952,6 +947,35 @@ CREATE TABLE `cms_module_feusers_belongs` (
   `groupid` int(11) NOT NULL,
   PRIMARY KEY (`userid`,`groupid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+#
+# Structure for the `cms_module_feusers_comments` table : 
+#
+
+DROP TABLE IF EXISTS `cms_module_feusers_comments`;
+
+CREATE TABLE `cms_module_feusers_comments` (
+  `comment_id` int(11) NOT NULL,
+  `comment_data` text,
+  `comment_date` datetime DEFAULT NULL,
+  `comment_author_id` int(11) DEFAULT NULL,
+  `comment_author_name` varchar(255) DEFAULT NULL,
+  `page_id` varchar(255) DEFAULT NULL,
+  `module_name` varchar(50) DEFAULT NULL,
+  `active` tinyint(4) DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+#
+# Structure for the `cms_module_feusers_comments_seq` table : 
+#
+
+DROP TABLE IF EXISTS `cms_module_feusers_comments_seq`;
+
+CREATE TABLE `cms_module_feusers_comments_seq` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `cms_module_feusers_dropdowns` table : 
@@ -1917,6 +1941,7 @@ CREATE TABLE `cms_version` (
 
 INSERT INTO `cms_additional_htmlblob_users_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -1925,6 +1950,7 @@ COMMIT;
 
 INSERT INTO `cms_additional_users` (`additional_users_id`, `user_id`, `page_id`, `content_id`) VALUES 
   (8,-3,NULL,62);
+
 COMMIT;
 
 #
@@ -1933,6 +1959,7 @@ COMMIT;
 
 INSERT INTO `cms_additional_users_seq` (`id`) VALUES 
   (8);
+
 COMMIT;
 
 #
@@ -1941,6 +1968,7 @@ COMMIT;
 
 INSERT INTO `cms_admin_bookmarks_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -1949,6 +1977,7 @@ COMMIT;
 
 INSERT INTO `cms_admin_recent_pages_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -2456,6 +2485,7 @@ INSERT INTO `cms_adminlog` (`timestamp`, `user_id`, `username`, `item_id`, `item
   (1321339609,1,'admin',34,'Stylesheet: Navigation: CSSMenu - Horizontal','Changed','127.0.0.1'),
   (1321339618,1,'admin',34,'Stylesheet: Navigation: CSSMenu - Horizontal','Changed','127.0.0.1'),
   (1321339627,1,'admin',34,'Stylesheet: Navigation: CSSMenu - Horizontal','Changed','127.0.0.1');
+
 COMMIT;
 
 #
@@ -2963,6 +2993,7 @@ INSERT INTO `cms_adminlog` (`timestamp`, `user_id`, `username`, `item_id`, `item
   (1321857408,1,'admin',-1,'CGFeedback','Edited Tempalte summary_Sample','127.0.0.1'),
   (1321858148,1,'admin',-1,'CGFeedback','Edited Tempalte summary_Sample','127.0.0.1'),
   (1321858250,1,'admin',-1,'CGFeedback','Edited Tempalte summary_Sample','127.0.0.1');
+
 COMMIT;
 
 #
@@ -3296,7 +3327,15 @@ INSERT INTO `cms_adminlog` (`timestamp`, `user_id`, `username`, `item_id`, `item
   (1322038913,1,'admin',83,'Content Item: New Comment','Added','127.0.0.1'),
   (1322038949,1,'admin',62,'Content Item: Comment','Edited','127.0.0.1'),
   (1322039118,1,'admin',62,'Content Item: Comment','Edited','127.0.0.1'),
-  (1322040168,1,'admin',4,'User Defined Tag: redirect','Added','127.0.0.1');
+  (1322040168,1,'admin',4,'User Defined Tag: redirect','Added','127.0.0.1'),
+  (1322060254,1,'admin',83,'Content Item: New Comment','Edited','127.0.0.1'),
+  (1322060291,1,'admin',83,'Content Item: New Comment','Edited','127.0.0.1'),
+  (1322060411,1,'admin',83,'Content Item: New Comment','Edited','127.0.0.1'),
+  (1322060427,1,'admin',83,'Content Item: New Comment','Edited','127.0.0.1'),
+  (1322060726,1,'admin',-1,'CGFeedback','Edited Tempalte detail_Sample','127.0.0.1'),
+  (1322060766,1,'admin',-1,'CGFeedback','Edited Tempalte detail_Sample','127.0.0.1'),
+  (1322060843,1,'admin',-1,'CGFeedback','Edited Tempalte detail_Sample','127.0.0.1');
+
 COMMIT;
 
 #
@@ -3328,7 +3367,8 @@ INSERT INTO `cms_content` (`content_id`, `content_name`, `type`, `owner_id`, `pa
   (80,'Login','content',1,-1,16,10,'00010',0,'Login','login',1,NULL,'html',1,1,'80','login','target,image,thumbnail,extra1,extra2,extra3,searchable,pagedata,disable_wysiwyg,Sidebar,content_en','{* Add code here that should appear in the metadata section of all new pages *}','','','',1,'2011-11-21 04:06:20','2011-11-21 04:06:33',0,''),
   (81,'Submit News','content',1,-1,16,11,'00011',0,'submitnews','submitnews',0,NULL,'html',1,0,'81','submitnews','__feu_date__,content_en,target,image,thumbnail,extra1,extra2,extra3,searchable,pagedata,disable_wysiwyg,Sidebar','{cms_init_editor} ','','','',1,'2011-11-21 08:27:16','2011-11-23 07:35:30',0,''),
   (82,'Register','content2',1,-1,16,12,'00012',0,'Register','register',0,NULL,'html',1,1,'82','register','target,image,thumbnail,extra1,extra2,extra3,searchable,pagedata,disable_wysiwyg,Sidebar,content_en','{* Add code here that should appear in the metadata section of all new pages *}','','','',1,'2011-11-23 02:48:04','2011-11-23 07:38:15',0,''),
-  (83,'New Comment','content',1,-1,23,13,'00013',0,'newcomment','newcomment',0,NULL,'html',1,1,'83','newcomment','target,image,thumbnail,extra1,extra2,extra3,searchable,pagedata,disable_wysiwyg,Sidebar,content_en','{* Add code here that should appear in the metadata section of all new pages *}','','','',1,'2011-11-23 09:01:53','2011-11-23 09:01:53',0,'');
+  (83,'New Comment','content',1,-1,23,13,'00013',0,'newcomment','newcomment',0,NULL,'html',1,1,'83','newcomment','target,image,thumbnail,extra1,extra2,extra3,searchable,pagedata,disable_wysiwyg,Sidebar,content_en','{* Add code here that should appear in the metadata section of all new pages *}','','','',1,'2011-11-23 09:01:53','2011-11-23 15:00:27',0,'');
+
 COMMIT;
 
 #
@@ -3437,7 +3477,7 @@ INSERT INTO `cms_content_props` (`content_id`, `type`, `prop_name`, `param1`, `p
   (62,'string','searchable','','','','1',NULL,'2011-11-23 09:05:18'),
   (62,'string','pagedata','','','','',NULL,'2011-11-23 09:05:18'),
   (62,'string','disable_wysiwyg','','','','0',NULL,'2011-11-23 09:05:18'),
-  (59,'string','content_en','','','','<p>Pada tanggal 6 Oktober 2011, bertempat di Gedung Research Triangle Institute (RTI) atas prakarsa peserta dan difasilitasi Badan Diklat Kemendagri telah dibentuk Forum Transformasi Indonesia (FTI) sebagai salah satu jaringan bagi seluruh Alumni Transforming Leader in Indonesia untuk terus berkomunikasi membina dan mengembangkan kapasitas guna percepatan transformasi pemerintahan daerah di Indonesia. Secara umum, FTI bertujuan untuk memberikan fasilitasi kajian penelitian untuk mendukung pengambilan kebijakan dengan kegiatan utama pelaksanaan kajian kebijakan, penerbitan, pembentukan network secara global dan pemberian penghargaan kepada pelaku. Pada saat yang bersamaan telah dibentuk Presidium Kepengurusan yang terdiri dari 4 Ketua, Sekretaris Jenderal, Wakil Sekretaris Jenderal, Bendahara dan Wakil Bendahara.</p>\r\n<p>Beberapa kebijakan yang telah ditetapkan untuk mendukung pencapaian tujuan FTI diantaranya:</p>\r\n<p>a)Â Â Â Â Â  Sekretariat beralamat di Badan Pendidikan dan Pelatihan Kemendagri, Jl. Pahlawan Nomor 8 Kalibata Jakarta Selatan dan Jl. Cimahi Nomor 10, Menteng, Jakarta Pusat</p>\r\n<p>b)Â Â Â Â Â  Organisasi bersifat independen</p>\r\n<p>c)Â Â Â Â Â Â  Menjadi organisasi yang akan memberikan masukan kajian kebijakan</p>\r\n<p>d)Â Â Â Â Â  Melaksanakan kerjasama dengan Perguruan Tinggi di Indonesia</p>\r\n<p>e)Â Â Â Â Â  Memberikan penugasan kepada 3 (tiga) narasumber utama yaitu Bapak Dr. Wahyudi Kumorotomo, Dr. Achmadi Ringoringo dan Prof. Dr. Eko Prasojo untuk mendesain garis besar organisasi;</p>\r\n<p>f)Â Â Â Â Â Â  Akan menunjuk dan menetapkan Sekretaris Executive untuk melaksanakan administrasi organisasi sehari-hari dan untuk membantu Pengurus Organisasi.</p>\r\n<p>Â </p>\r\n<p>(<strong>Yusharto, Kabid Otda dan PUM, Badan Diklat Kemendagri</strong>) </p>',NULL,'2011-11-16 07:06:19'),
+  (59,'string','content_en','','','','<p>Pada tanggal 6 Oktober 2011, bertempat di Gedung Research Triangle Institute (RTI) atas prakarsa peserta dan difasilitasi Badan Diklat Kemendagri telah dibentuk Forum Transformasi Indonesia (FTI) sebagai salah satu jaringan bagi seluruh Alumni Transforming Leader in Indonesia untuk terus berkomunikasi membina dan mengembangkan kapasitas guna percepatan transformasi pemerintahan daerah di Indonesia. Secara umum, FTI bertujuan untuk memberikan fasilitasi kajian penelitian untuk mendukung pengambilan kebijakan dengan kegiatan utama pelaksanaan kajian kebijakan, penerbitan, pembentukan network secara global dan pemberian penghargaan kepada pelaku. Pada saat yang bersamaan telah dibentuk Presidium Kepengurusan yang terdiri dari 4 Ketua, Sekretaris Jenderal, Wakil Sekretaris Jenderal, Bendahara dan Wakil Bendahara.</p>\r\n<p>Beberapa kebijakan yang telah ditetapkan untuk mendukung pencapaian tujuan FTI diantaranya:</p>\r\n<p>a)      Sekretariat beralamat di Badan Pendidikan dan Pelatihan Kemendagri, Jl. Pahlawan Nomor 8 Kalibata Jakarta Selatan dan Jl. Cimahi Nomor 10, Menteng, Jakarta Pusat</p>\r\n<p>b)      Organisasi bersifat independen</p>\r\n<p>c)       Menjadi organisasi yang akan memberikan masukan kajian kebijakan</p>\r\n<p>d)      Melaksanakan kerjasama dengan Perguruan Tinggi di Indonesia</p>\r\n<p>e)      Memberikan penugasan kepada 3 (tiga) narasumber utama yaitu Bapak Dr. Wahyudi Kumorotomo, Dr. Achmadi Ringoringo dan Prof. Dr. Eko Prasojo untuk mendesain garis besar organisasi;</p>\r\n<p>f)       Akan menunjuk dan menetapkan Sekretaris Executive untuk melaksanakan administrasi organisasi sehari-hari dan untuk membantu Pengurus Organisasi.</p>\r\n<p> </p>\r\n<p>(<strong>Yusharto, Kabid Otda dan PUM, Badan Diklat Kemendagri</strong>) </p>',NULL,'2011-11-16 07:06:19'),
   (61,'string','content_en','','','','{literal}\r\n<link href=\"uploads/popup/css/thickbox.css\" rel=\"stylesheet\" type=\"text/css\" display=\"screen\" />\r\n<script type=\"text/javascript\" src=\"uploads/popup/js/jquery-1.4.4.js\"></script>\r\n<script type=\"text/javascript\" src=\"uploads/popup/js/thickbox.js\"></script>\r\n{/literal}\r\n<div>\r\n<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr style=\"vertical-align: top;\">\r\n<td>\r\n<p style=\"color: #a91617;\">Bupati &amp; Walikota Lubuk Basung, Sumatera Barat</p>\r\n<ul>\r\n<li><a class=\"thickbox\" href=\"{cms_selflink href=''indracatri''}\">Mr. Indra Catri</a></li>\r\n<li><a class=\"thickbox\" href=\"{cms_selflink href=''ismanimran''}\">Mr. Isman Imran</a></li>\r\n</ul>\r\n</td>\r\n<td>\r\n<p style=\"color: #a91617;\">Bupati &amp; Walikota Banjarbaru, Kalimantan Selatan</p>\r\n<ul>\r\n<li><a class=\"thickbox\" href=\"{cms_selflink href=''ruzaidin''}\">Mr. Muhammad Ruzaidin Noor</a></li>\r\n<li><a class=\"thickbox\" href=\"{cms_selflink href=''aswan''}\">Mr. Mohammad Aswan</a></li>\r\n</ul>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>',NULL,'2011-11-17 10:03:07'),
   (64,'string','content_en','','','','<p><img style=\"float: left; margin-right: 15px; margin-bottom: 15px;\" src=\"{uploads_url}/images/members/indracatri.png\" alt=\"\" width=\"100\" /><strong>Mr. Indra Catri</strong>?was born in Bukittingi on April 4, 1961. After obtainin his bachelor degree from the Department of Regional Planning of Bandung Institute of Technology (ITB) in 1987, he joined civil service at the Padang Municipality <em>Bappeda </em>(Local Planning Agency) in 1990. He was transferred to various positions at the Padang Municipality office. He was named the Head of <em>Bappeda </em>Padang Municipality in 2008, previously he served as the Assistant for People?s Welfare Affairs at the Padang Municipality.</p>\r\n<p>He run for District Head of Agam in 2005, but he lost. He run again in the 2010 Agam local election and elected. As a newly elected district head, Indra Catri?s endeavor is to improve the economic infrastructure, minimize leaks in local public finance and to enhance human resources? capacity.</p>',NULL,'2011-11-14 03:05:50'),
   (68,'string','target','','','','',NULL,'2011-11-14 03:06:14'),
@@ -3480,7 +3520,7 @@ INSERT INTO `cms_content_props` (`content_id`, `type`, `prop_name`, `param1`, `p
   (70,'string','pagedata','','','','',NULL,'2011-11-16 07:06:51'),
   (70,'string','disable_wysiwyg','','','','0',NULL,'2011-11-16 07:06:51'),
   (70,'string','Sidebar','','','','',NULL,'2011-11-16 07:06:51'),
-  (70,'string','content_en','','','','<p>Â </p>\r\n<!-- Add code here that should appear in the content block of all new pages -->',NULL,'2011-11-16 07:06:51'),
+  (70,'string','content_en','','','','<p> </p>\r\n<!-- Add code here that should appear in the content block of all new pages -->',NULL,'2011-11-16 07:06:51'),
   (71,'string','extra1','','','','',NULL,'2011-11-19 04:19:37'),
   (71,'string','extra2','','','','',NULL,'2011-11-19 04:19:37'),
   (71,'string','extra3','','','','',NULL,'2011-11-19 04:19:37'),
@@ -3489,7 +3529,7 @@ INSERT INTO `cms_content_props` (`content_id`, `type`, `prop_name`, `param1`, `p
   (71,'string','disable_wysiwyg','','','','0',NULL,'2011-11-19 04:19:37'),
   (71,'string','Sidebar','','','','',NULL,'2011-11-19 04:19:37'),
   (71,'string','content_en','','','','<h3><img style=\"float: left; margin-right: 10px; margin-bottom: 5px;\" src=\"uploads/images/pengurus/zulkifli.jpg\" alt=\"\" width=\"120\" /><strong>Mr. Zulkifli Muhadli</strong></h3>\r\n<p>District Head of Sumbawa Barat, West of Nusa Tenggara<br /> Jalan Bung Karno No. 3, Taliwang<br /> West of Nusa Tenggara, Indonesia<br /> +62372 81001<br /> +62812 3891799<br /> +62812 31304233<br /> Email: zulkiflimuhadli@gmail.com</p>\r\n\r\n<p>Born in Taliwang, West Sumbawa on May 14, 1958. Before joining politics, Zulkifli was a kiai (Islamic cleric). In 1984 Zulkifli helped to found Pondok Pesantren (Islamic boarding school) Al-Ikhlas in Taliwang. Twenty years later, in 2004, he helped to establish Cordova University, the first university in the district. Zulkifli Muhadli played substantial role in the endeavor of establishing the District of West Sumbawa, which previously was part of Sumbawa District. He was named as the chair of Committee for the Formation of West Sumbawa District (Panitia Pembentukan Kabupaten Sumbawa Barat). Aside from being a popular kiai (Islamic cleric) who serves in various Islamic organizations and propagation (dakwah), he has been known as brilliant intellectual and seasoned businessman. He was democratically elected as the first District Head of West Sumbawa in the pemilukada (local district head elections) in 2005. He was reelected for the second term in 2010. As a district head, Zulkifli Muhadli is known for his pro-people and fulfillment of basic needs policies.</p>',NULL,'2011-11-19 04:19:37'),
-  (15,'string','content_en','','','','<div>\r\n<div>\r\n<h3 style=\"text-align: left;\" align=\"center\">{getLatestImages}</h3>\r\n<h3 style=\"text-align: left;\" align=\"center\">Â </h3>\r\n<h3 style=\"text-align: left;\" align=\"center\">{Showtime show=''1''}</h3>\r\n</div>\r\n</div>',NULL,'2011-11-22 05:11:11'),
+  (15,'string','content_en','','','','<div>\r\n<div>\r\n<h3 style=\"text-align: left;\" align=\"center\">{getLatestImages}</h3>\r\n<h3 style=\"text-align: left;\" align=\"center\"> </h3>\r\n<h3 style=\"text-align: left;\" align=\"center\">{Showtime show=''1''}</h3>\r\n</div>\r\n</div>',NULL,'2011-11-22 05:11:11'),
   (81,'string','__feu_date__','','','','a:1:{s:6:\"groups\";a:1:{i:0;s:1:\"1\";}}',NULL,'2011-11-23 07:35:30'),
   (82,'string','target','','','','',NULL,'2011-11-23 07:38:15'),
   (82,'string','image','','','','-1',NULL,'2011-11-23 07:38:15'),
@@ -3501,19 +3541,18 @@ INSERT INTO `cms_content_props` (`content_id`, `type`, `prop_name`, `param1`, `p
   (82,'string','pagedata','','','','',NULL,'2011-11-23 07:38:15'),
   (82,'string','disable_wysiwyg','','','','0',NULL,'2011-11-23 07:38:15'),
   (82,'string','Sidebar','','','','',NULL,'2011-11-23 07:38:15'),
-  (83,'string','target','','','','',NULL,'2011-11-23 09:01:53'),
+  (83,'string','target','','','','',NULL,'2011-11-23 15:00:27'),
   (82,'string','content_en','','','','<p>{cms_module module=SelfRegistration group=Member}</p>',NULL,'2011-11-23 07:38:15'),
   (81,'string','content_en','','','','{FrontEndUsers form=\"silent\"}\r\n\r\n{if isset($username)}\r\n{* logged in, display news submission form *}\r\n  {news action=\"fesubmit\" formtemplate=\"FrontEndNewsForm\"}\r\n\r\n{else}\r\n{* not logged in, display login form *}\r\n  {FrontEndUsers returnto=\"submitnews\"}\r\n{/if}',NULL,'2011-11-23 07:35:30'),
-  (83,'string','image','','','','-1',NULL,'2011-11-23 09:01:53'),
-  (83,'string','thumbnail','','','','-1',NULL,'2011-11-23 09:01:53'),
-  (83,'string','extra1','','','','',NULL,'2011-11-23 09:01:53'),
-  (83,'string','extra2','','','','',NULL,'2011-11-23 09:01:53'),
-  (83,'string','extra3','','','','',NULL,'2011-11-23 09:01:53'),
-  (83,'string','searchable','','','','1',NULL,'2011-11-23 09:01:53'),
-  (83,'string','pagedata','','','','',NULL,'2011-11-23 09:01:53'),
-  (83,'string','disable_wysiwyg','','','','0',NULL,'2011-11-23 09:01:53'),
-  (83,'string','Sidebar','','','','',NULL,'2011-11-23 09:01:53'),
-  (83,'string','content_en','','','','{CGFeedback}',NULL,'2011-11-23 09:01:53'),
+  (83,'string','image','','','','-1',NULL,'2011-11-23 15:00:27'),
+  (83,'string','thumbnail','','','','-1',NULL,'2011-11-23 15:00:27'),
+  (83,'string','extra1','','','','',NULL,'2011-11-23 15:00:27'),
+  (83,'string','extra2','','','','',NULL,'2011-11-23 15:00:27'),
+  (83,'string','extra3','','','','',NULL,'2011-11-23 15:00:27'),
+  (83,'string','searchable','','','','1',NULL,'2011-11-23 15:00:27'),
+  (83,'string','pagedata','','','','',NULL,'2011-11-23 15:00:27'),
+  (83,'string','disable_wysiwyg','','','','0',NULL,'2011-11-23 15:00:27'),
+  (83,'string','Sidebar','','','','',NULL,'2011-11-23 15:00:27'),
   (62,'string','content_en','','','','{literal}\r\n<link href=\"uploads/popup/css/thickbox.css\" rel=\"stylesheet\" type=\"text/css\" display=\"screen\" />\r\n<script type=\"text/javascript\" src=\"uploads/popup/js/jquery-1.4.4.js\"></script>\r\n<script type=\"text/javascript\" src=\"uploads/popup/js/thickbox.js\"></script>\r\n{/literal}\r\n\r\n{CGFeedback action=''summary'' pagelimit=\"4\"}\r\n<a href=\"{cms_selflink href=''newcomment''}\" class=\"thickbox\">Submit New Comment</a>',NULL,'2011-11-23 09:05:18'),
   (15,'string','thumbnail','','','','-1',NULL,'2011-11-22 05:11:11'),
   (72,'string','target','','','','',NULL,'2011-11-19 04:20:01'),
@@ -3616,7 +3655,9 @@ INSERT INTO `cms_content_props` (`content_id`, `type`, `prop_name`, `param1`, `p
   (81,'int','searchable','','','','0',NULL,'2011-11-23 07:35:30'),
   (81,'string','pagedata','','','','',NULL,'2011-11-23 07:35:30'),
   (81,'int','disable_wysiwyg','','','','0',NULL,'2011-11-23 07:35:30'),
-  (81,'string','Sidebar','','','','',NULL,'2011-11-23 07:35:30');
+  (81,'string','Sidebar','','','','',NULL,'2011-11-23 07:35:30'),
+  (83,'string','content_en','','','','<p>{CGFeedback key2=62}</p>',NULL,'2011-11-23 15:00:27');
+
 COMMIT;
 
 #
@@ -3625,6 +3666,7 @@ COMMIT;
 
 INSERT INTO `cms_content_props_seq` (`id`) VALUES 
   (55);
+
 COMMIT;
 
 #
@@ -3633,6 +3675,7 @@ COMMIT;
 
 INSERT INTO `cms_content_seq` (`id`) VALUES 
   (83);
+
 COMMIT;
 
 #
@@ -3647,6 +3690,7 @@ INSERT INTO `cms_crossref` (`child_type`, `child_id`, `parent_type`, `parent_id`
   ('global_content',1,'template',17,'2011-11-12 02:39:26','2011-11-12 02:39:26'),
   ('global_content',1,'template',21,'2011-11-12 02:39:26','2011-11-12 02:39:26'),
   ('global_content',1,'template',22,'2011-11-12 02:39:26','2011-11-12 02:39:26');
+
 COMMIT;
 
 #
@@ -3674,6 +3718,7 @@ INSERT INTO `cms_css` (`css_id`, `css_name`, `css_text`, `media_type`, `create_d
   (52,'PopupContentCss','.memberheader\r\n{\r\nfont-color: #ff0000;\r\n}','','2011-11-12 04:02:37','2011-11-12 04:04:00'),
   (53,'thickbox-css','/* ----------------------------------------------------------------------------------------------------------------*/\r\n/* ---------->>> global settings needed for thickbox <<<-----------------------------------------------------------*/\r\n/* ----------------------------------------------------------------------------------------------------------------*/\r\n*{padding: 0; margin: 0;}\r\n\r\n/* ----------------------------------------------------------------------------------------------------------------*/\r\n/* ---------->>> thickbox specific link and font settings <<<------------------------------------------------------*/\r\n/* ----------------------------------------------------------------------------------------------------------------*/\r\n\r\n#TB_window {\r\n    font: 12px Arial, Helvetica, sans-serif;\r\n    color: #333333;\r\n}\r\n\r\n#TB_secondLine {\r\n    font: 10px Arial, Helvetica, sans-serif;\r\n    color:#666666;\r\n}\r\n\r\n#TB_window a:link {color: #666666;}\r\n#TB_window a:visited {color: #666666;}\r\n#TB_window a:hover {color: #000;}\r\n#TB_window a:active {color: #666666;}\r\n#TB_window a:focus{color: #666666;}\r\n\r\n/* ----------------------------------------------------------------------------------------------------------------*/\r\n/* ---------->>> thickbox settings <<<-----------------------------------------------------------------------------*/\r\n/* ----------------------------------------------------------------------------------------------------------------*/\r\n#TB_overlay {\r\n    position: fixed;\r\n    z-index:100;\r\n    top: 0px;\r\n    left: 0px;\r\n    height:100%;\r\n    width:100%;\r\n}\r\n\r\n.TB_overlayMacFFBGHack {background: url(macFFBgHack.png) repeat;}\r\n.TB_overlayBG {\r\n    background-color:#000;\r\n    filter:alpha(opacity=75);\r\n    -moz-opacity: 0.75;\r\n    opacity: 0.75;\r\n}\r\n\r\n* html #TB_overlay { /* ie6 hack */\r\n                     position: absolute;\r\n                     height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + ''px'');\r\n}\r\n\r\n#TB_window {\r\n    position: fixed;\r\n    background: #ffffff;\r\n    z-index: 102;\r\n    color:#000000;\r\n    display:none;\r\n    border: 4px solid #525252;\r\n    text-align:left;\r\n    top:50%;\r\n    left:50%;\r\n}\r\n\r\n* html #TB_window { /* ie6 hack */\r\n                    position: absolute;\r\n                    margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + ''px'');\r\n}\r\n\r\n#TB_window img#TB_Image {\r\n    display:block;\r\n    margin: 15px 0 0 15px;\r\n    border-right: 1px solid #ccc;\r\n    border-bottom: 1px solid #ccc;\r\n    border-top: 1px solid #666;\r\n    border-left: 1px solid #666;\r\n}\r\n\r\n#TB_caption{\r\n    height:25px;\r\n    padding:7px 30px 10px 25px;\r\n    float:left;\r\n}\r\n\r\n#TB_closeWindow{\r\n    height:25px;\r\n    padding:11px 25px 10px 0;\r\n    float:right;\r\n}\r\n\r\n#TB_closeAjaxWindow{\r\n    padding:7px 10px 5px 0;\r\n    margin-bottom:1px;\r\n    text-align:right;\r\n    float:right;\r\n}\r\n\r\n#TB_ajaxWindowTitle{\r\n    float:left;\r\n    padding:7px 0 5px 10px;\r\n    margin-bottom:1px;\r\n}\r\n\r\n#TB_title{\r\n    background-color:#e8e8e8;\r\n    height:27px;\r\n}\r\n\r\n#TB_ajaxContent{\r\n    clear:both;\r\n    padding:2px 15px 15px 15px;\r\n    overflow:auto;\r\n    text-align:left;\r\n    line-height:1.4em;\r\n}\r\n\r\n#TB_ajaxContent.TB_modal{\r\n    padding:15px;\r\n    overflow: hidden;\r\n}\r\n\r\n#TB_ajaxContent p{\r\n    padding:5px 0px 5px 0px;\r\n}\r\n\r\n#TB_load{\r\n    position: fixed;\r\n    display:none;\r\n    height:13px;\r\n    width:208px;\r\n    z-index:103;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: -6px 0 0 -104px; /* -height/2 0 0 -width/2 */\r\n}\r\n\r\n* html #TB_load { /* ie6 hack */\r\n                  position: absolute;\r\n                  margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + ''px'');\r\n}\r\n\r\n#TB_HideSelect{\r\n    z-index:99;\r\n    position:fixed;\r\n    top: 0;\r\n    left: 0;\r\n    background-color:#fff;\r\n    border:none;\r\n    filter:alpha(\"opacity=0\");\r\n    -moz-opacity: 0;\r\n    opacity: 0%;\r\n    height:100%;\r\n    width:100%;\r\n}\r\n\r\n* html #TB_HideSelect { /* ie6 hack */\r\n                        position: absolute;\r\n                        height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + ''px'');\r\n}\r\n\r\n#TB_iframeContent{\r\n    clear:both;\r\n    border:none;\r\n    margin-bottom:-1px;\r\n    margin-top:1px;\r\n    _margin-bottom:1px;\r\n}','screen','2011-11-12 08:40:49','2011-11-14 02:38:57'),
   (54,'roundbox','\r\n\r\n#roundbox\r\n\t{\r\n\tposition: relative;\r\n\tmargin-left: 5px;\r\n\tmargin-right: 5px;\r\n\tmargin-top: 10px;\r\n\tpadding: 10px;\r\n\ttext-align: left;\r\n\t/*width:40%;*/\t\t\t\t/* <-- use this to tie width to viewport size */\r\n\t/*width: 35em;*/\t\t\t\t/* <-- use this for a set width */\r\n\tmin-width:200px;\r\n        width: 240px;\r\n\tbackground-color: #eeeeee;\r\n        height: 110px;\r\n        float: left;\r\n\t}\r\n \t\r\n#roundcontent\r\n\t{\r\n\tpadding: 8px;\r\n\t}\r\n\r\n#roundcontent h1\r\n\t{\r\n\tcolor:#0354c2;\r\n\tfont-weight: bold;\r\n\tfont-size: 1.2em;\r\n\tfont-family: helvetica, geneva, arial, sans-serif;\r\n\t}\r\n\t\t\r\n#roundcontent p\r\n\t{\r\n\tcolor:#3b3b3b;\r\n\tfont-size: 1em;\r\n\tline-height: 1.3em;\r\n\tfont-family: arial, helvetica, sans-serif;\r\n\t}\r\n\t\t\r\n/* ---=== border code follows ===--- */\r\n/*\r\n\ttlc = top left corner\r\n\ttrc = top right corner\r\n\tblc = bottom left corner\r\n\tbrc = bottom right corner\r\n\tlb = left border\r\n\trb = right border\r\n\ttb = top border\r\n\tbb = bottom border \r\n*/\r\n\r\n#tlc, #trc, #blc, #brc\r\n\t{\r\n\tbackground-color: transparent;\r\n\tbackground-repeat: no-repeat;\r\n\t}\r\n\r\n#tlc\r\n\t{\r\n\tbackground-image:url(uploads/rounded/tlc.gif);\r\n\tbackground-position: 0% 0%;\r\n\t}\r\n\r\n#trc\r\n\t{\r\n\tbackground-image:url(uploads/rounded/trc.gif);\r\n\tbackground-position: 100% 0%;\r\n\t}\r\n\t\r\n#blc\r\n\t{\r\n\tbackground-image:url(uploads/rounded/blc.gif);\r\n\tbackground-position: 0% 100%;\r\n\t}\r\n\r\n#brc\r\n\t{\r\n\tbackground-image:url(uploads/rounded/brc.gif);\r\n\tbackground-position: 100% 100%;\r\n\t}\r\n\r\n#tb, #bb\r\n\t{\r\n\tbackground-color: transparent;\r\n\tbackground-repeat: repeat-x;\r\n\t}\r\n\t\t\t\r\n#tb\r\n\t{\r\n\tbackground-image:url(uploads/rounded/tb.gif);\r\n\tbackground-position: 0% 0%;\r\n\t}\r\n\r\n#bb\r\n\t{\r\n\tbackground-image:url(uploads/rounded/bb.gif);\r\n\tbackground-position: 50% 100%;\r\n\t}\r\n\t\r\n#rb\r\n\t{\r\n\tbackground-image:url(uploads/rounded/r.gif);\r\n\tbackground-position: 100% 0%;\r\n\tbackground-repeat: repeat-y;\r\n\t}\r\n\r\n#lb\r\n\t{\r\n\tbackground-image:url(uploads/rounded/l.gif);\r\n\tbackground-position: 0% 100%;\r\n\tbackground-repeat: repeat-y;\r\n\t}\r\n\t\t\t','screen','2011-11-17 08:46:58','2011-11-17 09:56:31');
+
 COMMIT;
 
 #
@@ -3729,6 +3774,7 @@ INSERT INTO `cms_css_assoc` (`assoc_to_id`, `assoc_css_id`, `assoc_type`, `creat
   (23,53,'template','2011-11-12 08:41:00','2011-11-12 08:41:00',5),
   (16,53,'template','2011-11-14 02:38:49','2011-11-14 02:38:49',7),
   (16,54,'template','2011-11-17 08:49:23','2011-11-17 08:49:23',8);
+
 COMMIT;
 
 #
@@ -3737,6 +3783,7 @@ COMMIT;
 
 INSERT INTO `cms_css_seq` (`id`) VALUES 
   (54);
+
 COMMIT;
 
 #
@@ -3745,6 +3792,7 @@ COMMIT;
 
 INSERT INTO `cms_event_handler_seq` (`id`) VALUES 
   (21);
+
 COMMIT;
 
 #
@@ -3772,6 +3820,7 @@ INSERT INTO `cms_event_handlers` (`event_id`, `tag_name`, `module_name`, `remova
   (53,NULL,'Showtime',0,7,19),
   (47,NULL,'SelfRegistration',0,1,20),
   (48,NULL,'SelfRegistration',0,2,21);
+
 COMMIT;
 
 #
@@ -3873,6 +3922,7 @@ INSERT INTO `cms_events` (`originator`, `event_name`, `event_id`) VALUES
   ('Cron','CronYearly',92),
   ('SelfRegistration','onNewUser',93),
   ('SelfRegistration','onUserRegistered',94);
+
 COMMIT;
 
 #
@@ -3881,6 +3931,7 @@ COMMIT;
 
 INSERT INTO `cms_events_seq` (`id`) VALUES 
   (94);
+
 COMMIT;
 
 #
@@ -3904,6 +3955,7 @@ INSERT INTO `cms_group_perms` (`group_perm_id`, `group_id`, `permission_id`, `cr
   (189,2,50,'2011-10-29 02:15:15','2011-10-29 02:15:15'),
   (190,1,59,'2011-11-14 02:04:03','2011-11-14 02:04:03'),
   (191,2,59,'2011-11-14 02:04:03','2011-11-14 02:04:03');
+
 COMMIT;
 
 #
@@ -3912,6 +3964,7 @@ COMMIT;
 
 INSERT INTO `cms_group_perms_seq` (`id`) VALUES 
   (191);
+
 COMMIT;
 
 #
@@ -3922,6 +3975,7 @@ INSERT INTO `cms_groups` (`group_id`, `group_name`, `active`, `create_date`, `mo
   (1,'Admin',1,'2006-07-25 21:22:32','2006-07-25 21:22:32'),
   (2,'Editor',1,'2006-07-25 21:22:32','2006-07-25 21:22:32'),
   (3,'Designer',1,'2006-07-25 21:22:32','2006-07-25 21:22:32');
+
 COMMIT;
 
 #
@@ -3930,6 +3984,7 @@ COMMIT;
 
 INSERT INTO `cms_groups_seq` (`id`) VALUES 
   (3);
+
 COMMIT;
 
 #
@@ -3938,6 +3993,7 @@ COMMIT;
 
 INSERT INTO `cms_htmlblobs` (`htmlblob_id`, `htmlblob_name`, `html`, `description`, `use_wysiwyg`, `owner`, `create_date`, `modified_date`) VALUES 
   (1,'footer','<p>Powered by: dOOKIe cORP@2011</p>','',0,1,'2006-07-25 21:22:32','2011-10-29 02:30:29');
+
 COMMIT;
 
 #
@@ -3946,6 +4002,7 @@ COMMIT;
 
 INSERT INTO `cms_htmlblobs_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -3954,6 +4011,7 @@ COMMIT;
 
 INSERT INTO `cms_module_acomments_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -3967,6 +4025,7 @@ INSERT INTO `cms_module_advancedcontent_blockdisplay` (`user_id`, `content_id`, 
   (1,81,16,'content_en',1),
   (1,82,16,'content_en',1),
   (1,82,16,'Sidebar',1);
+
 COMMIT;
 
 #
@@ -3976,6 +4035,7 @@ COMMIT;
 INSERT INTO `cms_module_advancedcontent_multi_input_tpl_assocs` (`input_id`, `tpl_name`) VALUES 
   ('SampleInput','multi_input_SampleTemplate'),
   ('SampleInput','multi_input_SampleTemplate');
+
 COMMIT;
 
 #
@@ -3984,6 +4044,7 @@ COMMIT;
 
 INSERT INTO `cms_module_advancedcontent_multi_inputs` (`input_id`, `input_fields`) VALUES 
   ('SampleInput','\n{content block=\"module_select\" label=\"Select a module\" block_type=\"dropdown\" items=\"|News|Menu\" values=\"|News|MenuManager\"}\n{content block=\"module_params\" label=\"Enter module parameters here\" block_type=\"text\" oneline=true size=\"56\"}');
+
 COMMIT;
 
 #
@@ -3992,6 +4053,7 @@ COMMIT;
 
 INSERT INTO `cms_module_album_albums` (`album_id`, `album_name`, `album_number`, `thumbnail_path`, `comment`, `column_number`, `row_number`, `template`) VALUES 
   (1,'test',1,'/Gallery/anime/thumb_1024_FF_542.jpg',NULL,5,0,'default');
+
 COMMIT;
 
 #
@@ -4000,6 +4062,7 @@ COMMIT;
 
 INSERT INTO `cms_module_album_albums_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -4008,6 +4071,7 @@ COMMIT;
 
 INSERT INTO `cms_module_album_categories_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -4016,6 +4080,7 @@ COMMIT;
 
 INSERT INTO `cms_module_album_category_listings_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -4027,6 +4092,7 @@ INSERT INTO `cms_module_album_pictures` (`picture_id`, `picture_name`, `picture_
   (2,'1024_t_variant.jpg',1,2,'/Gallery/anime/thumb_1024_t_variant.jpg','/Gallery/anime/1024_t_variant.jpg',NULL,NULL,NULL,'96','72'),
   (3,'AMSM520_1280.jpg',1,3,'/Gallery/anime/thumb_AMSM520_1280.jpg','/Gallery/anime/AMSM520_1280.jpg',NULL,NULL,NULL,'96','72'),
   (4,'amz_sm_528_1280.jpg',1,4,'/Gallery/anime/thumb_amz_sm_528_1280.jpg','/Gallery/anime/amz_sm_528_1280.jpg',NULL,NULL,NULL,'96','72');
+
 COMMIT;
 
 #
@@ -4035,6 +4101,7 @@ COMMIT;
 
 INSERT INTO `cms_module_album_pictures_seq` (`id`) VALUES 
   (4);
+
 COMMIT;
 
 #
@@ -4043,6 +4110,7 @@ COMMIT;
 
 INSERT INTO `cms_module_attach_attachments` (`attachid`, `name`, `sourcetype`, `sourceid`, `desttype`, `destid`) VALUES 
   (1,'xxxx',1,58,3,'/CGFeedback-1.5.4.tar.gz');
+
 COMMIT;
 
 #
@@ -4051,6 +4119,7 @@ COMMIT;
 
 INSERT INTO `cms_module_attach_attachments_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -4064,6 +4133,7 @@ INSERT INTO `cms_module_attach_restypes` (`typeid`, `typename`, `destonly`, `act
   (4,'News-article',0,0,0,'$query = \"SELECT news_id, news_title FROM \".cms_db_prefix().\"module_news\";\n$dbresult =& $db->Execute($query);\nwhile ($dbresult && $row = $dbresult->FetchRow()){\n\t$options[$row[\"news_id\"]] = $row[\"news_title\"];\n}','$newsmodule = $this->GetModuleInstance(\"News\");\nif(!$newsmodule) return false;\n\n$query = \"SELECT news_title FROM \".cms_db_prefix().\"module_news WHERE news_id=?\";\n$dbresult = $db->Execute($query,array($item->destid));\nif($dbresult && $row = $dbresult->FetchRow()){\n\t$item->ressource_name = $row[\"news_title\"];\n}else{\n\treturn false;\n}\n\n$prettyurl = \"news/\" . $item->destid.\"/\".$returnid.\"/\".munge_string_to_url($item->ressource_name);\n$item->ressource_url = $newsmodule->CreateLink($id,\"detail\",$returnid,\"\",array(\"articleid\"=>$item->destid),\"\",true, false, \"\", true, $prettyurl);','if(!isset($gCms->modules[\"News\"]) || !$gCms->modules[\"News\"][\"active\"]){\n\t$result = false;\n}else{\n\t$result = true;\n}'),
   (5,'ShopMadeSimple-Product',0,0,0,'$dbresult = $db->Execute(\"SELECT product_id, name FROM \".cms_db_prefix().\"module_sms_products\");\nwhile ($dbresult && $row = $dbresult->FetchRow()){\n\t$options[$row[\"product_id\"]] = $row[\"name\"];\n}','$smsmodule = $this->GetModuleInstance(\"ShopMadeSimple\");\n\nif(!$smsmodule) return false;\n$dbresult = $db->Execute(\"SELECT name FROM \".cms_db_prefix().\"module_sms_products WHERE product_id=?\",array($item->destid));\nif($dbresult && $row = $dbresult->FetchRow()){\n\t$item->ressource_name = $row[\"name\"];\n\t$item->ressource_url = $smsmodule->CreateLink($id, \"fe_product_detail\", $returnid, $row[\"name\"], array(\"product_id\"=>$item->destid), \"\", true);\n}','return (isset($gCms->modules[\"ShopMadeSimple\"]) && $gCms->modules[\"ShopMadeSimple\"][\"active\"]);'),
   (6,'Album',0,0,0,'$dbresult = $db->Execute(\"SELECT album_id, album_name FROM \".cms_db_prefix().\"module_album_albums\");\nwhile ($dbresult && $row = $dbresult->FetchRow()){\n\t$options[$row[\"album_id\"]] = $row[\"album_name\"];\n}','$module = $this->GetModuleInstance(\"Album\");\nif(!$module) return false;\n$dbresult = $db->Execute(\"SELECT album_name FROM \".cms_db_prefix().\"module_album_albums WHERE album_id=?\",array($item->destid));\nif($dbresult && $row = $dbresult->FetchRow()){\n\t$item->ressource_name = $row[\"album_name\"];\n\t$pretty_url = false;\n\tif(FALSE){\t// SET THIS TO TRUE TO ENABLE PRETTY URLS\n\t\t$q = \"SELECT hierarchy_path FROM \".cms_db_prefix().\"content WHERE content_id=''\".$returnid.\"''\";\n\t\t$dbresult = $db->Execute( $q );\n\t\tif($dbresult && $call_page = $dbresult->FetchRow()){\n\t\t\t$pretty_url = $call_page[\"hierarchy_path\"].\"/album-\".$this->albums[$i]->id.\"/\".$returnid;\n\t\t}\n\t}\n\t$item->ressource_url = $module->CreateLink($id, \"default\", $returnid, $row[\"album_name\"], array(\"albumid\"=>$item->destid), \"\", true, false, \"\", false, $pretty_url);\n}','return (isset($gCms->modules[\"Album\"]) && $gCms->modules[\"Album\"][\"active\"]);');
+
 COMMIT;
 
 #
@@ -4072,6 +4142,7 @@ COMMIT;
 
 INSERT INTO `cms_module_attach_restypes_seq` (`id`) VALUES 
   (6);
+
 COMMIT;
 
 #
@@ -4317,6 +4388,7 @@ INSERT INTO `cms_module_cge_countries` (`id`, `code`, `name`, `sorting`) VALUES
   (236,'ZR','Zaire',0),
   (237,'ZM','Zambia',0),
   (238,'ZW','Zimbabwe',0);
+
 COMMIT;
 
 #
@@ -4395,6 +4467,7 @@ INSERT INTO `cms_module_cge_states` (`id`, `code`, `name`, `sorting`) VALUES
   (69,'QC','Quebec',0),
   (70,'SK','Saskatchewan',0),
   (71,'YT','Yukon',0);
+
 COMMIT;
 
 #
@@ -4402,7 +4475,13 @@ COMMIT;
 #
 
 INSERT INTO `cms_module_cgfeedback_comments` (`id`, `key1`, `key2`, `key3`, `rating`, `title`, `data`, `status`, `author_name`, `author_email`, `author_ip`, `author_notify`, `admin_notes`, `notified`, `origurl`, `created`, `modified`) VALUES 
-  (12,'__page__','83','',1,'aa','aa','published','aa','aa','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322040367912','2011-11-23 09:26:12','2011-11-23 09:26:12');
+  (12,'__page__','83','',1,'aa','aa','published','aa','aa','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322040367912','2011-11-23 09:26:12','2011-11-23 09:26:12'),
+  (13,'__page__','62','',1,'aa','aa','published','aa','aa','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322060157926','2011-11-23 14:56:02','2011-11-23 14:56:02'),
+  (14,'__page__','62','',1,'xx','xx','published','xx','xx','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322060429421','2011-11-23 15:00:34','2011-11-23 15:00:34'),
+  (15,'__page__','62','',1,'zz','zz','published','zz','zz','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322060442959','2011-11-23 15:00:46','2011-11-23 15:00:47'),
+  (16,'__page__','62','',1,'123','123','published','123','123','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322060858558','2011-11-23 15:07:43','2011-11-23 15:07:43'),
+  (17,'__page__','62','',1,'qwe','qe','published','qwe','qwe','127.0.0.1',NULL,NULL,1,'http://localhost:8888/cmsdepdagri/Source/simple/index.php?page=newcomment&amp;random=1322060866105','2011-11-23 15:07:51','2011-11-23 15:07:51');
+
 COMMIT;
 
 #
@@ -4411,6 +4490,7 @@ COMMIT;
 
 INSERT INTO `cms_module_cmsusers_grouppermissions` (`id`, `group_id`, `permission_id`, `created_at`, `updated_at`) VALUES 
   (1,1,1,'2011-11-12 13:54:18','2011-11-12 13:54:18');
+
 COMMIT;
 
 #
@@ -4419,6 +4499,7 @@ COMMIT;
 
 INSERT INTO `cms_module_cmsusers_groups` (`id`, `name`, `type`, `is_active`, `created_at`, `updated_at`, `comments`) VALUES 
   (1,'CMSUsers','private',1,'2011-11-12 13:54:05','2011-11-12 13:54:05',NULL);
+
 COMMIT;
 
 #
@@ -4427,6 +4508,7 @@ COMMIT;
 
 INSERT INTO `cms_module_cmsusers_permissions` (`id`, `name`, `is_active`, `created_at`, `updated_at`, `comments`) VALUES 
   (1,'Comment',1,'2011-11-12 13:54:18','2011-11-12 13:54:18',NULL);
+
 COMMIT;
 
 #
@@ -4435,6 +4517,7 @@ COMMIT;
 
 INSERT INTO `cms_module_cmsusers_usergroups` (`id`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES 
   (1,1,1,'2011-11-12 13:54:05','2011-11-12 13:54:05');
+
 COMMIT;
 
 #
@@ -4443,6 +4526,7 @@ COMMIT;
 
 INSERT INTO `cms_module_cmsusers_users` (`id`, `username`, `algorithm`, `salt`, `password`, `email`, `is_active`, `is_disabled`, `token`, `created_at`, `updated_at`, `last_login`, `comments`) VALUES 
   (1,'dookie','sha1','96b4a2de1bce8529033abf95de2af83a','8cedabaa70c6af30c242b448cf7ec555a5123563','dookie@gmail.com',1,0,NULL,'2011-11-12 13:53:27','2011-11-12 13:53:27',NULL,NULL);
+
 COMMIT;
 
 #
@@ -4459,6 +4543,7 @@ INSERT INTO `cms_module_deps` (`parent_module`, `child_module`, `minimum_version
   ('CGExtensions','SelfRegistration','1.25.2','2011-11-23 09:42:43','2011-11-23 09:42:43'),
   ('CMSMailer','SelfRegistration','1.73.9','2011-11-23 09:42:43','2011-11-23 09:42:43'),
   ('FrontEndUsers','SelfRegistration','1.14','2011-11-23 09:42:43','2011-11-23 09:42:43');
+
 COMMIT;
 
 #
@@ -4467,6 +4552,16 @@ COMMIT;
 
 INSERT INTO `cms_module_feusers_belongs` (`userid`, `groupid`) VALUES 
   (1,1);
+
+COMMIT;
+
+#
+# Data for the `cms_module_feusers_comments_seq` table  (LIMIT 0,500)
+#
+
+INSERT INTO `cms_module_feusers_comments_seq` (`id`) VALUES 
+  (0);
+
 COMMIT;
 
 #
@@ -4476,6 +4571,7 @@ COMMIT;
 INSERT INTO `cms_module_feusers_grouppropmap` (`name`, `group_id`, `sort_key`, `required`, `lostunflag`) VALUES 
   ('firstname',1,0,2,-1),
   ('lastname',1,1,1,-1);
+
 COMMIT;
 
 #
@@ -4484,6 +4580,7 @@ COMMIT;
 
 INSERT INTO `cms_module_feusers_groups` (`id`, `groupname`, `groupdesc`) VALUES 
   (1,'Member','Members group');
+
 COMMIT;
 
 #
@@ -4492,6 +4589,7 @@ COMMIT;
 
 INSERT INTO `cms_module_feusers_groups_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -4532,6 +4630,7 @@ INSERT INTO `cms_module_feusers_history` (`userid`, `sessionid`, `action`, `refd
   (1,'1i4ob8110tjk9p0bjjjnb02np3','logout','2011-11-23 07:36:07','127.0.0.1'),
   (1,'1i4ob8110tjk9p0bjjjnb02np3','login','2011-11-23 07:38:28','127.0.0.1'),
   (1,'1i4ob8110tjk9p0bjjjnb02np3','logout','2011-11-23 07:55:07','127.0.0.1');
+
 COMMIT;
 
 #
@@ -4541,6 +4640,7 @@ COMMIT;
 INSERT INTO `cms_module_feusers_propdefn` (`name`, `prompt`, `type`, `length`, `maxlength`, `attribs`, `force_unique`, `encrypt`) VALUES 
   ('firstname','First name','0',80,255,'a:0:{}',0,0),
   ('lastname','Last name','0',80,255,'a:0:{}',0,0);
+
 COMMIT;
 
 #
@@ -4550,6 +4650,7 @@ COMMIT;
 INSERT INTO `cms_module_feusers_properties` (`id`, `userid`, `title`, `data`) VALUES 
   (1,1,'firstname','ronald'),
   (2,1,'lastname','andriyan');
+
 COMMIT;
 
 #
@@ -4558,6 +4659,7 @@ COMMIT;
 
 INSERT INTO `cms_module_feusers_properties_seq` (`id`) VALUES 
   (4);
+
 COMMIT;
 
 #
@@ -4566,6 +4668,7 @@ COMMIT;
 
 INSERT INTO `cms_module_feusers_users` (`id`, `username`, `password`, `createdate`, `expires`) VALUES 
   (1,'ronald@localhost.com','aafc4484901c6ec60051f53e203e937a','2011-11-16 04:46:03','2016-11-16 23:59:59');
+
 COMMIT;
 
 #
@@ -4574,6 +4677,7 @@ COMMIT;
 
 INSERT INTO `cms_module_feusers_users_seq` (`id`) VALUES 
   (2);
+
 COMMIT;
 
 #
@@ -4643,6 +4747,7 @@ INSERT INTO `cms_module_gallery` (`fileid`, `filename`, `filepath`, `filedate`, 
   (90,'9.29.11Loeb179.jpg','Reception','2011-11-19 04:33:47',0,1,0,42,'',''),
   (91,'9.29.11Loeb184.jpg','Reception','2011-11-19 04:34:20',0,1,0,42,'',''),
   (92,'9.29.11Loeb188.jpg','Reception','2011-11-19 04:34:29',0,1,0,42,'','');
+
 COMMIT;
 
 #
@@ -4656,6 +4761,7 @@ INSERT INTO `cms_module_gallery_props` (`fileid`, `templateid`, `hideparentlink`
   (32,0,0),
   (41,0,0),
   (42,0,0);
+
 COMMIT;
 
 #
@@ -4670,6 +4776,7 @@ INSERT INTO `cms_module_gallery_templateprops` (`templateid`, `template`, `versi
   (5,'Thickbox','3.1-3','<p>This Gallerytemplate uses the Thickbox system version 3.1 by Cody Lindley (<a href=\"http://www.codylindley.com/\" target=\"_blank\">www.codylindley.com</a>).</p>\r\n<p>Patched Version by Jamie Thompson - Fixes IE7 Positioning Issues (<a href=\"http://jamazon.co.uk/web/2008/03/17/thickbox-31-ie7-positioning-bug/\" target=\"_blank\">jamazon.co.uk/web/2008/03/17/thickbox-31-ie7-positioning-bug</a>).</p>\r\n<p>Files that come with Thickbox are stored in <em>modules/Gallery/templates/thickbox/</em></p>\r\n<p>Licensed under <a href=\"http://www.opensource.org/licenses/mit-license.php\">MIT License</a></p>',NULL,NULL,NULL,NULL,'n-isdir/s+file',1),
   (6,'gallerytree','1.0','<p>This template is ment for the {Gallery action=''gallerytree'' template=''gallerytree''} call.</p>\r\n<p>The generated tree respects the sortorder settings for each (sub)gallery. Setting a sortorder for this template won''t make any difference.</p>',NULL,NULL,NULL,NULL,'0',0),
   (7,'Cycle','1.3-1','<p>Cycle template</p>',NULL,NULL,NULL,NULL,NULL,NULL);
+
 COMMIT;
 
 #
@@ -4678,6 +4785,7 @@ COMMIT;
 
 INSERT INTO `cms_module_javascript_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -4686,7 +4794,7 @@ COMMIT;
 
 INSERT INTO `cms_module_news` (`news_id`, `news_category_id`, `news_title`, `news_data`, `news_date`, `summary`, `start_time`, `end_time`, `status`, `icon`, `create_date`, `modified_date`, `author_id`, `news_extra`, `news_url`) VALUES 
   (2,1,'ERROR TYPE III DAN GAYA KEPEMIMPINAN DI INDONESIA','<div>\r\n<div>\r\n<div>\r\n<p align=\"center\"><strong>Oleh : Ir. Said Alkhudri</strong></p>\r\n<p align=\"center\"><strong>(Peserta Diklat Transforming Leader In Indonesia, Angkatan I)</strong></p>\r\n<p>Pada Sessi pertama hari terakhir dalam pembelajaran di Havard Kennedy Scholl, tanggal ........2011, Prof. Amy C. Edmonson membahas meledaknya pesawat ulang-alik CHALENGER? diatas samudera Atlantik setelah 2 menit diluncurkan pada tahun 1980.</p>\r\n<p>NASA sebagai Badan Ruang Angkasa Amerika telah mengontrak Perusahaan MORON THIOKOL untuk rancangan SRB, yaitu salah Komponen dari Pesawat Ulang-alik Chalenger. Rancangan SRB tersebut Mengandalkan O-Ring untuk mengankat komponen berukuran besar.</p>\r\n<p>MissI Chalengger telah di tunda beberapa kali, sehingga Pemimpin? NASA merasa perusahaan MORON THIOKOL sebagai penyebab pengunduran-pengunduran ini.</p>\r\n<p>Pada tanggal 27 Januari 1986 terjadilah Proses pengambilan Keputusan Peluncur Chalenger yang penuh emosional.</p>\r\n<p>Intinya BOISJOLY dari THIOKAL telah mengingatkan bahan O-Ring akan meleleh pada suhu 29<sup>o</sup>?F.Jika prediksii cuaca Peluncuran oleh Angkatan Udara Amerika Benar.</p>\r\n<p>LARRY MULLOY pemimpin NASA dan Stafnya menclaim Boisjoly terlalu Vokal dan ini bisa mengancam jadwal ?peluncuran Chalenger yang telah ditetapkan oleh beberapa atasan MULLOY dengan mendiskusikan pendapat Boisjoly antara lain:</p>\r\n<ol>\r\n<li>Dengan kondisi O-Ring saat ini ,beberapa peluncuran? sebelumnya ternyata aman.</li>\r\n<li>Rusia meluncurkan pesawat ulang-alik juga dengan kondisi pengikisan O-Ring yang lebih panas.</li>\r\n<li>Jangan-jangan Boisjoly ditumpangi kepentingan pihak lain yang menginginkan peluncuran Chalengger ditunda.</li>\r\n</ol>\r\n<p>Rapat tanggal 27 Januari 1986 tersebut memutuskan peluncuran Challanger tetap dilaksanakan sesuai dengan jadwal yang ditetapkan.</p>\r\n<p>Kenyataan pahit yang diterima NASA. Atas Arogansi sendiri terjadi, pesawat ulang-alik Challenger meledak di angkasa setelah 2 menit peluncuran, dan kepingan-kepingan pesawat ditemukan jatuh tersebar di laut atlantikk dengan 9 astronot di dalamnya.</p>\r\n<p>Dunia Antariksa terpukul.</p>\r\n<p>Sebuah Error Type III terjadi dalam proses pengambilan keputusan di NASA.</p>\r\n<p>Prof. Amy menyajikan kasus ini dengan bantuan Video rekaman secara apik sekali, telah membuat para peserta pembelajaran terbangun dari praktek arogansi selama ini mungkin sering terjadi dalam Pemerintahan Daerah.</p>\r\n<p>Error Type III adalah istilah kalimat yang maksudnya ?melaksanakan keputusan yang salah? yang dimulai dengan? ?Identifikasi masalah yang salah?</p>\r\n<p>Disadari atau tidak, para pemimpin Pemerintah di Daerah berpeluang bisa terjebak menangani masalah yang salah, seperti dilakukan LARRY MULLOY dalam peluncuran Shuttle Space Chalenger tahun 1986.</p>\r\n<p>Bermula dalam proses pengambilan keputusan, intervensi pimpinan sering mematahkan dan mementahkan seluruh proses pengambilan keputusan yang sudah berjalan sesuai dengan mekanisme dari bawah.</p>\r\n<p>Sebuah kasus di sebuah Pemerintah Kota; ketika Sekretaris Kota memimpin rencana kegiatan Hari Ulang Tahun Kota yang dihadiri dari SKPD dan Kepala Uniit, mekanisme rapat berjalan bagus. Saran, usul dan ide muncul dengan cerdasnya. Kesimpulannya sudah mengena kepada kegiatan-kegiatan ya ng melibatkan banyak rakyat, seperti lomba olahraga ditingkat kelurahan dan sebagainya.</p>\r\n<p>Tetapi ketika dipenghujung rapat Pak Wali Kota masuk, beliau langsung memberikan arahan kepada peserta, termasuk menentukan kegiatan-kegiatan Hari Ulang Tahun Kota yang harus dilaksanakan SKPD tanpa Resume. Tetapi arahan Walikota lebih kepada pertandingan Golf antara Eksekutif-Legislatif, upacara dan malam resepsi. Semua keputusan Rapat sejak pagi yang dipimpi Sekretaris Kota menjadi mentah.</p>\r\n<p>Error Type III terjadi dimana-mana dalam penetapan Kebijakan Pembangunan di Daerah.</p>\r\n<p>Error Type III sering lahir dari arogansi para pemeimpin. Prof. Amy. C. Edmon telah membangunkan 19 Bupati/ Walikota peserta Angkatan I. Transforming Leader Indonesia dalam sessi ini dengan mengangkat kasus peluncuran Shuttle Space Challenger oleh NASA.</p>\r\n<p>Pemerintah Daerah Kabupaten/Kota adalah ujung tombak dan referensi di Indonesia. Sehingga Transparansi kepemimpinan ditingkat Kabupaten/Kota dapat merubah wajah Republik Indonesia tercinta ini.</p>\r\n</div>\r\n</div>\r\n</div>','2011-10-29 02:35:20','<div>\r\n<p>Pada Sessi pertama hari terakhir dalam pembelajaran di Havard Kennedy Scholl, tanggal ........2011, Prof. Amy C. Edmonson membahas meledaknya pesawat ulang-alik CHALENGER? diatas samudera Atlantik setelah 2 menit diluncurkan pada tahun 1980</p>\r\n</div>',NULL,NULL,'published',NULL,'2011-10-29 02:36:03','2011-11-19 04:24:03',1,'',''),
-  (3,1,'PELAKSANAAN ORIENTASI KEPEMIMPINAN DAN PENYELENGGARAAN PEMERINTAHAN DAERAH (OKPPD) DAN MENGIKUTI EXECUTIVE EDUCATION COURSE ON TRANSFORMING LEADERS IN INDONESIA PROGRAM','<div>\r\n<p>Badan Diklat Kementerian Dalam Negeri telah melaksanakan Orientasi Kepemimpinan dan Penyelenggaraan Pemerintahan Daerah (OKPPD) telah dilaksanakan dari tahun 2010 sampai dengan tahun 2011 dilanjutkan dengan Executive Training Education Program Transforming Leaders in Indonesia Tahun 2011. OKPPD merupakan kegiatan utama Badan Pendidikan dan Pelatihan Kementerian Dalam Negeri yang disertai dengan pelaksanaan Orientasi Pengembangan Kepribadian dan Kepemimpinan Bagi Isteri Bupati/Walikota dan Wakil Bupati/Wakil Walikota (ladies program).</p>\r\n<p>Secara keseluruhan OKPPD Tahun 2010 sebanyak 48 orang peserta dan ladies program sebanyak 40 orang peserta yang dilaksanakan masing-masing 2 angkatan. Selanjutnya pada tahun 2011 OKPPD menghasilkan alumni sebanyak 222 orang dan aldies program sebanyak 185 orang yang dilaksanakan dalam 5 angkatan penyelenggaraan.</p>\r\n<p>Dari jumlah alumni OKPPD sebanyak 270 orang selanjutnya dipilih sebanyak 19 Bupati/Walikota untuk mengikutiÂ <em>Executive Education Course on Transforming Leaders in Indonesia Program</em>yang dilaksanakan dalam 2 (dua) tahap, yaitu:</p>\r\n<ol>\r\n<li>Program Pengantar yang akan memberikan perspektif dasar yang akan mempelajariÂ <em>Strategic Leadership</em>,Â <em>New Public Management</em>dan perancangan dan penyusunan Peraturan Daerah. Kegiatan ini telah dilaksanakan di Jakarta dari tanggal 12 sd 16 September 2011 dan diikuti oleh 39 peserta dengan perincian sebagai berikut:</li>\r\n</ol>\r\n<p>1) Bupati : 15 orang</p>\r\n<p>2) Walikota : 4 orang</p>\r\n<p>3) Pejabat Bappeda : 19 orang</p>\r\n<p>4) Pejabat Kementerian Dalam Negeri : 1 orang</p>\r\n<ol>\r\n<li><em>Executive Education Training ProgramÂ </em>yang merupakan kegiatan inti yang akan dilaksanakan di Kampus Harvard University, Boston, USA dari tanggal 19 sampai dengan 30 September 2011 dan dilanjutkan Studi Lapangan ke beberapa Pemerintah Daerah diantaranya North Carolina dan Washington DC.</li>\r\n</ol>\r\n<p>Berbagai pengalaman belajar yang telah dilewati oleh para alumni OKPPD maupunÂ <em>Executive Education Training Program</em>selanjutnya akan dijadikan bahan pertimbangan para Kepala Daerah dalam memimpin penyelenggaraan pemerintahan daerah masing-masing. Bila membutuhkan penyegaran terhadap materi pembelajaran atau penyebarluasan hasil-hasil pembelajaran yang telah diikuti kepada Kepala Daerah lainnya maupun kepada pejabat pemerintah daerah, akan dilakukan dalam bentuk Orientasi atau seminar yang terfokus untuk membahas isu tertentu yang menjadi pusar perhatian pemerintah daerah. Berbagai kegiatan ini dapat difasilitasi oleh Badan Diklat Kementerian Dalam Negeri, sebagai salah satu contoh, pada tanggal 17 sampai dengan 19 November 2011 akan dilaksanakan Diklat/Orientasi Penyusunan Laporan Penyelenggaraan pemerintahan daerah yang dirangkaikan dengan pertemuan alumni pertama yang bertujuan untuk mensosialisasikan program dan hasil-hasil OKPPD danÂ <em>Executive Education Training Program</em>kepada para Kepala Daerah atau pejabat pemerintah daerah lainnya.</p>\r\n<p>(<strong>Yusharto, Kabid Otda dan PUM, Badan Diklat Kemendagri</strong>)</p>\r\n</div>','2011-11-15 08:57:44','<div>\r\n<p>Badan Diklat Kementerian Dalam Negeri telah melaksanakan Orientasi Kepemimpinan dan Penyelenggaraan Pemerintahan Daerah (OKPPD) telah dilaksanakan dari tahun 2010 sampai dengan tahun 2011</p>\r\n</div>',NULL,NULL,'published',NULL,'2011-11-15 08:58:07','2011-11-21 04:05:26',1,'',''),
+  (3,1,'PELAKSANAAN ORIENTASI KEPEMIMPINAN DAN PENYELENGGARAAN PEMERINTAHAN DAERAH (OKPPD) DAN MENGIKUTI EXECUTIVE EDUCATION COURSE ON TRANSFORMING LEADERS IN INDONESIA PROGRAM','<div>\r\n<p>Badan Diklat Kementerian Dalam Negeri telah melaksanakan Orientasi Kepemimpinan dan Penyelenggaraan Pemerintahan Daerah (OKPPD) telah dilaksanakan dari tahun 2010 sampai dengan tahun 2011 dilanjutkan dengan Executive Training Education Program Transforming Leaders in Indonesia Tahun 2011. OKPPD merupakan kegiatan utama Badan Pendidikan dan Pelatihan Kementerian Dalam Negeri yang disertai dengan pelaksanaan Orientasi Pengembangan Kepribadian dan Kepemimpinan Bagi Isteri Bupati/Walikota dan Wakil Bupati/Wakil Walikota (ladies program).</p>\r\n<p>Secara keseluruhan OKPPD Tahun 2010 sebanyak 48 orang peserta dan ladies program sebanyak 40 orang peserta yang dilaksanakan masing-masing 2 angkatan. Selanjutnya pada tahun 2011 OKPPD menghasilkan alumni sebanyak 222 orang dan aldies program sebanyak 185 orang yang dilaksanakan dalam 5 angkatan penyelenggaraan.</p>\r\n<p>Dari jumlah alumni OKPPD sebanyak 270 orang selanjutnya dipilih sebanyak 19 Bupati/Walikota untuk mengikuti <em>Executive Education Course on Transforming Leaders in Indonesia Program</em>yang dilaksanakan dalam 2 (dua) tahap, yaitu:</p>\r\n<ol>\r\n<li>Program Pengantar yang akan memberikan perspektif dasar yang akan mempelajari <em>Strategic Leadership</em>, <em>New Public Management</em>dan perancangan dan penyusunan Peraturan Daerah. Kegiatan ini telah dilaksanakan di Jakarta dari tanggal 12 sd 16 September 2011 dan diikuti oleh 39 peserta dengan perincian sebagai berikut:</li>\r\n</ol>\r\n<p>1) Bupati : 15 orang</p>\r\n<p>2) Walikota : 4 orang</p>\r\n<p>3) Pejabat Bappeda : 19 orang</p>\r\n<p>4) Pejabat Kementerian Dalam Negeri : 1 orang</p>\r\n<ol>\r\n<li><em>Executive Education Training Program </em>yang merupakan kegiatan inti yang akan dilaksanakan di Kampus Harvard University, Boston, USA dari tanggal 19 sampai dengan 30 September 2011 dan dilanjutkan Studi Lapangan ke beberapa Pemerintah Daerah diantaranya North Carolina dan Washington DC.</li>\r\n</ol>\r\n<p>Berbagai pengalaman belajar yang telah dilewati oleh para alumni OKPPD maupun <em>Executive Education Training Program</em>selanjutnya akan dijadikan bahan pertimbangan para Kepala Daerah dalam memimpin penyelenggaraan pemerintahan daerah masing-masing. Bila membutuhkan penyegaran terhadap materi pembelajaran atau penyebarluasan hasil-hasil pembelajaran yang telah diikuti kepada Kepala Daerah lainnya maupun kepada pejabat pemerintah daerah, akan dilakukan dalam bentuk Orientasi atau seminar yang terfokus untuk membahas isu tertentu yang menjadi pusar perhatian pemerintah daerah. Berbagai kegiatan ini dapat difasilitasi oleh Badan Diklat Kementerian Dalam Negeri, sebagai salah satu contoh, pada tanggal 17 sampai dengan 19 November 2011 akan dilaksanakan Diklat/Orientasi Penyusunan Laporan Penyelenggaraan pemerintahan daerah yang dirangkaikan dengan pertemuan alumni pertama yang bertujuan untuk mensosialisasikan program dan hasil-hasil OKPPD dan <em>Executive Education Training Program</em>kepada para Kepala Daerah atau pejabat pemerintah daerah lainnya.</p>\r\n<p>(<strong>Yusharto, Kabid Otda dan PUM, Badan Diklat Kemendagri</strong>)</p>\r\n</div>','2011-11-15 08:57:44','<div>\r\n<p>Badan Diklat Kementerian Dalam Negeri telah melaksanakan Orientasi Kepemimpinan dan Penyelenggaraan Pemerintahan Daerah (OKPPD) telah dilaksanakan dari tahun 2010 sampai dengan tahun 2011</p>\r\n</div>',NULL,NULL,'published',NULL,'2011-11-15 08:58:07','2011-11-21 04:05:26',1,'',''),
   (4,1,'news with attachment','<p>this is news with attachment sample</p>','2011-11-21 08:29:38','',NULL,NULL,'published',NULL,'2011-11-21 08:30:39','2011-11-21 08:30:39',1,'',''),
   (5,1,'news with attachment','<p>this is news with attachment sample</p>','2011-11-21 08:29:38','',NULL,NULL,'published',NULL,'2011-11-21 08:31:09','2011-11-21 08:31:09',1,'',''),
   (9,1,'pdf','<p>pdf</p>','2011-11-21 19:04:11','',NULL,NULL,'published',NULL,'2011-11-21 19:04:27','2011-11-21 19:05:35',1,'',''),
@@ -4694,6 +4802,7 @@ INSERT INTO `cms_module_news` (`news_id`, `news_category_id`, `news_title`, `new
   (20,1,'xxxx','xxxxx','2011-11-23 02:11:08','','2011-11-23 02:01:46','2012-05-21 02:01:46','published',NULL,'2011-11-23 02:11:08','2011-11-23 02:11:08',1,'',NULL),
   (21,1,'qqqq','qqqq','2011-11-23 02:11:39','','2011-11-23 02:11:29','2012-05-21 02:11:29','published',NULL,'2011-11-23 02:11:39','2011-11-23 02:11:39',1,'',NULL),
   (22,1,'zzzz','<p>zzzz</p>','2011-11-23 06:23:14','','2011-11-23 06:23:14','2012-05-21 06:23:14','published',NULL,'2011-11-23 06:23:14','2011-11-23 06:23:14',1,'',NULL);
+
 COMMIT;
 
 #
@@ -4702,6 +4811,7 @@ COMMIT;
 
 INSERT INTO `cms_module_news_categories` (`news_category_id`, `news_category_name`, `parent_id`, `hierarchy`, `long_name`, `create_date`, `modified_date`) VALUES 
   (1,'General',-1,'00001','General','02:15:15','02:15:15');
+
 COMMIT;
 
 #
@@ -4710,6 +4820,7 @@ COMMIT;
 
 INSERT INTO `cms_module_news_categories_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -4718,6 +4829,7 @@ COMMIT;
 
 INSERT INTO `cms_module_news_fielddefs` (`id`, `name`, `type`, `max_length`, `create_date`, `modified_date`, `item_order`, `public`) VALUES 
   (1,'Attachment','file',255,'2011-11-21 04:20:03','2011-11-21 04:20:03',1,1);
+
 COMMIT;
 
 #
@@ -4730,6 +4842,7 @@ INSERT INTO `cms_module_news_fieldvals` (`news_id`, `fielddef_id`, `value`, `cre
   (20,1,'BTB2.jpg','2011-11-23 02:11:08','2011-11-23 02:11:08'),
   (21,1,'PERINCIAN PENGIRIMAN PAS2.xls','2011-11-23 02:11:39','2011-11-23 02:11:39'),
   (22,1,'BTB2.jpg','2011-11-23 06:23:14','2011-11-23 06:23:14');
+
 COMMIT;
 
 #
@@ -4738,6 +4851,7 @@ COMMIT;
 
 INSERT INTO `cms_module_news_seq` (`id`) VALUES 
   (22);
+
 COMMIT;
 
 #
@@ -5245,6 +5359,7 @@ INSERT INTO `cms_module_search_index` (`item_id`, `word`, `count`) VALUES
   (552,'palm',1),
   (552,'empowerment',1),
   (552,'village',1);
+
 COMMIT;
 
 #
@@ -5292,9 +5407,9 @@ INSERT INTO `cms_module_search_index` (`item_id`, `word`, `count`) VALUES
   (552,'62766',1),
   (552,'indonesia',1),
   (552,'451',1),
-  (625,'newcomment',2),
-  (625,'comment',2),
-  (625,'new',2),
+  (631,'newcomment',2),
+  (631,'comment',2),
+  (631,'new',2),
   (595,'qqqq',3),
   (594,'xxxx',2),
   (594,'xxxxx',1),
@@ -5752,6 +5867,7 @@ INSERT INTO `cms_module_search_index` (`item_id`, `word`, `count`) VALUES
   (555,'pengambilan',4),
   (555,'keputusan',6),
   (555,'peluncur',1);
+
 COMMIT;
 
 #
@@ -6037,6 +6153,7 @@ INSERT INTO `cms_module_search_index` (`item_id`, `word`, `count`) VALUES
   (569,'sample',1),
   (577,'kamusti',1),
   (577,'pdf',4);
+
 COMMIT;
 
 #
@@ -6084,8 +6201,9 @@ INSERT INTO `cms_module_search_items` (`id`, `module_name`, `content_id`, `extra
   (615,'Search',82,'content',NULL),
   (623,'Search',16,'template',NULL),
   (624,'Search',23,'template',NULL),
-  (625,'Search',83,'content',NULL),
+  (631,'Search',83,'content',NULL),
   (627,'Search',62,'content',NULL);
+
 COMMIT;
 
 #
@@ -6093,7 +6211,8 @@ COMMIT;
 #
 
 INSERT INTO `cms_module_search_items_seq` (`id`) VALUES 
-  (627);
+  (631);
+
 COMMIT;
 
 #
@@ -6102,6 +6221,7 @@ COMMIT;
 
 INSERT INTO `cms_module_selfreg_properties_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -6110,6 +6230,7 @@ COMMIT;
 
 INSERT INTO `cms_module_selfreg_users_seq` (`id`) VALUES 
   (3);
+
 COMMIT;
 
 #
@@ -6123,6 +6244,7 @@ INSERT INTO `cms_module_showtime` (`picture_id`, `active`, `show_id`, `picture_n
   (365,1,1,'9.26.11Indonesia024.jpg',10,NULL,'/Gallery/Classroom/thumb_9.26.11Indonesia024.jpg','/Gallery/Classroom/9.26.11Indonesia024.jpg',NULL),
   (366,1,1,'9.26.11Indonesia025.jpg',11,NULL,'/Gallery/Classroom/thumb_9.26.11Indonesia025.jpg','/Gallery/Classroom/9.26.11Indonesia025.jpg',NULL),
   (367,1,1,'9.26.11Indonesia034.jpg',12,NULL,'/Gallery/Classroom/thumb_9.26.11Indonesia034.jpg','/Gallery/Classroom/9.26.11Indonesia034.jpg',NULL);
+
 COMMIT;
 
 #
@@ -6131,6 +6253,7 @@ COMMIT;
 
 INSERT INTO `cms_module_showtime_name` (`show_id`, `show_name`, `st_animationtype`, `st_height`, `st_width`, `st_rotatetime`, `st_transitiontime`, `st_transition`, `st_easeFunc`, `st_ease`, `st_autoplay`, `st_showcontrols`, `st_showcontrolssub`, `st_textbgcolor`, `st_showtext`, `st_showcomment`, `st_showalt`, `st_textcolor`, `st_textsize`, `st_titlesize`, `st_fonttype`, `st_bgcolor`, `st_scale`, `st_shuffle`, `st_wmode`, `st_commentpos`, `st_navbut`, `st_nav_bordercolor`, `st_nav_bordersize`, `st_nav_radius`, `st_nav_bgcolor`, `st_nav_bgactivecolor`, `st_nav_textcolor`, `st_nav_showtext`, `st_nav_size`, `st_nav_pos`, `st_nav_padding`, `st_target`, `st_link`) VALUES 
   (1,'FrontSlideShow','jQuery',320,575,5,1,'fade','Linear','EaseNone',1,0,1004,'#000000',0,0,0,'#eeeeee',12,16,'sans','#000000','exactfit',0,'window','top',1,'#CCCCCC',1,0,'#EEEEEE','#FFFFFF','#333333',1,20,'bottom_right',5,'_self','internal page');
+
 COMMIT;
 
 #
@@ -6139,6 +6262,7 @@ COMMIT;
 
 INSERT INTO `cms_module_showtime_name_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -6147,6 +6271,7 @@ COMMIT;
 
 INSERT INTO `cms_module_showtime_seq` (`id`) VALUES 
   (367);
+
 COMMIT;
 
 #
@@ -6179,14 +6304,14 @@ INSERT INTO `cms_module_templates` (`module_name`, `template_name`, `content`, `
   ('AdvancedContent','multi_input_SampleTemplate','<div class=\"pageoverflow\">\n<p>\n{foreach from=$inputs item=elm}\n\t{$elm->GetBlockProperty(''label'')}:&nbsp;{$elm->GetBlockInput()}&nbsp;\n{/foreach}\n</p>\n</div>','2011-11-14 02:04:12','2011-11-14 02:04:12'),
   ('CGExtensions','cg_errormsg','{* original template for displaying frontend errors *}\n<div class=\"{$cg_errorclass}\">{$cg_errormsg}</div>','2011-11-15 09:21:12','2011-11-15 09:21:12'),
   ('CGExtensions','sortablelists_Sample','{* sortable list template *}\n\n{*\n This template provides one example of using javascript in a CMS module template.  The javascript is left here as an example of how one can interact with smarty in javascript.  You may infact want to put most of these functions into a seperate .js file and include it somewhere in your head section.\n\n You are free to modify this javascript and this template.  However, the php driver scripts look for a field named in the smarty variable {$selectarea_prefix}, and expect that to be a comma seperated list of values.\n *}\n\n{literal}\n<script type=''text/javascript''>\nvar allowduplicates = {/literal}{$allowduplicates};{literal}\nvar selectlist = {/literal}\"{$selectarea_prefix}_selectlist\";{literal}\nvar masterlist = {/literal}\"{$selectarea_prefix}_masterlist\";{literal}\nvar addbtn = {/literal}\"{$selectarea_prefix}_add\";{literal}\nvar rembtn = {/literal}\"{$selectarea_prefix}_remove\";{literal}\nvar upbtn = {/literal}\"{$selectarea_prefix}_up\";{literal}\nvar downbtn = {/literal}\"{$selectarea_prefix}_down\";{literal}\nvar valuefld = {/literal}\"{$selectarea_prefix}\";{literal}\nvar max_selected = {/literal}{$max_selected};{literal}\n\nfunction selectarea_update_value()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var val_elem = document.getElementById(valuefld);\n  var sel_idx = sel_elem.selectedIndex;\n  var opts = sel_elem.getElementsByTagName(''option'');\n  var tmp = new Array();\n  for( i = 0; i < opts.length; i++ )\n    {\n      tmp[tmp.length] = opts[i].value;\n    }\n  var str = tmp.join('','');\n  val_elem.value = str;  \n}\n\nfunction selectarea_handle_down()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  var opts = sel_elem.getElementsByTagName(''option'');\n  for( var i = opts.length - 2; i >= 0; i-- )\n    {\n      var opt = opts[i];\n      if( opt.selected )\n        {\n           var nextopt = opts[i+1];\n           opt = sel_elem.removeChild(opt);\n           nextopt = sel_elem.replaceChild(opt,nextopt);\n           sel_elem.insertBefore(nextopt,opt);\n        }\n    }\n  selectarea_update_value();\n}\n\nfunction selectarea_handle_up()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  var opts = sel_elem.getElementsByTagName(''option'');\n  if( sel_idx > 0 )\n    {\n      for( var i = 1; i < opts.length; i++ )\n        {\n          var opt = opts[i];\n          if( opt.selected )\n            {\n              sel_elem.removeChild(opt);\n               sel_elem.insertBefore(opt, opts[i-1]);\n            }\n        }\n    }\n  selectarea_update_value();\n}\n\nfunction selectarea_handle_remove()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  if( sel_idx >= 0 )\n    {\n      var val = sel_elem.options[sel_idx].value;\n      sel_elem.remove(sel_idx);\n    }\n  selectarea_update_value();\n}\n\nfunction selectarea_handle_add()\n{\n  var mas_elem = document.getElementById(masterlist);\n  var mas_idx = mas_elem.selectedIndex;\n  var sel_elem = document.getElementById(selectlist);\n  var opts = sel_elem.getElementsByTagName(''option'');\n  if( opts.length >= max_selected && max_selected > 0) return;\n  if( mas_idx >= 0 )\n    {\n      var newOpt = document.createElement(''option'');\n      newOpt.text = mas_elem.options[mas_idx].text;\n      newOpt.value = mas_elem.options[mas_idx].value;\n      if( allowduplicates == 0 )\n        {\n          for( var i = 0; i < opts.length; i++ )\n          {\n            if( opts[i].value == newOpt.value ) return;\n          }\n        }\n      sel_elem.add(newOpt,null);\n    }\n  selectarea_update_value();\n}\n\n\nfunction selectarea_handle_select()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  var mas_elem = document.getElementById(masterlist);\n  var mas_idx = mas_elem.selectedIndex;\n  addbtn.disabled = (mas_idx >= 0);\n  rembtn.disabled = (sel_idx >= 0);\n  addbtn.disabled = (sel_idx >= 0);\n  downbtn.disabled = (sel_idx >= 0);\n}\n\n</script>\n{/literal}\n\n <table>\n   <tr>\n     <td>\n      {* left column - for the selected items *}\n      {$label_left}<br/>\n      <select id=\"{$selectarea_prefix}_selectlist\" size=\"10\" onchange=\"selectarea_handle_select();\">\n        {html_options options=$selectarea_selected}\n      </select><br/>\n     </td>\n     <td>\n      {* center column - for the add/delete buttons *}\n      <input type=\"submit\" id=\"{$selectarea_prefix}_add\" value=\"&lt;&lt;\" onclick=\"selectarea_handle_add(); return false;\"/><br/>\n      <input type=\"submit\" id=\"{$selectarea_prefix}_remove\" value=\"&gt;&gt;\" onclick=\"selectarea_handle_remove(); return false;\"/><br/>\n      <input type=\"submit\" id=\"{$selectarea_prefix}_up\" value=\"{$upstr}\" onclick=\"selectarea_handle_up(); return false;\"/><br/>\n      <input type=\"submit\" id=\"{$selectarea_prefix}_down\" value=\"{$downstr}\" onclick=\"selectarea_handle_down(); return false;\"/><br/>\n     </td>\n     <td>\n      {* right column - for the master list *}\n      {$label_right}<br/>\n      <select id=\"{$selectarea_prefix}_masterlist\" size=\"10\" onchange=\"selectarea_handle_select();\">\n        {html_options options=$selectarea_masterlist}\n      </select>\n     </td>\n   </tr>\n </table>\n <div><input type=\"hidden\" id=\"{$selectarea_prefix}\" name=\"{$selectarea_prefix}\" value=\"{$selectarea_selected_str}\" /></div>\n','2011-11-15 09:21:12','2011-11-15 09:21:12'),
-  ('CGFeedback','commentform_Sample','{* comment form template *}\r\n{if isset($message)}\r\n  <div class=\"pagemessage\">{$message}</div>\r\n{else}\r\n{* no message... display the form *}\r\n<div class=\"cgfeedback_addcoment\">\r\n{if isset($error)}\r\n  <div class=\"error\">{$error}</div>\r\n{/if}\r\n{$formstart}\r\n<fieldset style=\"margin: 1em;\">\r\n  <legend>Â {$mod->Lang(''prompt_add_comment'')}Â </legend>\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_title'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 40%;\">\r\n      <input type=\"text\" name=\"{$actionid}title\" size=\"40\" maxlength=\"255\" value=\"{$title}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_your_name'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"text\" name=\"{$actionid}author_name\" size=\"40\" maxlength=\"255\" value=\"{$author_name}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_your_email'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"text\" name=\"{$actionid}author_email\" size=\"40\" maxlength=\"255\" value=\"{$author_email}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n{*\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_notify'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"checkbox\" name=\"{$actionid}author_notify\" value=\"1\" {if $author_notify == 1}checked=\"checked\"{/if}/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n*}\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_your_rating'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <select name=\"{$actionid}rating\">\r\n        {html_options options=$rating_options selected=$rating}\r\n      </select>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_comment'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 40%;\">\r\n      {$input_comment}\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n\r\n  {* custom fields *}\r\n  {if isset($fields)}\r\n  {foreach from=$fields key=''fieldid'' item=''field''}\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$field.name}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n    {if isset($field.input)}\r\n      {$field.input}\r\n    {elseif $field.type == 0 or $field.type == 1 }\r\n      <input type=\"text\" name=\"{$actionid}field_{$fieldid}\" value=\"{$field.value}\" size=\"{$field.attrib.length}\" maxlength=\"{$field.attrib.maxlength}\"/>\r\n    {elseif $field.type == 2}\r\n      {* text area fields should have an input... so this should never get caled... but just in case *}\r\n      <textarea name=\"{$actionid}field_{$fieldid}\">{$field.value}</textarea>\r\n    {elseif $field.type == 3}\r\n      <select name=\"{$actionid}field_{$fieldid}\">\r\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\r\n      </select>\r\n    {elseif $field.type == 4}\r\n      <select multiple=\"multiple\" size=\"4\" name=\"{$actionid}field_{$fieldid}[]\">\r\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\r\n      </select>\r\n    {/if}\r\n    </div>\r\n  </div>\r\n  {/foreach}\r\n  {/if}\r\n\r\n  {if isset($captcha_img)}\r\n     {* handle captcha image *}\r\n     <div class=\"row\" style=\"margin: 1em;\">\r\n       <div class=\"col30\" style=\"float: left; width: 29%;\">Â </div>\r\n     <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      {$captcha_img}<br/>\r\n      <input type=\"text\" name=\"{$actionid}feedback_captcha\" value=\"\" size=\"20\"/>\r\n    </div>\r\n  </div>\r\n  {/if}\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n       Â \r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"submit\" name=\"{$actionid}submit\" value=\"{$mod->Lang(''submit'')}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n</fieldset>\r\n{$formend}\r\n</div>\r\n{/if}','2011-11-15 09:23:42','2011-11-15 09:51:58'),
+  ('CGFeedback','commentform_Sample','{* comment form template *}\r\n{if isset($message)}\r\n  <div class=\"pagemessage\">{$message}</div>\r\n{else}\r\n{* no message... display the form *}\r\n<div class=\"cgfeedback_addcoment\">\r\n{if isset($error)}\r\n  <div class=\"error\">{$error}</div>\r\n{/if}\r\n{$formstart}\r\n<fieldset style=\"margin: 1em;\">\r\n  <legend> {$mod->Lang(''prompt_add_comment'')} </legend>\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_title'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 40%;\">\r\n      <input type=\"text\" name=\"{$actionid}title\" size=\"40\" maxlength=\"255\" value=\"{$title}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_your_name'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"text\" name=\"{$actionid}author_name\" size=\"40\" maxlength=\"255\" value=\"{$author_name}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_your_email'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"text\" name=\"{$actionid}author_email\" size=\"40\" maxlength=\"255\" value=\"{$author_email}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n{*\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_notify'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"checkbox\" name=\"{$actionid}author_notify\" value=\"1\" {if $author_notify == 1}checked=\"checked\"{/if}/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n*}\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_your_rating'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <select name=\"{$actionid}rating\">\r\n        {html_options options=$rating_options selected=$rating}\r\n      </select>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$mod->Lang(''prompt_comment'')}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 40%;\">\r\n      {$input_comment}\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n\r\n  {* custom fields *}\r\n  {if isset($fields)}\r\n  {foreach from=$fields key=''fieldid'' item=''field''}\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n      {$field.name}:\r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n    {if isset($field.input)}\r\n      {$field.input}\r\n    {elseif $field.type == 0 or $field.type == 1 }\r\n      <input type=\"text\" name=\"{$actionid}field_{$fieldid}\" value=\"{$field.value}\" size=\"{$field.attrib.length}\" maxlength=\"{$field.attrib.maxlength}\"/>\r\n    {elseif $field.type == 2}\r\n      {* text area fields should have an input... so this should never get caled... but just in case *}\r\n      <textarea name=\"{$actionid}field_{$fieldid}\">{$field.value}</textarea>\r\n    {elseif $field.type == 3}\r\n      <select name=\"{$actionid}field_{$fieldid}\">\r\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\r\n      </select>\r\n    {elseif $field.type == 4}\r\n      <select multiple=\"multiple\" size=\"4\" name=\"{$actionid}field_{$fieldid}[]\">\r\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\r\n      </select>\r\n    {/if}\r\n    </div>\r\n  </div>\r\n  {/foreach}\r\n  {/if}\r\n\r\n  {if isset($captcha_img)}\r\n     {* handle captcha image *}\r\n     <div class=\"row\" style=\"margin: 1em;\">\r\n       <div class=\"col30\" style=\"float: left; width: 29%;\"> </div>\r\n     <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      {$captcha_img}<br/>\r\n      <input type=\"text\" name=\"{$actionid}feedback_captcha\" value=\"\" size=\"20\"/>\r\n    </div>\r\n  </div>\r\n  {/if}\r\n\r\n  <div class=\"row\" style=\"margin: 1em;\">\r\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\r\n        \r\n    </div>\r\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\r\n      <input type=\"submit\" name=\"{$actionid}submit\" value=\"{$mod->Lang(''submit'')}\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n\r\n</fieldset>\r\n{$formend}\r\n</div>\r\n{/if}','2011-11-15 09:23:42','2011-11-15 09:51:58'),
   ('CGFeedback','commentform_Radio','{* comment form template *}\n{if isset($message)}\n  <div class=\"pagemessage\">{$message}</div>\n{else}\n{* no message... display the form *}\n<div class=\"cgfeedback_addcoment\">\n{if isset($error)}\n  <div class=\"error\">{$error}</div>\n{/if}\n{$formstart}\n<fieldset style=\"margin: 1em;\">\n  <legend>&nbsp;{$mod->Lang(''prompt_add_comment'')}&nbsp;</legend>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_title'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"text\" name=\"{$actionid}title\" size=\"80\" maxlength=\"255\" value=\"{$title}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_your_name'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"text\" name=\"{$actionid}author_name\" size=\"40\" maxlength=\"255\" value=\"{$author_name}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_your_email'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"text\" name=\"{$actionid}author_email\" size=\"40\" maxlength=\"255\" value=\"{$author_email}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_notify'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"checkbox\" name=\"{$actionid}author_notify\" value=\"1\" {if $author_notify == 1}checked=\"checked\"{/if}/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_your_rating'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      {section name=''outer'' start=1 loop=6}\n        <input name=\"{$actionid}rating\" type=\"radio\" value=\"{$smarty.section.outer.index}\" {if $rating == $smarty.section.outer.index} checked=\"checked\"{/if} />\n        {section  name=''inner'' start=1 loop=$smarty.section.outer.index+1}\n           <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\n        {/section}\n        <br/>\n      {/section}\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_comment'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      {$input_comment}\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  {* custom fields *}\n  {if isset($fields)}\n  {foreach from=$fields key=''fieldid'' item=''field''}\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$field.name}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n    {if isset($field.input)}\n      {$field.input}\n    {elseif $field.type == 0 or $field.type == 1 }\n      <input type=\"text\" name=\"{$actionid}field_{$fieldid}\" value=\"{$field.value}\" size=\"{$field.attrib.length}\" maxlength=\"{$field.atrrib.maxlength}\"/>\n    {elseif $field.type == 2}\n      {* text area fields should have an input... so this should never get caled... but just in case *}\n      <textarea name=\"{$actionid}field_{$fieldid}\">{$field.value}</textarea>\n    {elseif $field.type == 3}\n      <select name=\"{$actionid}field_{$fieldid}\">\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\n      </select>\n    {elseif $field.type == 4}\n      <select multiple=\"multiple\" size=\"4\" name=\"{$actionid}field_{$fieldid}[]\">\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\n      </select>\n    {/if}\n    </div>\n  </div>\n  {/foreach}\n  {/if}\n\n  {if isset($captcha_img)}\n     {* handle captcha image *}\n     <div class=\"row\" style=\"margin: 1em;\">\n       <div class=\"col30\" style=\"float: left; width: 29%;\">&nbsp;</div>\n     <div class=\"col70\" style=\"float: left; width: 70%;\">\n      {$captcha_img}<br/>\n      <input type=\"text\" name=\"{$actionid}feedback_captcha\" value=\"\" size=\"20\"/>\n    </div>\n  </div>\n  {/if}\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n       &nbsp;\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"submit\" name=\"{$actionid}submit\" value=\"{$mod->Lang(''submit'')}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n</fieldset>\n{$formend}\n</div>\n{/if}','2011-11-15 09:23:42','2011-11-15 09:23:42'),
   ('CGFeedback','ratings_Sample','{* cgfeedback ratings template *}\n{strip}\n<div id=\"{$actionid}_feedback_ratings_report\">\n  <div class=\"feedback_ratings_item\">\n    {$mod->Lang(''lbl_count_comments'')}:&nbsp;{$stats.count}\n  </div>\n\n  <div class=\"feedback_ratings_item\">\n    {$mod->Lang(''lbl_min_rating'')}:&nbsp;{$stats.min}\n  </div>\n\n  <div class=\"feedback_ratings_item\">\n    {$mod->Lang(''lbl_max_rating'')}:&nbsp;{$stats.max}\n  </div>\n\n  <div class=\"feedback_ratings_item\">\n    {$mod->Lang(''lbl_avg_rating'')}:&nbsp;{$stats.avg}\n  </div>\n\n  <div class=\"feedback_ratings_item\">\n    {section name=''rating'' start=1 loop=6}\n    {if $smarty.section.rating.index <= $stats.int_avg}\n       <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\n    {/if}\n    {/section}\n    {if isset($stats.fraction)}\n       <img src=\"{$rating_imgs.img_half}\" alt=\"\"/>\n    {/if}\n  </div>\n \n{* feedback_ratings_report *}</div>\n{/strip}','2011-11-15 09:23:42','2011-11-15 09:23:42'),
-  ('CGFeedback','summary_Sample','{* summary template *}\r\n<div id=\"{$actionid}_feedback_summary_report\">\r\n{strip}\r\n{if $pagecount > 1}\r\n<p>\r\n  \r\n\r\n<table border=\"0\" cellspacing=\"1\" cellpadding=\"1\" width=\"30%\">\r\n\t<tr>\r\n\t\t{if $pagenum > 1}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\t<a href=\"{$firstpage_url}\" title=\"{$mod->Lang(''lbl_goto_firstpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/top.png\" height=\"15\"></a>\r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\t<a href=\"{$prevpage_url}\" title=\"{$mod->Lang(''lbl_goto_prevpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/prev.png\" height=\"15\"> </a>\t\t\r\n\t\t\t</td>\r\n\t\t{else}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t{/if}\r\n\r\n\t\t<td align=\"center\">\r\n\t\t\t{$mod->Lang(''lbl_page'')}{$pagenum} {$mod->Lang(''lbl_of'')} {$pagecount}\r\n\t\t</td>\r\n\r\n\t\t{if $pagenum < $pagecount}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\t<a href=\"{$nextpage_url}\" title=\"{$mod->Lang(''lbl_goto_nextpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/next.png\" height=\"15\"></a>\r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\t<a href=\"{$lastpage_url}\" title=\"{$mod->Lang(''lbl_goto_lastpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/bottom.png\" height=\"15\"></a>\t\t\t\r\n\t\t\t</td>\r\n\t\t{else}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\tÂ \r\n\t\t\t</td>\r\n\t\t{/if}\r\n\t</tr>\r\n</table>\r\n\r\n\r\n</p>\r\n{* pagecount *}{/if}\r\n\r\n{* disini *}\r\n\r\n{if isset($comments)}\r\n{foreach from=$comments item=''one''}\r\n  <div class=\"feedback_summary_item\">\r\n    <div class=\"feedback_item_title\">\r\n      <a href=\"{$one.detail_url}\" title=\"{$one.title}\">{$one.title}</a>\r\n    </div>\r\n\r\n    <div class=\"feedback_item_authodatee\">\r\n      {* {$mod->Lang(''lbl_created'')}:*}\r\n\r\n<table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\r\n<tr>\r\n<td>\r\n{$one.created|cms_date_format}\r\n</td>\r\n<td align=\"right\">\r\n{section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $one.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n</td>\r\n</tr>\r\n</table>\r\n\r\n\r\n    </div>\r\n{*\r\n    <div class=\"feedback_item_rating\">\r\n       {$mod->Lang(''lbl_rating'')}:{$one.rating}\r\n      {section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $one.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n    </div>\r\n*}\r\n\r\n\r\n    {if $one.author_name}\r\n    <div class=\"feedback_item_authorname\">\r\n      {* {$mod->Lang(''lbl_author_name'')}:{$one.author_name} ({$one.author_email}) *}\r\nAuthor:{$one.author_name} ({$one.author_email})\r\n    </div>\r\n    {/if}\r\n{*\r\n    {if $one.author_email}\r\n    <div class=\"feedback_item_authoremail\">\r\n      {$mod->Lang(''lbl_author_email'')}:{$one.author_email}\r\n    </div>\r\n    {/if}\r\n*}\r\n    {if $one.author_ip}\r\n    <div class=\"feedback_item_authorip\">\r\n      {$mod->Lang(''lbl_author_ip'')}:{$one.author_ip}\r\n    </div>\r\n    {/if}\r\n\r\n    <div class=\"feedback_item_data\">\r\n      {$one.data|htmlspecialchars}\r\n    </div>\r\n\r\n    {if isset($one.fields)}    \r\n      {foreach from=$one.fields key=''name'' item=''field''}\r\n      <div class=\"feedback_item_field\">\r\n        {$name}:{$field.value|htmlspecialchars}\r\n      </div>\r\n      {/foreach}\r\n    {/if}\r\n\r\n    <br/><br/>\r\n  </div>\r\n{/foreach}\r\n{* comments *}{/if}\r\n{* feedback_summary_report *}</div>\r\n\r\n\r\n\r\n{/strip}\r\n\r\n','2011-11-15 09:23:42','2011-11-21 07:24:02'),
-  ('CGFeedback','detail_Sample','{* detail template *}\r\n  <div class=\"feedback_summary_item\">\r\n    <div class=\"feedback_item_title\">\r\n      {$mod->Lang(''lbl_title'')}:{$onecomment.title}\r\n    </div>\r\n\r\n    <div class=\"feedback_item_authorname\">\r\n      Posted:{$onecomment.created|cms_date_format}\r\n    </div>\r\n\r\n    <div class=\"feedback_item_rating\">\r\n      {$mod->Lang(''lbl_rating'')}:{$onecomment.rating}\r\n      {section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $onecomment.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n    </div>\r\n\r\n    {if $onecomment.author_name}\r\n    <div class=\"feedback_item_authorname\">\r\n      {$mod->Lang(''lbl_author_name'')}:{$onecomment.author_name}\r\n    </div>\r\n    {/if}\r\n\r\n    {if $onecomment.author_email}\r\n    <div class=\"feedback_item_authoremail\">\r\n      {$mod->Lang(''lbl_author_email'')}:{$onecomment.author_email}\r\n    </div>\r\n    {/if}\r\n\r\n    {if $onecomment.author_ip}\r\n    <div class=\"feedback_item_authorip\">\r\n      {$mod->Lang(''lbl_author_ip'')}:{$onecomment.author_ip}\r\n    </div>\r\n    {/if}\r\n\r\n    <div class=\"feedback_item_data\">\r\n      {$onecomment.data}\r\n    </div>\r\n\r\n    {if isset($onecomment.fields)}    \r\n      {foreach from=$onecomment.fields key=''name'' item=''field''}\r\n      <div class=\"feedback_item_field\">\r\n        {$name}:{$field.value}\r\n      </div>\r\n      {/foreach}\r\n    {/if}\r\n\r\n    <br/><br/>\r\n\r\n\r\n\r\n{if $returnid != \"\"}\r\n\t<div id=\"NewsPostDetailReturnLink\">\r\n\t\t{$returnid}{if $category_name != ''''} - {$category_link}{/if}\r\n\t</div>\r\n{/if}\r\n\r\n</div>\r\n','2011-11-15 09:23:42','2011-11-23 08:55:52'),
+  ('CGFeedback','summary_Sample','{* summary template *}\r\n<div id=\"{$actionid}_feedback_summary_report\">\r\n{strip}\r\n{if $pagecount > 1}\r\n<p>\r\n  \r\n\r\n<table border=\"0\" cellspacing=\"1\" cellpadding=\"1\" width=\"30%\">\r\n\t<tr>\r\n\t\t{if $pagenum > 1}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\t<a href=\"{$firstpage_url}\" title=\"{$mod->Lang(''lbl_goto_firstpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/top.png\" height=\"15\"></a>\r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\t<a href=\"{$prevpage_url}\" title=\"{$mod->Lang(''lbl_goto_prevpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/prev.png\" height=\"15\"> </a>\t\t\r\n\t\t\t</td>\r\n\t\t{else}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t{/if}\r\n\r\n\t\t<td align=\"center\">\r\n\t\t\t{$mod->Lang(''lbl_page'')}{$pagenum} {$mod->Lang(''lbl_of'')} {$pagecount}\r\n\t\t</td>\r\n\r\n\t\t{if $pagenum < $pagecount}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\t<a href=\"{$nextpage_url}\" title=\"{$mod->Lang(''lbl_goto_nextpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/next.png\" height=\"15\"></a>\r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\t<a href=\"{$lastpage_url}\" title=\"{$mod->Lang(''lbl_goto_lastpage'')}\">\r\n\t\t\t\t\t<img src=\"uploads/images/bottom.png\" height=\"15\"></a>\t\t\t\r\n\t\t\t</td>\r\n\t\t{else}\r\n\t\t\t<td width=\"10%\">\t\t\t\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t\t<td width=\"5%\">\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t\t<td width=\"10%\">\r\n\t\t\t\t \r\n\t\t\t</td>\r\n\t\t{/if}\r\n\t</tr>\r\n</table>\r\n\r\n\r\n</p>\r\n{* pagecount *}{/if}\r\n\r\n{* disini *}\r\n\r\n{if isset($comments)}\r\n{foreach from=$comments item=''one''}\r\n  <div class=\"feedback_summary_item\">\r\n    <div class=\"feedback_item_title\">\r\n      <a href=\"{$one.detail_url}\" title=\"{$one.title}\">{$one.title}</a>\r\n    </div>\r\n\r\n    <div class=\"feedback_item_authodatee\">\r\n      {* {$mod->Lang(''lbl_created'')}:*}\r\n\r\n<table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\r\n<tr>\r\n<td>\r\n{$one.created|cms_date_format}\r\n</td>\r\n<td align=\"right\">\r\n{section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $one.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n</td>\r\n</tr>\r\n</table>\r\n\r\n\r\n    </div>\r\n{*\r\n    <div class=\"feedback_item_rating\">\r\n       {$mod->Lang(''lbl_rating'')}:{$one.rating}\r\n      {section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $one.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n    </div>\r\n*}\r\n\r\n\r\n    {if $one.author_name}\r\n    <div class=\"feedback_item_authorname\">\r\n      {* {$mod->Lang(''lbl_author_name'')}:{$one.author_name} ({$one.author_email}) *}\r\nAuthor:{$one.author_name} ({$one.author_email})\r\n    </div>\r\n    {/if}\r\n{*\r\n    {if $one.author_email}\r\n    <div class=\"feedback_item_authoremail\">\r\n      {$mod->Lang(''lbl_author_email'')}:{$one.author_email}\r\n    </div>\r\n    {/if}\r\n*}\r\n    {if $one.author_ip}\r\n    <div class=\"feedback_item_authorip\">\r\n      {$mod->Lang(''lbl_author_ip'')}:{$one.author_ip}\r\n    </div>\r\n    {/if}\r\n\r\n    <div class=\"feedback_item_data\">\r\n      {$one.data|htmlspecialchars}\r\n    </div>\r\n\r\n    {if isset($one.fields)}    \r\n      {foreach from=$one.fields key=''name'' item=''field''}\r\n      <div class=\"feedback_item_field\">\r\n        {$name}:{$field.value|htmlspecialchars}\r\n      </div>\r\n      {/foreach}\r\n    {/if}\r\n\r\n    <br/><br/>\r\n  </div>\r\n{/foreach}\r\n{* comments *}{/if}\r\n{* feedback_summary_report *}</div>\r\n\r\n\r\n\r\n{/strip}\r\n\r\n','2011-11-15 09:23:42','2011-11-21 07:24:02'),
+  ('CGFeedback','detail_Sample','{* detail template *}\r\n  <div class=\"feedback_summary_item\">\r\n    <div class=\"feedback_item_title\">\r\n      {$mod->Lang(''lbl_title'')}:{$onecomment.title}\r\n    </div>\r\n\r\n    <div class=\"feedback_item_authorname\">\r\n      Posted:{$onecomment.created|cms_date_format}\r\n    </div>\r\n\r\n    <div class=\"feedback_item_rating\">\r\n      {$mod->Lang(''lbl_rating'')}:{$onecomment.rating}\r\n      {section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $onecomment.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n    </div>\r\n\r\n    {if $onecomment.author_name}\r\n    <div class=\"feedback_item_authorname\">\r\n      {$mod->Lang(''lbl_author_name'')}:{$onecomment.author_name}\r\n    </div>\r\n    {/if}\r\n\r\n    {if $onecomment.author_email}\r\n    <div class=\"feedback_item_authoremail\">\r\n      {$mod->Lang(''lbl_author_email'')}:{$onecomment.author_email}\r\n    </div>\r\n    {/if}\r\n\r\n    {if $onecomment.author_ip}\r\n    <div class=\"feedback_item_authorip\">\r\n      {$mod->Lang(''lbl_author_ip'')}:{$onecomment.author_ip}\r\n    </div>\r\n    {/if}\r\n\r\n    <div class=\"feedback_item_data\">\r\n      {$onecomment.data}\r\n    </div>\r\n\r\n    {if isset($onecomment.fields)}    \r\n      {foreach from=$onecomment.fields key=''name'' item=''field''}\r\n      <div class=\"feedback_item_field\">\r\n        {$name}:{$field.value}\r\n      </div>\r\n      {/foreach}\r\n    {/if}\r\n\r\n    <br/><br/>\r\n\r\n\r\n\r\n{if $returnid != \"\"}\r\n\t<div id=\"NewsPostDetailReturnLink\">\r\n\t<a href=\"{cms_selflink href=''comment''}\">Return</a>\r\n\t</div>\r\n{/if}\r\n\r\n</div>\r\n','2011-11-15 09:23:42','2011-11-23 15:07:23'),
   ('CGFeedback','notification_template','{* admin notification template *}\n<html>\n<body>\n<h1>{$subject}</h1>\n\n<table>\n<tr>\n  <td>{$mod->Lang(''lbl_url'')}:</td>\n  <td>{$orig_url}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_key1'')}:</td>\n  <td>{$key1}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_key2'')}:</td>\n  <td>{$key2}</td>\n</tr>\n{if !empty($key3) }\n<tr>\n  <td>{$mod->Lang(''lbl_key3'')}:</td>\n  <td>{$key3}</td>\n</tr>\n{/if}\n<tr>\n  <td>{$mod->Lang(''lbl_author'')}:</td>\n  <td>{$author_name} {if !empty($author_email)}({$author_email}){/if}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_author_ip'')}:</td>\n  <td>{$author_ip}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_title'')}:</td>\n  <td>{$title}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_rating'')}:</td>\n  <td>{$rating}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_comment'')}:</td>\n  <td>{$comment}</td>\n</tr>\n{foreach from=$fields item=''onefield''}\n<tr>\n  <td>{$onefield.name}:</td>\n  <td>{$onefield.value}</td>\n</tr>\n{/foreach}\n</body>\n</html>','2011-11-15 09:23:42','2011-11-15 09:23:42'),
   ('CGFeedback','usernotification_template','{* user notification template *}\n{* admin notification template *}\n<html>\n<body>\n<h1>{$subject}</h1>\n\n<table>\n<tr>\n  <td>{$mod->Lang(''lbl_url'')}:</td>\n  <td>{$orig_url}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_key1'')}:</td>\n  <td>{$key1}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_key2'')}:</td>\n  <td>{$key2}</td>\n</tr>\n{if !empty($key3) }\n<tr>\n  <td>{$mod->Lang(''lbl_key3'')}:</td>\n  <td>{$key3}</td>\n</tr>\n{/if}\n<tr>\n  <td>{$mod->Lang(''lbl_author'')}:</td>\n  <td>{$author_name} {if !empty($author_email)}({$author_email}){/if}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_title'')}:</td>\n  <td>{$title}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_rating'')}:</td>\n  <td>{$rating}</td>\n</tr>\n<tr>\n  <td>{$mod->Lang(''lbl_comment'')}:</td>\n  <td>{$comment}</td>\n</tr>\n{foreach from=$fields item=''onefield''}\n<tr>\n  <td>{$onefield.name}:</td>\n  <td>{$onefield.value}</td>\n</tr>\n{/foreach}\n</body>\n</html>','2011-11-15 09:23:42','2011-11-15 09:23:42'),
-  ('CGFeedback','success_msg','<p>{* comment successfull template *}</p>\r\n<p>Thank you {$author_name} <em>{$author_ip}</em> for your comment entitled \"{$title}\". {if $author_notify}You will be notified of any further replies to this thread.{/if}</p>\r\n<p>Â </p>\r\n<p>{redirect to=''comment''}</p>','2011-11-15 09:23:42','2011-11-23 09:27:05'),
+  ('CGFeedback','success_msg','<p>{* comment successfull template *}</p>\r\n<p>Thank you {$author_name} <em>{$author_ip}</em> for your comment entitled \"{$title}\". {if $author_notify}You will be notified of any further replies to this thread.{/if}</p>\r\n<p> </p>\r\n<p>{redirect to=''comment''}</p>','2011-11-15 09:23:42','2011-11-23 09:27:05'),
   ('CGFeedback','success_message','Comment successfully added.  Thank you','2011-11-15 09:23:42','2011-11-15 09:23:42'),
   ('CGFeedback','sysdflt_commentform_template','{* comment form template *}\n{if isset($message)}\n  <div class=\"pagemessage\">{$message}</div>\n{else}\n{* no message... display the form *}\n<div class=\"cgfeedback_addcoment\">\n{if isset($error)}\n  <div class=\"error\">{$error}</div>\n{/if}\n{$formstart}\n<fieldset style=\"margin: 1em;\">\n  <legend>&nbsp;{$mod->Lang(''prompt_add_comment'')}&nbsp;</legend>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_title'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"text\" name=\"{$actionid}title\" size=\"80\" maxlength=\"255\" value=\"{$title}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_your_name'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"text\" name=\"{$actionid}author_name\" size=\"40\" maxlength=\"255\" value=\"{$author_name}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_your_email'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"text\" name=\"{$actionid}author_email\" size=\"40\" maxlength=\"255\" value=\"{$author_email}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_notify'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"checkbox\" name=\"{$actionid}author_notify\" value=\"1\" {if $author_notify == 1}checked=\"checked\"{/if}/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_your_rating'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <select name=\"{$actionid}rating\">\n        {html_options options=$rating_options selected=$rating}\n      </select>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$mod->Lang(''prompt_comment'')}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      {$input_comment}\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n  {* custom fields *}\n  {if isset($fields)}\n  {foreach from=$fields key=''fieldid'' item=''field''}\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n      {$field.name}:\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n    {if isset($field.input)}\n      {$field.input}\n    {elseif $field.type == 0 or $field.type == 1 }\n      <input type=\"text\" name=\"{$actionid}field_{$fieldid}\" value=\"{$field.value}\" size=\"{$field.attrib.length}\" maxlength=\"{$field.attrib.maxlength}\"/>\n    {elseif $field.type == 2}\n      {* text area fields should have an input... so this should never get caled... but just in case *}\n      <textarea name=\"{$actionid}field_{$fieldid}\">{$field.value}</textarea>\n    {elseif $field.type == 3}\n      <select name=\"{$actionid}field_{$fieldid}\">\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\n      </select>\n    {elseif $field.type == 4}\n      <select multiple=\"multiple\" size=\"4\" name=\"{$actionid}field_{$fieldid}[]\">\n        {html_options options=$field.attrib.options selected=\"{$field.value}\"}\n      </select>\n    {/if}\n    </div>\n  </div>\n  {/foreach}\n  {/if}\n\n  {if isset($captcha_img)}\n     {* handle captcha image *}\n     <div class=\"row\" style=\"margin: 1em;\">\n       <div class=\"col30\" style=\"float: left; width: 29%;\">&nbsp;</div>\n     <div class=\"col70\" style=\"float: left; width: 70%;\">\n      {$captcha_img}<br/>\n      <input type=\"text\" name=\"{$actionid}feedback_captcha\" value=\"\" size=\"20\"/>\n    </div>\n  </div>\n  {/if}\n\n  <div class=\"row\" style=\"margin: 1em;\">\n    <div class=\"col30\" style=\"float: left; width: 29%;\">\n       &nbsp;\n    </div>\n    <div class=\"col70\" style=\"float: left; width: 70%;\">\n      <input type=\"submit\" name=\"{$actionid}submit\" value=\"{$mod->Lang(''submit'')}\"/>\n    </div>\n  </div>\n  <div class=\"clearfix\"></div>\n\n</fieldset>\n{$formend}\n</div>\n{/if}','2011-11-16 03:11:03','2011-11-16 03:13:25'),
   ('CGFeedback','sysdflt_summary_template','{* summary template *}\r\n<div id=\"{$actionid}_feedback_summary_report\">\r\n{strip}\r\n{if $pagecount > 1}\r\n<p>\r\n  {if $pagenum > 1}\r\n    <a href=\"{$firstpage_url}\" title=\"{$mod->Lang(''lbl_goto_firstpage'')}\">&lt;&lt;</a>&nbsp;\r\n    <a href=\"{$prevpage_url}\" title=\"{$mod->Lang(''lbl_goto_prevpage'')}\">&lt;</a>&nbsp;\r\n  {/if}\r\n  {$mod->Lang(''lbl_page'')}&nbsp;{$pagenum}&nbsp;{$mod->Lang(''lbl_of'')}&nbsp;{$pagecount}\r\n  {if $pagenum < $pagecount}\r\n    &nbsp;<a href=\"{$nextpage_url}\" title=\"{$mod->Lang(''lbl_goto_nextpage'')}\">&gt;</a>&nbsp;\r\n    <a href=\"{$lastpage_url}\" title=\"{$mod->Lang(''lbl_goto_lastpage'')}\">&gt;&gt;</a>\r\n  {/if}\r\n</p>\r\n{* pagecount *}{/if}\r\n\r\n{if isset($stats)}\r\n<div class=\"feedback_summary_stats\">\r\n<h4>{$mod->Lang(''statistics'')}</h4>\r\n{* disini *}\r\n</div>\r\n{/if}\r\n\r\n{if isset($comments)}\r\n{foreach from=$comments item=''one''}\r\n  <div class=\"feedback_summary_item\">\r\n    <div class=\"feedback_item_title\">\r\n      <a href=\"{$one.detail_url}\" title=\"{$one.title}\">{$one.title}</a>\r\n    </div>\r\n\r\n    <div class=\"feedback_item_authodatee\">\r\n      {$mod->Lang(''lbl_created'')}:&nbsp;{$one.created|cms_date_format}\r\n    </div>\r\n\r\n    <div class=\"feedback_item_rating\">\r\n      {$mod->Lang(''lbl_rating'')}:&nbsp;{$one.rating}&nbsp;&nbsp;\r\n      {section name=''rating'' start=1 loop=6}\r\n        {if $smarty.section.rating.index <= $one.rating}\r\n          <img src=\"{$rating_imgs.img_on}\" alt=\"\"/>\r\n        {else}\r\n          <img src=\"{$rating_imgs.img_off}\" alt=\"\"/>\r\n        {/if}\r\n      {/section}\r\n    </div>\r\n\r\n    {if $one.author_name}\r\n    <div class=\"feedback_item_authorname\">\r\n      {$mod->Lang(''lbl_author_name'')}:&nbsp;{$one.author_name}\r\n    </div>\r\n    {/if}\r\n\r\n    {if $one.author_email}\r\n    <div class=\"feedback_item_authoremail\">\r\n      {$mod->Lang(''lbl_author_email'')}:&nbsp;{$one.author_email}\r\n    </div>\r\n    {/if}\r\n\r\n    {if $one.author_ip}\r\n    <div class=\"feedback_item_authorip\">\r\n      {$mod->Lang(''lbl_author_ip'')}:&nbsp;{$one.author_ip}\r\n    </div>\r\n    {/if}\r\n\r\n    <div class=\"feedback_item_data\">\r\n      {$one.data|htmlspecialchars}\r\n    </div>\r\n\r\n    {if isset($one.fields)}    \r\n      {foreach from=$one.fields key=''name'' item=''field''}\r\n      <div class=\"feedback_item_field\">\r\n        {$name}:&nbsp;{$field.value|htmlspecialchars}\r\n      </div>\r\n      {/foreach}\r\n    {/if}\r\n\r\n    <br/><br/>\r\n  </div>\r\n{/foreach}\r\n{* comments *}{/if}\r\n{* feedback_summary_report *}</div>\r\n{/strip}\r\n','2011-11-16 03:12:13','2011-11-16 03:16:08'),
@@ -6211,7 +6336,7 @@ INSERT INTO `cms_module_templates` (`module_name`, `template_name`, `content`, `
   ('FrontEndUsers','notification_template','{* this template defines how notification emails will be sent *}\r\n{* the same template is used for all notification events so you may need \r\n   to throw in some logic here to display all of the information you want\r\n   in each email. *}\r\n{* all smarty variables can be used in this template, including functions\r\n   from customcontent for frontend generated events *}\r\n{* I encourage you to use the {get_template_vars} smarty plugin and the\r\n   print_r smarty modifier to see what variables are available *}\r\n\r\n{get_template_vars}','2011-11-16 04:32:11','2011-11-23 02:10:45'),
   ('FrontEndUsers','feusers_viewuser','{* view user template *}\n<p>{$feu->Lang(''id'')}:&nbsp;{$userinfo.id}</p>\n<p>{$feu->Lang(''username'')}:&nbsp;{$userinfo.username}</p>\n<p>{$feu->Lang(''email'')}:&nbsp;<a href=\"mailto:{$email_address}\">{$email_address}</p>\n<p>{$feu->Lang(''expires'')}:&nbsp;{$userinfo.expires}</p>\n{foreach from=$user_properties item=''entry''}\n{if $entry.type != 0}\n<p>{$entry.prompt}:&nbsp;{$entry.data}</p>\n{/if}\n{/foreach}\n','2011-11-16 04:32:11','2011-11-16 04:32:11'),
   ('FrontEndUsers','feusers_resetsession','{* reset session template *}\n{* NOTE: this template requires jquery be available in any page that it is used on *}\n\n<p><a href=\"javascript:;\" name=\"feu_manual_reset\">Click Here To Confirm Login Status</a></p>{* safe to remove this *}\n\n{* style information for the modal window and the mask... these can be removed and placed in a CMSMS stylesheet *}\n{literal}\n<style type=\"text/css\">\n#feu_modal {\n  background-color: #fff;\n  border: 1px solid #00f;\n  padding: 2px;\n  margin:  2px;\n}\n#feu_mask {\n  background-color: #000;\n}\n#feu_modal .title {\n  background-color: #00f;\n  color:  #fff;\n  padding: 0px;\n}\n</style>\n{/literal}\n\n{capture assign=''feu_theform''}{strip}\n{* the reset-session form, a simple form to display a message with a title to the user with two options... okay, and cancel... the name of these buttons is important, as well the strip tag is important *}\n<form action=\"javascript:;\">\n<p class=\"title\">{$mod->Lang(''title_reset_session'')}</p>\n<p class=\"row\">{$mod->Lang(''msg_reset_session'')}</p>\n<p class=\"row\">\n  <input type=\"submit\" name=\"feu_ok\" value=\"{$mod->Lang(''ok'')}\"/>\n  <input type=\"submit\" name=\"feu_cancel\" value=\"{$mod->Lang(''cancel'')}\"/>\n</p>\n</form>\n{/strip}{/capture}\n\n{literal}\n<script type=\"text/javascript\">\n//<![CDATA[\n// the timer interval (how often you want to display the dialog to your users\nvar timer_interval = {/literal}{$session_timeout}{literal} - 30;\n\n// a function to hide the modal dialog -- you can modify this function\nfunction feu_close_modal()\n{\n   jQuery(''#feu_modal'').fadeOut(2000);\n   jQuery(''#feu_mask'').fadeOut(1000);\n}\n\n// a function to display the modal dialog... you can modify this function\nfunction feu_open_modal()\n{\n  var maskHeight = jQuery(document).height();\n  var maskWidth = jQuery(document).width();\n\n  // set the mask size to fill up the whole screen\n  jQuery(''#feu_mask'').css({''width'':maskWidth,''height'':maskHeight});\n\n  // transition effect\n  jQuery(''#feu_mask'').fadeIn(1000);\n  jQuery(''#feu_mask'').fadeTo(\"slow\",0.8);\n\n  // get the top left corner of the popup\n  var winHeight = jQuery(window).height();\n  var winWidth = jQuery(window).width();\n\n  var popupHeight = jQuery(''#feu_modal'').height();\n  var popupWidth  = jQuery(''#feu_modal'').width();\n\n  var top = winHeight/2 - popupHeight/2;\n  var left = winWidth/2 - popupWidth/2;\n  // set the popup window to center\n  jQuery(''#feu_modal'').css({''top'':top,''left'':left});\n\n  // transition effect\n  jQuery(''#feu_modal'').fadeIn(2000);\n}\n\nfunction feu_user_cancelled()\n{\n  // a callback function that may be customized to allow displaying a message to the user\n  // to indicate that they may be logged out at any time.\n  alert(''You have chosen to disregard the session warning, you may continue to browse this site however some functionality may be unavailable to you until you login again'');\n}\n\n// *\n// * do not modify below here unless you are an experienced jquery programmer *\n// *\n\nif( timer_interval <= 0 )\n  {\n     timer_interval = 0;\n  }\nvar dialogcontents = ''{/literal}{$feu_theform}{literal}'';\n\n\n// we have jQuery\njQuery(document).ready(function(){\n  // create a new id for our stuff\n  jQuery(''body'').append(''<div id=\"feu_body\"></div>'');\n  \n  // create the mask and append it to the dom\n  jQuery(''#feu_body'').append(''<div id=\"feu_mask\"></div>'');\n\n  // create the modal dialog and append it to the DOM\n  jQuery(''#feu_body'').append(''<div id=\"feu_modal\">''+dialogcontents+''</div>'');\n  \n  // and a junk div\n  jQuery(''#feu_body'').append(''<div id=\"feu_junk\" style=\"display: none;\"></div>'');\n\n  // handle click events\n  jQuery(''#feu_modal input[name=feu_ok]'').click(function(e){\n    e.preventDefault();\n\n    // do the ajax request\n    var url = ''{/literal}{$reset_url}{literal}'';\n    var url = url.replace(/amp;/g,'''');\n    jQuery(''#feu_junk'').load(url);\n\n    // and done.\n    feu_close_modal();\n   });\n  jQuery(''#feu_modal input[name=feu_cancel]'').click(function(e){\n    e.preventDefault();\n    feu_close_modal();\n    feu_user_cancelled();\n  });\n  jQuery(''a[name=feu_manual_reset]'').click(function(e){\n    e.preventDefault();\n    feu_open_modal();\n  });\n\n  // create our timer\n  if( timer_interval > 0 )\n     {\n        setTimeout(feu_open_modal,timer_interval * 1000);\n     }\n\n});\n//]]>\n</script>\n{/literal}\n\n{* required css *}\n{literal}\n<style type=\"text/css\">\n#feu_modal {\n  position: absolute;\n  z-index: 9999;\n  display: none;\n}\n#feu_mask {\n  top: 0;\n  left: 0;\n  position: absolute;\n  z-index: 9000;\n  display: none;\n}\n</style>\n{/literal}','2011-11-16 04:32:11','2011-11-16 04:32:11'),
-  ('Album','cmotion-image-gallery','{* CMotion gallery template *}\n\n{* Include JS files. You can move this to the head of your page template if you want *}\n{literal}\n<script type=\"text/javascript\" src=\"modules/Album/templates/db/js/motiongallery.js\">\n\n/***********************************************\n* CMotion Image Gallery- Ã‚Â© Dynamic Drive DHTML code library (www.dynamicdrive.com)\n* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts\n* This notice must stay intact for legal use\n* Modified by Jscheuer1 for autowidth and optional starting positions\n***********************************************/\n\n</script>\n\n<script type=\"text/javascript\">\n\n/***********************************************\n* Dynamic Ajax Content- Ã‚Â© Dynamic Drive DHTML code library (www.dynamicdrive.com)\n* This notice MUST stay intact for legal use\n* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code\n***********************************************/\n\nvar bustcachevar=1 //bust potential caching of external pages after initial request? (1=yes, 0=no)\nvar loadedobjects=\"\"\nvar rootdomain=\"http://\"+window.location.hostname\nvar bustcacheparameter=\"\"\n\nfunction ajaxpage(url, containerid){\nvar page_request = false\nif (window.XMLHttpRequest) // if Mozilla, Safari etc\npage_request = new XMLHttpRequest()\nelse if (window.ActiveXObject){ // if IE\ntry {\npage_request = new ActiveXObject(\"Msxml2.XMLHTTP\")\n} \ncatch (e){\ntry{\npage_request = new ActiveXObject(\"Microsoft.XMLHTTP\")\n}\ncatch (e){}\n}\n}\nelse\nreturn false\npage_request.onreadystatechange=function(){\nloadpage(page_request, containerid)\n}\nif (bustcachevar) //if bust caching of external page\nbustcacheparameter=(url.indexOf(\"?\")!=-1)? \"&\"+new Date().getTime() : \"?\"+new Date().getTime()\npage_request.open(''GET'', url+bustcacheparameter, true)\npage_request.send(null)\n}\n\nfunction loadpage(page_request, containerid){\nif (page_request.readyState == 4 && (page_request.status==200 || window.location.href.indexOf(\"http\")==-1))\ndocument.getElementById(containerid).innerHTML=page_request.responseText\n}\n\nfunction loadobjs(){\nif (!document.getElementById)\nreturn\nfor (i=0; i<arguments.length; i++){\nvar file=arguments[i]\nvar fileref=\"\"\nif (loadedobjects.indexOf(file)==-1){ //Check to see if this object has not already been added to page before proceeding\nif (file.indexOf(\".js\")!=-1){ //If object is a js file\nfileref=document.createElement(''script'')\nfileref.setAttribute(\"type\",\"text/javascript\");\nfileref.setAttribute(\"src\", file);\n}\nelse if (file.indexOf(\".css\")!=-1){ //If object is a css file\nfileref=document.createElement(\"link\")\nfileref.setAttribute(\"rel\", \"stylesheet\");\nfileref.setAttribute(\"type\", \"text/css\");\nfileref.setAttribute(\"href\", file);\n}\n}\nif (fileref!=\"\"){\ndocument.getElementsByTagName(\"head\").item(0).appendChild(fileref)\nloadedobjects+=file+\" \" //Remember this object as being already added to page\n}\n}\n}\n\n</script>\n\n<!-- End gallery script -->\n{/literal}\n\n\n{* Album List *}\n{if !$album}\n<ul class=\"albumlist\">\n\t{foreach from=$albums item=album}\n\t<li class=\"thumb\">\n \t<a href=\"{$album->link}\">\n<img src=\"{$album->thumbnail}\" alt=\"{$album->name|escape:''html''}\" title=\"{$album->name|escape:''html''}\"{$album->autothumbnailsize} /></a>\n\n<p class=\"albumname\">{$album->name|escape:''html''}<br />\n<span class=\"albumpicturecount\">({$album->picturecount} images)</span><br />\n<span class=\"albumcomment\">{$album->comment}</span></p>\n</li>\n\t{/foreach}\n</ul>\n\n{else}\n\n\n\n{* Big Picture *}\n\n\n\n<div class=\"largeview\">\n\n{* The image alt/title-attribute uses the sitename-tag with a copyright-symbol. You can also use other tags from this album template. *}\n\n<img id=\"maincmotionpic\" src=\"{$picture->picture}\" alt=\"&copy; {sitename}\" title=\"&copy; {sitename}\"/>\n\n</div>\n\n\n\n{* End Big Picture *}\n\n\n\n\n\n{*CMotion gallery with thumbnail list*}\n\n\n\n<div id=\"motioncontainer\" style=\"position:relative;overflow:hidden;\">\n\n <div id=\"motiongallery\" style=\"position:absolute;left:0;top:0;white-space: nowrap;\">\n\n   <div id=\"trueContainer\">\n\n\t{foreach from=$pictures item=picturesrow}\n\n\t    {foreach from=$picturesrow item=onepicture}\n\n{* Change alt/title-tag to what you need. *}\n\n\t    <a href=\"{$onepicture->link}\"  title=\"{$onepicture->name|escape:''html''} | {$picture->comment|escape:''html''}\" onclick=\"document.getElementById(''maincmotionpic'').setAttribute(''src'', ''{$onepicture->picture}'');return false;\"> <img src=\"{$onepicture->thumbnail}\" alt=\"{$onepicture->name|escape:''html''}\"/></a>\n\n\n\n      {if ($onepicture->number==$picturenumber and !$picture)}{assign var=picture value=$onepicture}{/if}\n\n\n\n\t    {/foreach}\n\n\t{/foreach}\n\n   </div>\n\n </div>\n\n</div>\n\n\n\n{/if}\n\n\n<div style=\"clear:both\"></div>','2011-11-17 02:49:02','2011-11-17 02:49:02'),
+  ('Album','cmotion-image-gallery','{* CMotion gallery template *}\n\n{* Include JS files. You can move this to the head of your page template if you want *}\n{literal}\n<script type=\"text/javascript\" src=\"modules/Album/templates/db/js/motiongallery.js\">\n\n/***********************************************\n* CMotion Image Gallery- Â© Dynamic Drive DHTML code library (www.dynamicdrive.com)\n* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts\n* This notice must stay intact for legal use\n* Modified by Jscheuer1 for autowidth and optional starting positions\n***********************************************/\n\n</script>\n\n<script type=\"text/javascript\">\n\n/***********************************************\n* Dynamic Ajax Content- Â© Dynamic Drive DHTML code library (www.dynamicdrive.com)\n* This notice MUST stay intact for legal use\n* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code\n***********************************************/\n\nvar bustcachevar=1 //bust potential caching of external pages after initial request? (1=yes, 0=no)\nvar loadedobjects=\"\"\nvar rootdomain=\"http://\"+window.location.hostname\nvar bustcacheparameter=\"\"\n\nfunction ajaxpage(url, containerid){\nvar page_request = false\nif (window.XMLHttpRequest) // if Mozilla, Safari etc\npage_request = new XMLHttpRequest()\nelse if (window.ActiveXObject){ // if IE\ntry {\npage_request = new ActiveXObject(\"Msxml2.XMLHTTP\")\n} \ncatch (e){\ntry{\npage_request = new ActiveXObject(\"Microsoft.XMLHTTP\")\n}\ncatch (e){}\n}\n}\nelse\nreturn false\npage_request.onreadystatechange=function(){\nloadpage(page_request, containerid)\n}\nif (bustcachevar) //if bust caching of external page\nbustcacheparameter=(url.indexOf(\"?\")!=-1)? \"&\"+new Date().getTime() : \"?\"+new Date().getTime()\npage_request.open(''GET'', url+bustcacheparameter, true)\npage_request.send(null)\n}\n\nfunction loadpage(page_request, containerid){\nif (page_request.readyState == 4 && (page_request.status==200 || window.location.href.indexOf(\"http\")==-1))\ndocument.getElementById(containerid).innerHTML=page_request.responseText\n}\n\nfunction loadobjs(){\nif (!document.getElementById)\nreturn\nfor (i=0; i<arguments.length; i++){\nvar file=arguments[i]\nvar fileref=\"\"\nif (loadedobjects.indexOf(file)==-1){ //Check to see if this object has not already been added to page before proceeding\nif (file.indexOf(\".js\")!=-1){ //If object is a js file\nfileref=document.createElement(''script'')\nfileref.setAttribute(\"type\",\"text/javascript\");\nfileref.setAttribute(\"src\", file);\n}\nelse if (file.indexOf(\".css\")!=-1){ //If object is a css file\nfileref=document.createElement(\"link\")\nfileref.setAttribute(\"rel\", \"stylesheet\");\nfileref.setAttribute(\"type\", \"text/css\");\nfileref.setAttribute(\"href\", file);\n}\n}\nif (fileref!=\"\"){\ndocument.getElementsByTagName(\"head\").item(0).appendChild(fileref)\nloadedobjects+=file+\" \" //Remember this object as being already added to page\n}\n}\n}\n\n</script>\n\n<!-- End gallery script -->\n{/literal}\n\n\n{* Album List *}\n{if !$album}\n<ul class=\"albumlist\">\n\t{foreach from=$albums item=album}\n\t<li class=\"thumb\">\n \t<a href=\"{$album->link}\">\n<img src=\"{$album->thumbnail}\" alt=\"{$album->name|escape:''html''}\" title=\"{$album->name|escape:''html''}\"{$album->autothumbnailsize} /></a>\n\n<p class=\"albumname\">{$album->name|escape:''html''}<br />\n<span class=\"albumpicturecount\">({$album->picturecount} images)</span><br />\n<span class=\"albumcomment\">{$album->comment}</span></p>\n</li>\n\t{/foreach}\n</ul>\n\n{else}\n\n\n\n{* Big Picture *}\n\n\n\n<div class=\"largeview\">\n\n{* The image alt/title-attribute uses the sitename-tag with a copyright-symbol. You can also use other tags from this album template. *}\n\n<img id=\"maincmotionpic\" src=\"{$picture->picture}\" alt=\"&copy; {sitename}\" title=\"&copy; {sitename}\"/>\n\n</div>\n\n\n\n{* End Big Picture *}\n\n\n\n\n\n{*CMotion gallery with thumbnail list*}\n\n\n\n<div id=\"motioncontainer\" style=\"position:relative;overflow:hidden;\">\n\n <div id=\"motiongallery\" style=\"position:absolute;left:0;top:0;white-space: nowrap;\">\n\n   <div id=\"trueContainer\">\n\n\t{foreach from=$pictures item=picturesrow}\n\n\t    {foreach from=$picturesrow item=onepicture}\n\n{* Change alt/title-tag to what you need. *}\n\n\t    <a href=\"{$onepicture->link}\"  title=\"{$onepicture->name|escape:''html''} | {$picture->comment|escape:''html''}\" onclick=\"document.getElementById(''maincmotionpic'').setAttribute(''src'', ''{$onepicture->picture}'');return false;\"> <img src=\"{$onepicture->thumbnail}\" alt=\"{$onepicture->name|escape:''html''}\"/></a>\n\n\n\n      {if ($onepicture->number==$picturenumber and !$picture)}{assign var=picture value=$onepicture}{/if}\n\n\n\n\t    {/foreach}\n\n\t{/foreach}\n\n   </div>\n\n </div>\n\n</div>\n\n\n\n{/if}\n\n\n<div style=\"clear:both\"></div>','2011-11-17 02:49:02','2011-11-17 02:49:02'),
   ('SelfRegistration','selfreg_reg2template','\n<!-- Registration 1 template -->\n{$title}\n{if isset($messsage) && $message != ''''}\n  {if isset($error) && $error != ''''}\n    <p><font color=\"red\">{$message}</font></p>\n  {else}\n    <p>{$message}</p>\n  {/if}\n{/if}\n{$startform}\n  <center>\n  <table width=\"75%\">\n  <tr>\n    <td>{$prompt_username}</font>\n    </td>\n    <td>{$input_username}</td>\n  </tr>\n  <tr>\n    <td>{$prompt_password}</font>\n    </td>\n    <td>{$input_password}</td>\n  </tr>\n  <tr>\n    <td>{$prompt_code}</font>\n    </td>\n    <td>{$input_code}</td>\n  </tr>\n  </table>\n  </center>\n<br/>\n {$hidden}{$hidden2}{$submit}\n{$endform}\n<!-- Registration 2 template -->\n ','2011-11-23 02:42:42','2011-11-23 02:42:42'),
   ('News','formFrontEndNewsForm','{* original form template *}\r\n{if isset($error)}\r\n  <h3><font color=\"red\">{$error}</font></h3>\r\n{else}\r\n  {if isset($message)}\r\n    <h3>{$message}</h3>\r\n  {/if}\r\n{/if}\r\n{$startform}\r\n\t<div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">*{$titletext}:</p>\r\n\t\t<p class=\"pageinput\">{$inputtitle}</p>\r\n\t</div>\r\n\t<div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">{$categorytext}:</p>\r\n\t\t<p class=\"pageinput\">{$inputcategory}</p>\r\n\t</div>\r\n\t<div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">*{$contenttext}:</p>\r\n\t\t<p class=\"pageinput\">{$inputcontent}</p>\r\n\t</div>\r\n{*\r\n\t<div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">{$startdatetext}:</p>\r\n\t\t<p class=\"pageinput\">{html_select_date prefix=$startdateprefix time=$startdate end_year=\"+15\"} {html_select_time prefix=$startdateprefix time=$startdate}</p>\r\n\t</div>\r\n\t<div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">{$enddatetext}:</p>\r\n\t\t<p class=\"pageinput\">{html_select_date prefix=$enddateprefix time=$enddate end_year=\"+15\"} {html_select_time prefix=$enddateprefix time=$enddate}</p>\r\n*}\r\n\r\n\t</div>\r\n\t{if isset($customfields)}\r\n\t   {foreach from=$customfields item=''onefield''}\r\n\t      <div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">{$onefield->name}:</p>\r\n\t\t<p class=\"pageinput\">{$onefield->field}</p>\r\n\t      </div>\r\n\t   {/foreach}\r\n\t{/if}\r\n\t<div class=\"pageoverflow\">\r\n\t\t<p class=\"pagetext\">&nbsp;</p>\r\n\t\t<p class=\"search-button\">{$hidden}{$submit}{$cancel}</p>\r\n\t</div>\r\n{$endform}\r\n','2011-11-21 09:40:36','2011-11-21 09:42:58'),
   ('SelfRegistration','selfreg_postreg1_template','<!-- Post Registration 1 template -->\r\n{$title}\r\n{if isset($messasge) && $message != ''''}\r\n  {if isset($error) && $error != ''''}\r\n    <p><font color=\"red\">{$message}</font></p>\r\n  {else}\r\n    <p>{$message}</p>\r\n  {/if}\r\n{/if}\r\n<p>Thank you {$username} for registering with {$sitename}.  An email has been sent to {$email} with instructions on how to continue the registration process</p>\r\n<!-- Post Registration 1 template -->\r\n','2011-11-23 02:42:42','2011-11-23 03:42:57'),
@@ -6222,6 +6347,7 @@ INSERT INTO `cms_module_templates` (`module_name`, `template_name`, `content`, `
   ('SelfRegistration','selfreg_finalmessage_template','\n<!-- FinalMessage Template -->\n<p>Welcome {$username} to {$sitename}.  Your registration is complete.  Please login to continue</p>\n<!-- FinalMessage Template -->\n  ','2011-11-23 02:42:42','2011-11-23 02:42:42'),
   ('SelfRegistration','selfreg_sendanotheremail_template','\n<!-- SendAnotherEmail Template -->\n{$title}\n{if isset($message) && $message != ''''}\n  {if isset($message) && $error != ''''}\n    <p><font color=\"red\">{$message}</font></p>\n  {else}\n    <p>{$message}</p>\n  {/if}\n{/if}\n<p>I didn''t receive my confirmation email, please send another one.</p>\n<p>My Username is: {$startform}{$input_username}&nbsp;{$submit}{$endform}</p>\n<!-- SendAnotherEmail Template -->\n  ','2011-11-23 02:42:42','2011-11-23 02:42:42'),
   ('SelfRegistration','selfreg_post_sendanotheremail_template','\n<!-- Post SendAnotherEmail template -->\n{$title}\n{if isset($message) && $message != ''''}\n  {if isset($error) && $error != ''''}\n    <p><font color=\"red\">{$message}</font></p>\n  {else}\n    <p>{$message}</p>\n  {/if}\n{/if}\n<p>Thank you {$username} for registering with {$sitename}.  We are sorry you had difficulty receiving your email.  A second email has been sent to {$email} with instructions on how to continue the registration process</p>\n<!-- Post SendAnotherEmail template -->\n','2011-11-23 02:42:42','2011-11-23 02:42:42');
+
 COMMIT;
 
 #
@@ -6230,6 +6356,7 @@ COMMIT;
 
 INSERT INTO `cms_module_uploads_categories` (`upload_category_id`, `upload_category_name`, `upload_category_description`, `upload_category_path`, `upload_category_listable`, `upload_category_groups`, `upload_category_deletable`, `upload_category_expires_hrs`, `upload_category_scannable`) VALUES 
   (1,'Attachments','Members attachments','attachment',0,NULL,0,0,1);
+
 COMMIT;
 
 #
@@ -6238,6 +6365,7 @@ COMMIT;
 
 INSERT INTO `cms_module_uploads_categories_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -6246,6 +6374,7 @@ COMMIT;
 
 INSERT INTO `cms_module_uploads_downloads_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -6254,6 +6383,7 @@ COMMIT;
 
 INSERT INTO `cms_module_uploads_fielddefs` (`id`, `name`, `type`, `attribs`, `iorder`, `public`) VALUES 
   (1,'Filename','textinput','a:2:{s:6:\"length\";s:2:\"10\";s:9:\"maxlength\";s:3:\"255\";}',1,1);
+
 COMMIT;
 
 #
@@ -6269,6 +6399,7 @@ INSERT INTO `cms_module_uploads_filetypes` (`id`, `sortorder`, `name`, `descript
   (6,6,'Text','Text File','txt,text','txt.png'),
   (7,7,'Video','Video Files','avi,mpg.wmv','video.png'),
   (8,8,'Word Processing','Word Processing Files','doc','wordprocessing.png');
+
 COMMIT;
 
 #
@@ -6277,6 +6408,7 @@ COMMIT;
 
 INSERT INTO `cms_module_uploads_filetypes_seq` (`id`) VALUES 
   (8);
+
 COMMIT;
 
 #
@@ -6285,6 +6417,7 @@ COMMIT;
 
 INSERT INTO `cms_module_uploads_seq` (`id`) VALUES 
   (0);
+
 COMMIT;
 
 #
@@ -6318,6 +6451,7 @@ INSERT INTO `cms_modules` (`module_name`, `status`, `version`, `admin_only`, `ac
   ('Showtime','installed','2.0.5',0,1,0,0),
   ('ThemeManager','installed','1.1.4',1,1,0,0),
   ('Uploads','installed','1.14.1',0,1,0,0);
+
 COMMIT;
 
 #
@@ -6394,6 +6528,7 @@ INSERT INTO `cms_permissions` (`permission_id`, `permission_name`, `permission_t
   (86,'FEU Modify Templates','Modify Front-End User Templates','2011-11-23 01:59:20','2011-11-23 01:59:20'),
   (87,'FrontEndEditor Admin','Manage FrontEndEditor','2011-11-23 02:36:41','2011-11-23 02:36:41'),
   (88,'Manage Registering Users','Manage Registering Users','2011-11-23 02:42:42','2011-11-23 02:42:42');
+
 COMMIT;
 
 #
@@ -6402,6 +6537,7 @@ COMMIT;
 
 INSERT INTO `cms_permissions_seq` (`id`) VALUES 
   (88);
+
 COMMIT;
 
 #
@@ -6433,7 +6569,7 @@ INSERT INTO `cms_siteprefs` (`sitepref_name`, `sitepref_value`, `create_date`, `
   ('Attach_mapi_pref_deftemplate','default',NULL,NULL),
   ('auto_clear_cache_age','0',NULL,NULL),
   ('browser_cache_expiry','60',NULL,NULL),
-  ('CGExtensions_mapi_pref_cache_autoclean_last','1322041277',NULL,NULL),
+  ('CGExtensions_mapi_pref_cache_autoclean_last','1322060862',NULL,NULL),
   ('CGExtensions_mapi_pref_dflt_sortablelist_template','Sample',NULL,NULL),
   ('CGExtensions_mapi_pref_dflt_sortablelist_template_content','{* sortable list template *}\n\n{*\n This template provides one example of using javascript in a CMS module template.  The javascript is left here as an example of how one can interact with smarty in javascript.  You may infact want to put most of these functions into a seperate .js file and include it somewhere in your head section.\n\n You are free to modify this javascript and this template.  However, the php driver scripts look for a field named in the smarty variable {$selectarea_prefix}, and expect that to be a comma seperated list of values.\n *}\n\n{literal}\n<script type=''text/javascript''>\nvar allowduplicates = {/literal}{$allowduplicates};{literal}\nvar selectlist = {/literal}\"{$selectarea_prefix}_selectlist\";{literal}\nvar masterlist = {/literal}\"{$selectarea_prefix}_masterlist\";{literal}\nvar addbtn = {/literal}\"{$selectarea_prefix}_add\";{literal}\nvar rembtn = {/literal}\"{$selectarea_prefix}_remove\";{literal}\nvar upbtn = {/literal}\"{$selectarea_prefix}_up\";{literal}\nvar downbtn = {/literal}\"{$selectarea_prefix}_down\";{literal}\nvar valuefld = {/literal}\"{$selectarea_prefix}\";{literal}\nvar max_selected = {/literal}{$max_selected};{literal}\n\nfunction selectarea_update_value()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var val_elem = document.getElementById(valuefld);\n  var sel_idx = sel_elem.selectedIndex;\n  var opts = sel_elem.getElementsByTagName(''option'');\n  var tmp = new Array();\n  for( i = 0; i < opts.length; i++ )\n    {\n      tmp[tmp.length] = opts[i].value;\n    }\n  var str = tmp.join('','');\n  val_elem.value = str;  \n}\n\nfunction selectarea_handle_down()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  var opts = sel_elem.getElementsByTagName(''option'');\n  for( var i = opts.length - 2; i >= 0; i-- )\n    {\n      var opt = opts[i];\n      if( opt.selected )\n        {\n           var nextopt = opts[i+1];\n           opt = sel_elem.removeChild(opt);\n           nextopt = sel_elem.replaceChild(opt,nextopt);\n           sel_elem.insertBefore(nextopt,opt);\n        }\n    }\n  selectarea_update_value();\n}\n\nfunction selectarea_handle_up()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  var opts = sel_elem.getElementsByTagName(''option'');\n  if( sel_idx > 0 )\n    {\n      for( var i = 1; i < opts.length; i++ )\n        {\n          var opt = opts[i];\n          if( opt.selected )\n            {\n              sel_elem.removeChild(opt);\n               sel_elem.insertBefore(opt, opts[i-1]);\n            }\n        }\n    }\n  selectarea_update_value();\n}\n\nfunction selectarea_handle_remove()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  if( sel_idx >= 0 )\n    {\n      var val = sel_elem.options[sel_idx].value;\n      sel_elem.remove(sel_idx);\n    }\n  selectarea_update_value();\n}\n\nfunction selectarea_handle_add()\n{\n  var mas_elem = document.getElementById(masterlist);\n  var mas_idx = mas_elem.selectedIndex;\n  var sel_elem = document.getElementById(selectlist);\n  var opts = sel_elem.getElementsByTagName(''option'');\n  if( opts.length >= max_selected && max_selected > 0) return;\n  if( mas_idx >= 0 )\n    {\n      var newOpt = document.createElement(''option'');\n      newOpt.text = mas_elem.options[mas_idx].text;\n      newOpt.value = mas_elem.options[mas_idx].value;\n      if( allowduplicates == 0 )\n        {\n          for( var i = 0; i < opts.length; i++ )\n          {\n            if( opts[i].value == newOpt.value ) return;\n          }\n        }\n      sel_elem.add(newOpt,null);\n    }\n  selectarea_update_value();\n}\n\n\nfunction selectarea_handle_select()\n{\n  var sel_elem = document.getElementById(selectlist);\n  var sel_idx = sel_elem.selectedIndex;\n  var mas_elem = document.getElementById(masterlist);\n  var mas_idx = mas_elem.selectedIndex;\n  addbtn.disabled = (mas_idx >= 0);\n  rembtn.disabled = (sel_idx >= 0);\n  addbtn.disabled = (sel_idx >= 0);\n  downbtn.disabled = (sel_idx >= 0);\n}\n\n</script>\n{/literal}\n\n <table>\n   <tr>\n     <td>\n      {* left column - for the selected items *}\n      {$label_left}<br/>\n      <select id=\"{$selectarea_prefix}_selectlist\" size=\"10\" onchange=\"selectarea_handle_select();\">\n        {html_options options=$selectarea_selected}\n      </select><br/>\n     </td>\n     <td>\n      {* center column - for the add/delete buttons *}\n      <input type=\"submit\" id=\"{$selectarea_prefix}_add\" value=\"&lt;&lt;\" onclick=\"selectarea_handle_add(); return false;\"/><br/>\n      <input type=\"submit\" id=\"{$selectarea_prefix}_remove\" value=\"&gt;&gt;\" onclick=\"selectarea_handle_remove(); return false;\"/><br/>\n      <input type=\"submit\" id=\"{$selectarea_prefix}_up\" value=\"{$upstr}\" onclick=\"selectarea_handle_up(); return false;\"/><br/>\n      <input type=\"submit\" id=\"{$selectarea_prefix}_down\" value=\"{$downstr}\" onclick=\"selectarea_handle_down(); return false;\"/><br/>\n     </td>\n     <td>\n      {* right column - for the master list *}\n      {$label_right}<br/>\n      <select id=\"{$selectarea_prefix}_masterlist\" size=\"10\" onchange=\"selectarea_handle_select();\">\n        {html_options options=$selectarea_masterlist}\n      </select>\n     </td>\n   </tr>\n </table>\n <div><input type=\"hidden\" id=\"{$selectarea_prefix}\" name=\"{$selectarea_prefix}\" value=\"{$selectarea_selected_str}\" /></div>\n',NULL,NULL),
   ('CGExtensions_mapi_pref_imageextensions','jpg,png,gif',NULL,NULL),
@@ -6516,7 +6652,7 @@ INSERT INTO `cms_siteprefs` (`sitepref_name`, `sitepref_value`, `create_date`, `
   ('FrontEndUsers_mapi_pref_default_group','1',NULL,NULL),
   ('FrontEndUsers_mapi_pref_expireage_months','60',NULL,NULL),
   ('FrontEndUsers_mapi_pref_expireusers_interval','0',NULL,NULL),
-  ('FrontEndUsers_mapi_pref_expire_lastrun','1322038206',NULL,NULL),
+  ('FrontEndUsers_mapi_pref_expire_lastrun','1322060905',NULL,NULL),
   ('FrontEndUsers_mapi_pref_feusers_specific_permissions','1',NULL,NULL),
   ('FrontEndUsers_mapi_pref_forcelogout_sessionage','0',NULL,NULL),
   ('FrontEndUsers_mapi_pref_forcelogout_times','',NULL,NULL),
@@ -6612,7 +6748,7 @@ INSERT INTO `cms_siteprefs` (`sitepref_name`, `sitepref_value`, `create_date`, `
   ('page_showinmenu','1',NULL,NULL),
   ('PruneAdminlog_lastexecute','1322011798',NULL,NULL),
   ('pseudocron_granularity','60',NULL,NULL),
-  ('pseudocron_lastrun','1322038199',NULL,NULL),
+  ('pseudocron_lastrun','1322060155',NULL,NULL),
   ('searchmodule','Search',NULL,NULL),
   ('Search_mapi_pref_searchtext','Enter Search...',NULL,NULL),
   ('Search_mapi_pref_stopwords','i, me, my, myself, we, our, ours, ourselves, you, your, yours, \nyourself, yourselves, he, him, his, himself, she, her, hers, \nherself, it, its, itself, they, them, their, theirs, themselves, \nwhat, which, who, whom, this, that, these, those, am, is, are, \nwas, were, be, been, being, have, has, had, having, do, does, \ndid, doing, a, an, the, and, but, if, or, because, as, until, \nwhile, of, at, by, for, with, about, against, between, into, \nthrough, during, before, after, above, below, to, from, up, down, \nin, out, on, off, over, under, again, further, then, once, here, \nthere, when, where, why, how, all, any, both, each, few, more, \nmost, other, some, such, no, nor, not, only, own, same, so, \nthan, too, very',NULL,NULL),
@@ -6674,6 +6810,7 @@ INSERT INTO `cms_siteprefs` (`sitepref_name`, `sitepref_value`, `create_date`, `
   ('xmlmodulerepository','','2006-07-25 21:22:33','2006-07-25 21:22:33'),
   ('__listcontent_timelock__','1320323585',NULL,NULL),
   ('__NOTIFICATIONS__','a:1:{i:0;O:8:\"stdClass\":4:{s:8:\"priority\";i:1;s:4:\"html\";s:403:\"Your mail settings have not been configured.  This could interfere with the ability of your website to send email messages.  You should go to <a href=\"moduleinterface.php?_sx_=b2d0e4a6&amp;module=CMSMailer\">Extensions >> CMSMailer</a> and configure the mail settings with the information provided by your host.&nbsp;This test is generated on an infrequent basis.  It may take some time for it to go away\";s:4:\"name\";s:9:\"CMSMailer\";s:12:\"friendlyname\";s:9:\"CMSMailer\";}}',NULL,NULL);
+
 COMMIT;
 
 #
@@ -6690,6 +6827,7 @@ INSERT INTO `cms_templates` (`template_id`, `template_name`, `template_content`,
   (21,'ShadowMenu left + 1 column','{process_pagedata}<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n{* Change lang=\"en\" to the language of your site *}\n\n{* note: anything inside these are smarty comments, they will not show up in the page source *}\n\n  <head>\n    <title>{sitename} - {title}</title>\n{* The sitename is changed in Site Admin/Global settings. {title} is the name of each page *}\n\n {metadata}\n{* Don''t remove this! Metadata is entered in Site Admin/Global settings. *}\n\n {cms_stylesheet}\n{* This is how all the stylesheets attached to this template are linked to it *}\n\n {cms_selflink dir=\"start\" rellink=1}\n {cms_selflink dir=\"prev\" rellink=1}\n {cms_selflink dir=\"next\" rellink=1}\n{* Relational links for interconnections between pages, good for accessibility and Search Engine Optimization *}\n\n{* the literal below and the /literal at the end are needed whenever there are {\"curly brackets\"} as smarty will think it''s something to process and will throw an error *}\n {literal}\n<script type=\"text/JavaScript\">\n<!--\n//pass min and max - measured against window width\nfunction P7_MinMaxW(a,b){\nvar nw=\"auto\",w=document.documentElement.clientWidth;\nif(w>=b){nw=b+\"px\";}if(w<=a){nw=a+\"px\";}return nw;\n}\n//-->\n</script>\n    <!--[if lte IE 6]>\n    <style type=\"text/css\">\n    #pagewrapper {width:expression(P7_MinMaxW(720,950));}\n    #container {height: 1%;}\n    </style>\n    <![endif]-->\n    {/literal}\n{* The min and max page width for Internet Explorer is set here. For other browsers it''s in the stylesheet \"Layout: Top menu + 2 columns\" *}\n\n    <!--[if lte IE 6]>\n    <script type=\"text/javascript\" src=\"modules/MenuManager/CSSMenu.js\"></script>\n    <![endif]--> \n{* The above JavaScript is required for CSSMenu to work in IE *}\n\n  </head>\n  <body>\n    <div id=\"pagewrapper\">\n\n{* start accessibility skip links, anything with the class of accessibility is hidden with CSS from visual browsers *}\n      <ul class=\"accessibility\">\n        <li>{anchor anchor=''menu_vert'' title=''Skip to navigation'' accesskey=''n'' text=''Skip to navigation''}</li>\n        <li>{anchor anchor=''main'' title=''Skip to content'' accesskey=''s'' text=''Skip to content''}</li>\n      </ul>\n{* end accessibility skip links *}\n\n      <hr class=\"accessibility\" />\n{* Horizontal ruler that is hidden for visual browsers by CSS *}\n\n{* Start Header, with logo image that links to the default start page. Logo image is changed in the stylesheet  \"Layout: Left sidebar + 1 column\" *}\n      <div id=\"header\">\n\n{* this holds the name of the site on the right side *}\n        <h2 class=\"headright\">{sitename}</h2>\n\n{* this holds a link back to home page and the header left image/logo, text is hidden using CSS *}\n        <h1>{cms_selflink dir=\"start\" text=\"$sitename\"}</h1>        \n        <hr class=\"accessibility\" />\n      </div>\n{* End Header *}\n\n{* Start Search, the input \"Submit\" is using an image, CSS: input.search-button *}\n      <div id=\"search\">\n      {search}\n      </div>\n{* End Search *}\n\n{* Start Breadcrumbs *}\n      <div class=\"crbk\">\n{* holds the right image, we need 2 divs to be able to make this site fluid, if it was fixed width we could use one div, one image  *}\n\n        <div class=\"breadcrumbs\">\n        {breadcrumbs starttext=''You are here'' root=''Home'' delimiter=''&raquo;''}\n          <hr class=\"accessibility\" />\n        </div>\n      </div>\n{* End Breadcrumbs *}\n\n{* Start Content (Navigation and Content columns) *}\n      <div id=\"content\">\n\n{* Start Sidebar, 2 divs one for top image one for bottom image *}\n        <div id=\"sidebar\">\n          <div id=\"sidebara\">\n\n{* Start Navigation, stylesheet  \"Navigation: ShadowMenu - Vertical\" *}\n            <h2 class=\"accessibility\">Navigation</h2>\n            {menu loadprops=0 template=''cssmenu_ulshadow.tpl''}\n            <hr class=\"accessibility\" />\n\n{* Start News, stylesheet  \"Module: News\" *}\n            <div id=\"news\">\n              <h2>News</h2>\n              {news number=''3'' detailpage=''news''}\n            </div>\n{* End News *}\n\n          </div>\n        </div>\n{* End Sidebar *}\n\n{* Start Content Area, the back1, back2, back3, hold the 3 outside images, main holds the 4th one, to make the box complete, if the template were fixed width not fluid we could use just 2 divs and 2 images, 1 top 1 bottom *}\n        <div class=\"back1\">\n          <div class=\"back2\">\n            <div class=\"back3\">\n              <div id=\"main\">\n                <div style=\"float: right;\">{print showbutton=true script=true}</div>\n                <h2>{title}</h2>\n                {content}\n                <br />{* to insure space below content *}\n\n{* Start relational links *}\n{* note this is the right side, when you float: divs you need to have float: right; divs first *}\n            <div class=\"right49\">\n              <p>{anchor anchor=''main'' text=''^ Top''}</p>\n            </div>\n            <div class=\"left49\">\n              <p> {cms_selflink dir=\"previous\" label=\"Previous page: \"}\n{* The label parameter doesn''t need to be there if you''re using English, but is here to show how it''s used if you don''t want the English text \"Previous page\" *}\n\n              <br />\n              {cms_selflink dir=\"next\"}\n              </p>\n            </div>\n{* End relational links *}\n\n                <hr class=\"accessibility\" />\n                <div class=\"clear\"></div>\n              </div>\n            </div>\n          </div>\n        </div>\n{* End Content Area *}\n\n      </div>\n{* End Content *}\n\n{* Start Footer. Edit the footer in the Global Content Block called \"footer\" *}\n      <div class=\"footback\">\n        <div id=\"footer\">\n{* stylesheet  \"Navigation: FatFootMenu\" *}\n          <div id=\"fooleft\">\n          {menu loadprops=0}\n          </div>\n          <div id=\"footrt\">\n          {global_content name=''footer''}\n          </div>\n          <div class=\"clear\"></div>\n        </div>\n      </div>\n{* End Footer *}\n\n    </div>\n{* end pagewrapper *}\n\n  </body>\n</html>','','',1,0,'2009-05-01 23:17:51','2011-11-12 02:39:26'),
   (22,'NCleanBlue','{process_pagedata}<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\r\n\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n{* Change lang=\"en\" to the language of your site *}\r\n\r\n{* note: anything inside these are smarty comments, they will not show up in the page source *}\r\n  <head>\r\n{if isset($canonical)}<link rel=\"canonical\" href=\"{$canonical}\" />{elseif isset($content_obj)}<link rel=\"canonical\" href=\"{$content_obj->GetURL()}\" />{/if}\r\n\r\n<title>{title} | {sitename}</title>\r\n{* The sitename is changed in Site Admin/Global settings. {title} is the name of each page *}\r\n\r\n{metadata}\r\n{* Don''t remove this! Metadata is entered in Site Admin/Global settings. *}\r\n\r\n{cms_stylesheet}\r\n{* This is how all the stylesheets attached to this template are linked to *}\r\n\r\n{cms_selflink dir=\"start\" rellink=1}\r\n{cms_selflink dir=\"prev\" rellink=1}\r\n{cms_selflink dir=\"next\" rellink=1}\r\n{* Relational links for interconnections between pages, good for accessibility and Search Engine Optmization *}\r\n\r\n<!--[if IE 6]>\r\n<script type=\"text/javascript\" src=\"modules/MenuManager/CSSMenu.js\"></script>\r\n<![endif]-->\r\n{* The above JavaScript is required for Menu - NCleanBlue-css to work in IE6 *}\r\n\r\n{* the literal below and the /literal at the end are needed whenever there are {\"curly brackets\"} as smarty will think it''s something to process and will throw an error *}\r\n{* IE6 png fix *}\r\n{literal}\r\n<!--[if IE 6]>\r\n<script type=\"text/javascript\"  src=\"uploads/NCleanBlue/js/ie6fix.js\"></script>\r\n<script type=\"text/javascript\">\r\n // argument is a CSS selector\r\n DD_belatedPNG.fix(''.sbar-top,.sbar-bottom,.main-top,.main-bottom,#version'');\r\n</script>\r\n<style type=\"text/css\">\r\n/* enable background image caching in IE6 */\r\nhtml {filter:expression(document.execCommand(\"BackgroundImageCache\", false, true));} \r\n</style>\r\n<![endif]-->\r\n{/literal}\r\n\r\n  </head>\r\n  <body>\r\n    <div id=\"ncleanblue\">\r\n      <div id=\"pagewrapper\" class=\"core-wrap-960 core-center\">\r\n{* start accessibility skip links *}\r\n        <ul class=\"accessibility\">\r\n          <li>{anchor anchor=''menu_vert'' title=''Skip to navigation'' accesskey=''n'' text=''Skip to navigation''}</li>\r\n          <li>{anchor anchor=''main'' title=''Skip to content'' accesskey=''s'' text=''Skip to content''}</li>\r\n        </ul>\r\n{* end accessibility skip links *}\r\n        <hr class=\"accessibility\" />\r\n{* Horizontal ruler that is hidden for visual browsers by CSS *}\r\n\r\n{* Start Header, with logo image that links to the default start page *}\r\n        <div id=\"header\" class=\"util-clearfix\">\r\n{* logo image that links to the default start page. Logo image is changed in the style sheet  \"Layout: NCleanBlue\" *}\r\n          <div id=\"logo\" class=\"core-float-left\">\r\n            {cms_selflink dir=\"start\" text=\"$sitename\"}\r\n          </div>\r\n          \r\n{* Start Search, the input \"Submit\" is using an image, CSS: div#search input.search-button *}\r\n          <div id=\"search\" class=\"core-float-right\">\r\n            {search search_method=\"post\"}\r\n          </div>\r\n{* End Search *}\r\n          <span class=\"util-clearb\">&nbsp;</span>\r\n          \r\n{* Start Navigation, style sheet  \"Layout: NCleanBlue\", starting at Menu  ROOT *}\r\n          <h2 class=\"accessibility util-clearb\">Navigation</h2>\r\n{* anything class=\"accessibility\" is hidden for visual browsers by CSS *}\r\n          <div class=\"page-menu util-clearfix\">\r\n          {menu loadprops=0 template=''cssmenu_ulshadow.tpl''}\r\n          </div>\r\n          <hr class=\"accessibility util-clearb\" />\r\n{* End Navigation *}\r\n\r\n        </div>\r\n{* End Header *}\r\n\r\n{* Start Content (Navigation and Content columns) *}\r\n        <div id=\"content\" class=\"util-clearfix\"> \r\n\r\n{* Start Optional tag CMS Version Information, also is a good example how smarty works, the big star that holds the version number, you may remove it here and the style sheet where it is marked. *}\r\n          {*<div title=\"CMS - {cms_version} - {cms_versionname}\" id=\"version\">\r\n          {capture assign=''cms_version''}{cms_version|lower}{/capture}{\"/-([a-z]).*/\"|preg_replace:\"\":$cms_version}\r\n          </div>*}\r\n{* End Optional tag  *}\r\n\r\n{* Start Bar *}\r\n          <div id=\"bar\" class=\"util-clearfix\">\r\n{* Start Breadcrumbs, a bit of letting you know where your at *}\r\n            <div class=\"breadcrumbs core-float-right\">\r\n              {breadcrumbs starttext=''You are here'' root=''Home'' delimiter=''&raquo;''}\r\n            </div>\r\n{* End Breadcrumbs *}\r\n\r\n            <hr class=\"accessibility util-clearb\" />\r\n          </div>\r\n{* End Bar *}\r\n\r\n{* Start left side *}\r\n          <div id=\"left\" class=\"core-float-left\">\r\n            <div class=\"sbar-top\">\r\n              <h2 class=\"sbar-title\">News</h2>\r\n            </div>\r\n            <div class=\"sbar-main\">\r\n{* Start News *}\r\n              <div id=\"news\">\r\n              {news number=''3'' detailpage=''news''}\r\n              </div>\r\n              <img class=\"screen\" src=\"uploads/NCleanBlue/screen-1.6.jpg\" width=\"139\" height=\"142\" title=\"CMS - {cms_version} - {cms_versionname}\" alt=\"CMS - {cms_version} - {cms_versionname}\" />\r\n{* End News *} \r\n            </div>\r\n            <span class=\"sbar-bottom\">&nbsp;</span> \r\n          </div>\r\n{* End left side *}\r\n\r\n{* Start Content Area, right side *}\r\n          <div id=\"main\"  class=\"core-float-right\">\r\n\r\n{* main top, holds top image and print image *}\r\n            <div class=\"main-top\">\r\n              <div class=\"print core-float-right\">\r\n                {print showbutton=true}\r\n              </div>\r\n            </div> \r\n            \r\n{* main content *}\r\n            <div class=\"main-main util-clearfix\">\r\n              <h1 class=\"title\">{title}</h1>\r\n            {content}\r\n            </div>\r\n            \r\n{* Start main bottom and relational links *}\r\n            <div class=\"main-bottom\">\r\n              <div class=\"right49 core-float-right\">\r\n              {anchor anchor=''main'' text=''^&nbsp;&nbsp;Top''}\r\n              </div>\r\n              <div class=\"left49 core-float-left\">\r\n                <span>\r\n                  {cms_selflink dir=\"previous\" label=\"Previous page: \"}&nbsp;\r\n{* The label parameter doesn''t need to be there if you''re using English, but is here to show how it''s used if you don''t want the English text \"Previous page\" *}\r\n                </span>\r\n                <span>\r\n                  {cms_selflink dir=\"next\"}&nbsp;\r\n                </span>\r\n              </div>\r\n{* End relational links *}\r\n\r\n              <hr class=\"accessibility\" />\r\n            </div>\r\n{* End main bottom *}\r\n\r\n          </div>\r\n{* End Content Area, right side *}\r\n\r\n        </div>\r\n{* End Content *}\r\n\r\n      </div>\r\n{* end pagewrapper *}\r\n      <span class=\"util-clearb\">&nbsp;</span>\r\n      \r\n{* Start Footer *}\r\n      <div id=\"footer-wrapper\">\r\n        <div id=\"footer\" class=\"core-wrap-960\">\r\n{* first foot menu *}\r\n          <div class=\"block core-float-left\">\r\n            {menu loadprops=0 template=''minimal_menu.tpl''  number_of_levels=''1''}\r\n          </div>\r\n          \r\n{* second foot menu if active page has children *}\r\n          <div class=\"block core-float-left\">\r\n            {menu loadprops=0 template=''minimal_menu.tpl''  start_level=\"2\"}\r\n          </div>\r\n          \r\n{* edit the footer in the Global Content Block called \"footer\" *}\r\n          <div class=\"block cms core-float-left\">\r\n            {global_content name=''footer''}\r\n          </div>\r\n          \r\n          <span class=\"util-clearb\">&nbsp;</span>\r\n        </div>\r\n      </div>\r\n{* End Footer *}\r\n    </div>\r\n{* End Div *}\r\n  </body>\r\n</html>','','',1,0,'2009-05-06 14:20:10','2011-11-12 02:39:26'),
   (23,'PopupPage','{process_pagedata}<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n{* Change lang=\"en\" to the language of your site *}\r\n\r\n{* note: anything inside these are smarty comments, they will not show up in the page source *}\r\n\r\n  <head>\r\n    <title>{sitename} - {title}</title>\r\n{* The sitename is changed in Site Admin/Global settings. {title} is the name of each page *}\r\n\r\n {metadata}\r\n{* Don''t remove this! Metadata is entered in Site Admin/Global settings. *}\r\n\r\n {cms_stylesheet}\r\n{* This is how all the stylesheets attached to this template are linked to it *}\r\n\r\n {cms_selflink dir=\"start\" rellink=1}\r\n {cms_selflink dir=\"prev\" rellink=1}\r\n {cms_selflink dir=\"next\" rellink=1}\r\n{* Relational links for interconnections between pages, good for accessibility and Search Engine Optimization *}\r\n\r\n{* the literal below and the /literal at the end are needed whenever there are {\"curly brackets\"} as smarty will think it''s something to process and will throw an error *}\r\n {literal}\r\n<script type=\"text/JavaScript\">\r\n<!--\r\n//pass min and max - measured against window width\r\nfunction P7_MinMaxW(a,b){\r\nvar nw=\"auto\",w=document.documentElement.clientWidth;\r\nif(w>=b){nw=b+\"px\";}if(w<=a){nw=a+\"px\";}return nw;\r\n}\r\n//-->\r\n</script>\r\n    <!--[if lte IE 6]>\r\n    <style type=\"text/css\">\r\n    #pagewrapper {width:expression(P7_MinMaxW(720,950));}\r\n    #container {height: 1%;}\r\n    </style>\r\n    <![endif]-->\r\n    {/literal}\r\n  </head>\r\n  <body>\r\n    <div id=\"pagewrapper\">\r\n\r\n      <hr class=\"accessibility\" />\r\n{* Horizontal ruler that is hidden for visual browsers by CSS *}\r\n\r\n{* Start Content *}\r\n      <div id=\"content\">\r\n\r\n{* Start Content Area, the back1, back2, back3, hold the 3 outside images, main holds the 4th one, to make the box complete, if the template were fixed width not fluid we could use just 2 divs and 2 images, 1 top 1 bottom *}\r\n        <div class=\"back1\">\r\n          <div class=\"back2\">\r\n            <div class=\"back3\">\r\n              <div id=\"main\" style=\"max-height: 300px;\">\r\n                \r\n<!--                <h2>{title}</h2> -->\r\n                {content}\r\n                <br />{* to insure space below content *}\r\n\r\n\r\n                <hr class=\"accessibility\" />\r\n                <div class=\"clear\"></div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n{* End Content Area *}\r\n\r\n      </div>\r\n{* End Content *}\r\n\r\n    </div>\r\n{* end pagewrapper *}\r\n\r\n  </body>\r\n</html>','','',1,0,'2011-11-12 02:57:03','2011-11-23 08:43:34');
+
 COMMIT;
 
 #
@@ -6698,6 +6836,7 @@ COMMIT;
 
 INSERT INTO `cms_templates_seq` (`id`) VALUES 
   (23);
+
 COMMIT;
 
 #
@@ -6706,6 +6845,7 @@ COMMIT;
 
 INSERT INTO `cms_user_groups` (`group_id`, `user_id`, `create_date`, `modified_date`) VALUES 
   (1,1,'2006-07-25 21:22:33','2006-07-25 21:22:33');
+
 COMMIT;
 
 #
@@ -6717,6 +6857,7 @@ INSERT INTO `cms_userplugins` (`userplugin_id`, `userplugin_name`, `code`, `desc
   (2,'custom_copyright','//set start to date your site was published\r\n$startCopyRight=''2004'';\r\n\r\n// check if start year is this year\r\nif(date(''Y'') == $startCopyRight){\r\n// it was, just print this year\r\n    echo $startCopyRight;\r\n}else{\r\n// it wasnt, print startyear and this year delimited with a dash\r\n    echo $startCopyRight.''-''. date(''Y'');\r\n}','Code to output copyright information','2006-07-25 21:22:33','2006-07-25 21:22:33'),
   (3,'getLatestImages','//Showtime::imagecreatefromfile(\"uploads/headerbanner.png\");\r\nShowtime::manualAddPic(\"uploads/headerbanner.png\");','','2011-11-22 03:18:53','2011-11-22 04:33:52'),
   (4,'redirect','if( isset( $params[''to''] ) )\r\n  {\r\n    global $gCms;\r\n    $manager =& $gCms->GetHierarchyManager();\r\n    $node =& $manager->sureGetNodeByAlias($params[''to'']);\r\n    $content =& $node->GetContent();\r\n    if (isset($content) && is_object($content))\r\n       {\r\n         if ($content->GetURL() != '''')\r\n         {\r\n            redirect($content->GetURL());\r\n         }\r\n       }\r\n    else return ''<!-- redirect udt - page not found: ''.$params[''to''].'' -->'';\r\n  }','','2011-11-23 09:22:48','2011-11-23 09:22:48');
+
 COMMIT;
 
 #
@@ -6725,6 +6866,7 @@ COMMIT;
 
 INSERT INTO `cms_userplugins_seq` (`id`) VALUES 
   (4);
+
 COMMIT;
 
 #
@@ -6744,6 +6886,7 @@ INSERT INTO `cms_userprefs` (`user_id`, `preference`, `value`, `type`) VALUES
   (1,'recent','on',NULL),
   (1,'use_wysiwyg','1',NULL),
   (1,'wysiwyg','MicroTiny',NULL);
+
 COMMIT;
 
 #
@@ -6752,6 +6895,7 @@ COMMIT;
 
 INSERT INTO `cms_users` (`user_id`, `username`, `password`, `admin_access`, `first_name`, `last_name`, `email`, `active`, `create_date`, `modified_date`) VALUES 
   (1,'admin','7a14d46fcf07e6873d98fd45fb54f0e7',1,'','','admin@localhost.com',1,'2006-07-25 21:22:33','2009-05-13 07:43:16');
+
 COMMIT;
 
 #
@@ -6760,6 +6904,7 @@ COMMIT;
 
 INSERT INTO `cms_users_seq` (`id`) VALUES 
   (1);
+
 COMMIT;
 
 #
@@ -6768,10 +6913,6 @@ COMMIT;
 
 INSERT INTO `cms_version` (`version`) VALUES 
   (35);
+
 COMMIT;
 
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
