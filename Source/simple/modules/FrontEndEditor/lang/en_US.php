@@ -1,11 +1,7 @@
-<? 
+<?php
 	$lang['friendlyname'] = 'FrontEnd Editor';
 	
-	$lang['postinstall'] = 'FrontEndEditor has been successfully installed!<br/>
-							If the module misses some function you would like to have sent a request in the forge.<br/>
-							<a href="http://dev.cmsmadesimple.org/feature_request/list/770">place your request here</a><br/>
-							If you find any bugs please let me know so i can fix them;)<br/>
-							<a href="http://dev.cmsmadesimple.org/feature_request/list/770">Place your bugs here</a>';
+	$lang['postinstall'] = "FrontEndEditor has been successfully installed!<br/>26-Nov-11If the module misses some function you would like to have sent a request in the forge.<br/><a href='http://dev.cmsmadesimple.org/feature_request/list/770'>place your request here</a><br/>If you find any bugs please let me know so i can fix them;)<br/><a href='http://dev.cmsmadesimple.org/feature_request/list/770'>Place your bugs here</a>";
 	
 	$lang['uninstall_confirm'] = 'Are you sure you want to uninstall the FrontEndEditor module?';
 	
@@ -21,16 +17,7 @@
 						  BUGFIX :<br/>
 						  *none if you find any let me know';
 	
-	$lang['help'] = "FrontEndEditor - version 1.2<br/>
-					 With this module you can edit the content of your website trough the front end of your website<br/>
-					 To place on your website use this tag in your template {cms_module module='FrontEndEditor' action='add_text'}<br/>
-					 Be aware that there is no security in this module so anyone that see it can use it.<br/>
-					 So i advise using the costum content module to protect it from people that are not allowed to change your website's content<br/>
-					 <br/>
-					 If the module misses some function you would like to have sent a request in the forge.<br/>
-					 <a href='http://dev.cmsmadesimple.org/feature_request/list/770'>place your request here</a><br/>
-					 If you find any bugs please let me know so i can fix them;)<br/>
-					 <a href='http://dev.cmsmadesimple.org/feature_request/list/770'>Place your bugs here</a>";
+	$lang['help'] = "FrontEndEditor - version 1.2<br/>					 With this module you can edit the content of your website trough the front end of your website<br/>					 To place on your website use this tag in your template {cms_module module='FrontEndEditor' action='add_text'}<br/>					 Be aware that there is no security in this module so anyone that see it can use it.<br/>					 So i advise using the costum content module to protect it from people that are not allowed to change your website content<br/>					 <br/>					 If the module misses some function you would like to have sent a request in the forge.<br/>					 <a href='http://dev.cmsmadesimple.org/feature_request/list/770'>place your request here</a><br/>					 If you find any bugs please let me know so i can fix them;)<br/>					 <a href='http://dev.cmsmadesimple.org/feature_request/list/770'>Place your bugs here</a>";
 	
 	$lang['submit'] = 'submit';
 	

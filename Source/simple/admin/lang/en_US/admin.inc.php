@@ -83,7 +83,7 @@ $lang['admin']['added_template'] = 'Added Template';
 $lang['admin']['event_desc_stylesheetpostcompile'] = 'Sent after a stylesheet is compiled through smarty';
 $lang['admin']['event_desc_stylesheetprecompile'] = 'Sent before a stylesheet is compiled through smarty';
 $lang['admin']['confirm_uploadmodule'] = 'Are you sure you would like to upload the selected XML file. Incorrectly uploading a module file may break a functioning website';
-$lang['admin']['error_module_mincmsversion'] = 'This module requires a newer version of CMS Made Simple';
+$lang['admin']['error_module_mincmsversion'] = 'This module requires a newer version of CMS';
 $lang['admin']['info_browser_cache_expiry'] = 'Specify the amount of time (in minutes) that browsers should cache pages for.  Setting this value to 0 disables the functionality';
 $lang['admin']['browser_cache_expiry'] = 'Browser Cache Expiry Period <em>(minutes)</em>';
 $lang['admin']['info_browser_cache'] = 'Applicable only to cachable pages, this setting indicates that browsers should be allowed to cache the pages for an amount of time.  If enabled repeat visitors to your site may not immediately see changes to the content of the pages.';
@@ -468,7 +468,7 @@ $lang['admin']['installed_modules'] = 'Installed Modules';
 $lang['admin']['config_information'] = 'CMS Config Settings';
 $lang['admin']['systeminfo_copy_paste'] = 'Please copy and paste this selected text into your forum posting';
 $lang['admin']['help_systeminformation'] = <<<EOT
-The information displayed below is collected from a variety of locations, and summarized here so that you may be able to conveniently find some of the information required when trying to diagnose a problem or request help with your CMS Made Simple&trade; installation.
+The information displayed below is collected from a variety of locations, and summarized here so that you may be able to conveniently find some of the information required when trying to diagnose a problem or request help with your CMS&trade; installation.
 EOT;
 $lang['admin']['systeminfo'] = 'System Information';
 $lang['admin']['systeminfodescription'] = 'Display various pieces of information about your system that may be useful in diagnosing problems';
@@ -483,7 +483,7 @@ $lang['admin']['minute'] = 'minute';
 $lang['admin']['help_css_max_age'] = 'This parameter should be set relatively high for static sites, and should be set to 0 for site development';
 $lang['admin']['css_max_age'] = 'Maximum amount of time (seconds) stylesheets can be cached in the browser';
 $lang['admin']['error'] = 'Error';
-$lang['admin']['new_version_available'] = '<em>Notice:</em> A new version of CMS Made Simple&trade; is available.  Please notify your administrator.';
+$lang['admin']['new_version_available'] = '<em>Notice:</em> A new version of CMS&trade; is available.  Please notify your administrator.';
 $lang['admin']['master_admintheme'] = 'Default Administration Theme (for the login page and new user accounts)';
 $lang['admin']['contenttype_separator'] = 'Separator';
 $lang['admin']['contenttype_sectionheader'] = 'Section Header';
@@ -837,7 +837,7 @@ EOT;
 
 $lang['admin']['help_function_contact_form'] = <<<EOT
   <h2>NOTE: This plugin is deprecated</h2>
-  <h3>This plugin has been removed as of CMS made simple version 1.5</h3>
+  <h3>This plugin has been removed as of version 1.5</h3>
   <p>You can use the module FormBuilder instead.</p>
 EOT;
 
@@ -1163,7 +1163,7 @@ $lang['admin']['adminlog'] = 'Admin Log';
 $lang['admin']['adminlogcleared'] = 'The Admin Log was successfully cleared';
 $lang['admin']['adminlogempty'] = 'The Admin Log is empty';
 $lang['admin']['adminsystemtitle'] = 'CMS Admin System';
-$lang['admin']['adminpaneltitle'] = 'CMS Made Simple&trade; Admin Console'; // needs translation
+$lang['admin']['adminpaneltitle'] = 'CMS Depdagri&trade; Admin Console'; // needs translation
 $lang['admin']['advanced'] = 'Advanced';
 $lang['admin']['aliasalreadyused'] = 'The supplied "Page Alias" is already in use on another page.  Change the "Page Alias" to something else.';
 $lang['admin']['aliasmustbelettersandnumbers'] = 'Alias must be all letters and numbers';
@@ -1306,7 +1306,7 @@ $lang['admin']['language'] = 'Language';
 $lang['admin']['lastname'] = 'Last Name';
 $lang['admin']['logout'] = 'Logout';
 $lang['admin']['loginprompt'] = 'Enter a valid user credential to get access to the Admin Console.'; // needs translation
-$lang['admin']['logintitle'] = 'Login to CMS Made Simple&trade;'; // needs translation
+$lang['admin']['logintitle'] = 'Login to Admin Page&trade;'; // needs translation
 $lang['admin']['menutext'] = 'Menu Text';
 $lang['admin']['missingparams'] = 'Some parameters were missing or invalid';
 $lang['admin']['modifygroupassignments'] = 'Modify Group Assignments';
@@ -1477,7 +1477,7 @@ $lang['admin']['stylesheets'] = 'Stylesheets'; //needs translation
 $lang['admin']['stylesheetsdescription'] = 'Stylesheet management is an advanced way to handle cascading Stylesheets (CSS) separately from templates.'; //needs translation
 $lang['admin']['filemanagerdescription'] = 'Upload and manage files.'; //needs translation
 $lang['admin']['imagemanagerdescription'] = 'Upload/edit and remove images.'; //needs translation
-$lang['admin']['moduledescription'] = 'Modules extend CMS Made Simple&trade; to provide all kinds of custom functionality.'; //needs translation
+$lang['admin']['moduledescription'] = 'Modules extend &trade; to provide all kinds of custom functionality.'; //needs translation
 $lang['admin']['tagdescription'] = 'Tags are little bits of functionality that can be added to your content and/or templates.'; //needs translation
 $lang['admin']['usertagdescription'] = 'Tags that you can create and modify yourself to perform specific tasks, right from your browser.'; //needs translation
 $lang['admin']['installdirwarning'] = '<em><strong>Warning:</strong></em> install directory still exists. Please remove it completely.'; //needs translation
