@@ -10,8 +10,12 @@
 {/if}
 
 {if $count > 0}
+
+
 <div id="menuwrapper">
+
 <ul id="primary-nav">
+
 {foreach from=$nodelist item=node}
 {if $node->depth > $node->prevdepth}
 {repeat string='<ul class="unli">' times=$node->depth-$node->prevdepth}
@@ -35,12 +39,12 @@
 {elseif $node->type == 'sectionheader'}
   <li><a ><span class="sectionheader">{$node->menutext}</span></a>
 {elseif $node->type == 'separator'}
-  <li style="list-style-type: none;"> <hr class="menu_separator" />
+  <li style="list-style-type: none; "> <hr class="menu_separator" /> <img src='uploads/separator.png' />
 {elseif $node->children_exist == true and $node->depth < $number_of_levels and $node->type != 'sectionheader' and $node->type != 'separator'}
   <li class="menuparent"><a class="menuparent" 
 {else}
   <li>
-  <a 
+  <a
 {/if}
 
 {if ($node->type != 'sectionheader' and $node->type != 'separator') or $node->parent == true or $node->current == true }
@@ -53,6 +57,9 @@
 {/if}
 
 {/if}
+
+
+
 {/foreach}
 {repeat string='</li></ul>' times=$node->depth-1}
 </li>
