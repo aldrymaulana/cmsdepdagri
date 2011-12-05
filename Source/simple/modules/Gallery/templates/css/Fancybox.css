@@ -52,7 +52,7 @@
 	height: 39px;
 	float: left;
 	text-indent: -1000px;
-	/* background: url(../../images/uppage.png) transparent no-repeat 0 0; */
+	background: url(../../images/uppage.png) transparent no-repeat 0 0;
 	overflow: hidden;
 }
 
