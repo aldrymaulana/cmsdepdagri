@@ -150,6 +150,11 @@ if( isset($params['submit']) )
     else
       {
 	$articleid = $db->GenID(cms_db_prefix()."module_news_seq");
+
+	//set new article id as cookie
+	//setcookie('newarticleid',$articleid, time()+3600, '/');
+	//$smarty->assign('newarticleid',$articleid);
+
 	$query = 'INSERT INTO '.cms_db_prefix().'module_news (news_id, news_category_id, news_title, news_data, summary, status, news_date, start_time, end_time, create_date, modified_date,author_id,news_extra,news_url) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 	if ($useexp == 1)
 	  {
@@ -166,6 +171,7 @@ if( isset($params['submit']) )
 	    die($db->ErrorMsg());
 	  }
     
+
 	//
 	//Handle submitting the 'custom' fields
 	//
