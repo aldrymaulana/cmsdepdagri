@@ -198,7 +198,7 @@ class Showtime extends CMSModule{
 					$row['st_nav_vmargin_text']= ceil(($row['st_nav_size'] - $row['st_nav_textsize'])/2);
 					$row['st_nav_hmargin_text']= ceil(($row['st_nav_size'] - ceil($row['st_nav_textsize'] / 2))/2);
 				}else{
-					$row['st_nav_textsize'] = 0;
+					$row['st_nav_textsize'] = 3;
 					$row['st_nav_vmargin_text']= ceil($row['st_nav_size']/2);
 					$row['st_nav_hmargin_text']= $row['st_nav_vmargin_text'];
 				}
@@ -219,6 +219,7 @@ class Showtime extends CMSModule{
 					 }
 						 $cssstring .="
 						padding:".$row['st_nav_padding']."px;
+						left: 40%;
 					}
 					.slide_nav_".$row['show_id']." {
 						clear:both;
