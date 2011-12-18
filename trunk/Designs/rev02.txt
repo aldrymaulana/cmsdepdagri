@@ -1,0 +1,9 @@
+*- sidebar height flexible sesuai content
+*- menubar bikin rounded
+*- semua ronded corner di ganti jadi 5px
+*- font content kecilin, sidebar, content, news
+*- print button ilangin
+*- link news warna item-merah, content news warna samain (item)
+*- kotak di tittle content di ilangin
+- navigation di slide show, angkanya di ganti titik
+- 
